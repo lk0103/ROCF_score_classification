@@ -117,15 +117,11 @@ class TrainResNet18():
         # self.plot_first_10_images(train_loader)
         # return
 
-        # Initialize the ResNet18 model, loss function, and optimizer
-        num_classes = 4  # Assuming you have 4 classes
-        model = ResNet18Classifier(num_classes, global_pooling=global_pooling).to(self.device)
-        loss_fn = nn.CrossEntropyLoss()  # Assuming classification task
-        optimizer = optim.Adam(model.parameters(), lr=0.001, weight_decay=0.0025)  # L2 regularization
-        scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=4, gamma=0.5)  # Learning rate scheduler
+        lr = 0.0001
+        loss_fn, model, optimizer, scheduler = self.initialize_model(global_pooling, lr)
 
         # Training loop
-        num_epochs = 15
+        num_epochs = 8
         train_loss_epochs = []
         val_loss_epochs = []
         val_accuracy_epochs = []
@@ -167,6 +163,15 @@ class TrainResNet18():
         # Save the trained model
         torch.save(model.state_dict(), f'{train_name}_model.pth')
 
+    def initialize_model(self, global_pooling, lr):
+        # Initialize the ResNet18 model, loss function, and optimizer
+        num_classes = 4  # Assuming you have 4 classes
+        model = ResNet18Classifier(num_classes, global_pooling=global_pooling).to(self.device)
+        loss_fn = nn.CrossEntropyLoss()  # Assuming classification task
+        optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=0.0025)  # L2 regularization
+        scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=4, gamma=0.5)  # Learning rate scheduler
+        return loss_fn, model, optimizer, scheduler
+
     def train(self, f, dataloader, model, loss_fn, optimizer):
         size = len(dataloader.dataset)
         model.train()
@@ -207,21 +212,49 @@ class TrainResNet18():
         return correct, test_loss
 
 
+    def visualize_with_heatmap(self):
+        models = ['C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet18_4outputs/pretrained/global_pooling_lr_0.001/resnet18_pretrained_globpool_color_model.pth',
+                  'C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet18_4outputs/pretrained/not_global_pooling_lr_0.001/resnet18_pretrained_notglobpool_translate_model.pth',
+                  'C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet18_4outputs/pretrained/global_pooling_lr_0.0001/resnet18_pretrained_lr0.0001_globpool_none_model.pth',
+                  'C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet18_4outputs/pretrained/not_global_pooling_lr_0.0001/resnet18_pretrained_lr0.0001_notglobpool_none_model.pth']
+        file_names = ['r18_GB_color_model',
+                  'r18_notGB_translate_model',
+                  'r18_lr0.0001_GB_none_model',
+                  'r18_lr0.0001_notGB_none_model']
+
+        for i in range(len(models)):
+            model_name = models[i]
+            file_name = file_names[i]
+
+            global_pooling = True if '_globpool_' in model_name else False
+            lr = 0.0001 if '0.0001' in model_name else 0.001
+            _, model, _, _ = self.initialize_model(global_pooling, lr)
+            self.augmentations = 'none'
+
+            model.load_state_dict(torch.load(model_name))
+
+            LoadROCFDataset(transform=self.get_transforms()).visualize_heatmaps(model, model_name=file_name)
+
+
+
 # trainer = TrainResNet18('color')
 # trainer.model_training(global_pooling=False)
 
+trainer = TrainResNet18('none')
+trainer.visualize_with_heatmap()
 
-transformations = ['translate', 'crop', 'none', 'color']
-global_pooling_values = [True, False]
+train = False
+if train:
+    transformations = ['none', 'color', 'translate', 'crop']
+    global_pooling_values = [False, True]
 
-for global_pooling in global_pooling_values:
-    for transformation in transformations:
-            
-        trainer = TrainResNet18(transformation)
+    for global_pooling in global_pooling_values:
+        for transformation in transformations:
+            trainer = TrainResNet18(transformation)
 
-        train_name = f'resnet18_pretrained_{"globpool" if global_pooling else "notglobpool"}_{transformation}'
-        print(train_name)
+            train_name = f'resnet18_pretrained_lr0.0001_{"globpool" if global_pooling else "notglobpool"}_{transformation}'
+            print(train_name)
 
-        with open(f'{train_name}.txt', 'w') as f:
-            # Call the model training with the current global_pooling and transformation settings
-            trainer.model_training(f, global_pooling=global_pooling, train_name=train_name)
+            with open(f'{train_name}.txt', 'w') as f:
+                # Call the model training with the current global_pooling and transformation settings
+                trainer.model_training(f, global_pooling=global_pooling, train_name=train_name)

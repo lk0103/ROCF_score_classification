@@ -1,0 +1,42 @@
+swin_transformer_embedding_crop
+Val Loss: 1.1894, Val Accuracy: 40.43% 
+
+
+Epoch [2/10], Loss: 0.6928
+Val Loss: 0.6674, Val Accuracy: 69.15% 
+
+
+Epoch [3/10], Loss: 0.8299
+Val Loss: 0.5321, Val Accuracy: 78.72% 
+
+
+Epoch [4/10], Loss: 0.6415
+Val Loss: 0.6451, Val Accuracy: 65.96% 
+
+
+Epoch [5/10], Loss: 0.3119
+Val Loss: 0.2648, Val Accuracy: 90.43% 
+
+
+Epoch [6/10], Loss: 0.6635
+Val Loss: 0.4643, Val Accuracy: 74.47% 
+
+
+Epoch [7/10], Loss: 0.2563
+Val Loss: 0.1938, Val Accuracy: 95.74% 
+
+
+Epoch [8/10], Loss: 0.1522
+Val Loss: 0.6733, Val Accuracy: 72.34% 
+
+
+Epoch [9/10], Loss: 0.1155
+Val Loss: 0.0792, Val Accuracy: 96.81% 
+
+
+Epoch [10/10], Loss: 0.0269
+Val Loss: 0.0218, Val Accuracy: 100.00% 
+
+
+Accuracy on testing set: 
+Test Loss: 0.0461, Test Accuracy: 99.05% 

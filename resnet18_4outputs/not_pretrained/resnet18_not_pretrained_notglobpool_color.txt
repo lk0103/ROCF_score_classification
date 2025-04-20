@@ -1,0 +1,108 @@
+loss: 1.462811  [    0/  842]
+loss: 3.015386  [  320/  842]
+loss: 3.296367  [  640/  842]
+Epoch [1/15], Loss: 5.2467
+Val Error: 
+ Accuracy: 18.1%, Avg loss: 14.975568 
+
+loss: 2.516531  [    0/  842]
+loss: 1.498809  [  320/  842]
+loss: 2.616334  [  640/  842]
+Epoch [2/15], Loss: 5.3910
+Val Error: 
+ Accuracy: 33.0%, Avg loss: 1.488314 
+
+loss: 2.163028  [    0/  842]
+loss: 2.190018  [  320/  842]
+loss: 2.037191  [  640/  842]
+Epoch [3/15], Loss: 2.2087
+Val Error: 
+ Accuracy: 28.7%, Avg loss: 1.707123 
+
+loss: 2.494737  [    0/  842]
+loss: 2.485957  [  320/  842]
+loss: 1.662215  [  640/  842]
+Epoch [4/15], Loss: 1.5681
+Val Error: 
+ Accuracy: 34.0%, Avg loss: 7.751598 
+
+loss: 2.352910  [    0/  842]
+loss: 2.273408  [  320/  842]
+loss: 1.104575  [  640/  842]
+Epoch [5/15], Loss: 0.9677
+Val Error: 
+ Accuracy: 53.2%, Avg loss: 1.390979 
+
+loss: 1.961241  [    0/  842]
+loss: 1.313089  [  320/  842]
+loss: 1.512719  [  640/  842]
+Epoch [6/15], Loss: 2.2589
+Val Error: 
+ Accuracy: 46.8%, Avg loss: 1.233600 
+
+loss: 1.027532  [    0/  842]
+loss: 1.115086  [  320/  842]
+loss: 1.822604  [  640/  842]
+Epoch [7/15], Loss: 2.1196
+Val Error: 
+ Accuracy: 48.9%, Avg loss: 1.697993 
+
+loss: 1.317618  [    0/  842]
+loss: 1.788565  [  320/  842]
+loss: 1.077522  [  640/  842]
+Epoch [8/15], Loss: 0.7742
+Val Error: 
+ Accuracy: 47.9%, Avg loss: 1.354097 
+
+loss: 1.705971  [    0/  842]
+loss: 1.919886  [  320/  842]
+loss: 0.981266  [  640/  842]
+Epoch [9/15], Loss: 1.3115
+Val Error: 
+ Accuracy: 56.4%, Avg loss: 0.919789 
+
+loss: 0.909947  [    0/  842]
+loss: 1.265234  [  320/  842]
+loss: 1.089271  [  640/  842]
+Epoch [10/15], Loss: 1.0311
+Val Error: 
+ Accuracy: 67.0%, Avg loss: 0.899886 
+
+loss: 0.906640  [    0/  842]
+loss: 0.965791  [  320/  842]
+loss: 0.932547  [  640/  842]
+Epoch [11/15], Loss: 0.7966
+Val Error: 
+ Accuracy: 68.1%, Avg loss: 0.886609 
+
+loss: 0.879101  [    0/  842]
+loss: 0.875165  [  320/  842]
+loss: 0.772713  [  640/  842]
+Epoch [12/15], Loss: 1.0234
+Val Error: 
+ Accuracy: 68.1%, Avg loss: 0.864179 
+
+loss: 0.717137  [    0/  842]
+loss: 0.704192  [  320/  842]
+loss: 1.041576  [  640/  842]
+Epoch [13/15], Loss: 1.6148
+Val Error: 
+ Accuracy: 69.1%, Avg loss: 0.762349 
+
+loss: 0.870556  [    0/  842]
+loss: 0.787431  [  320/  842]
+loss: 0.792763  [  640/  842]
+Epoch [14/15], Loss: 0.8074
+Val Error: 
+ Accuracy: 69.1%, Avg loss: 0.751604 
+
+loss: 0.729297  [    0/  842]
+loss: 0.728545  [  320/  842]
+loss: 1.176548  [  640/  842]
+Epoch [15/15], Loss: 1.8629
+Val Error: 
+ Accuracy: 66.0%, Avg loss: 0.746762 
+
+Test Error: 
+ Accuracy: 65.7%, Avg loss: 0.877036 
+
