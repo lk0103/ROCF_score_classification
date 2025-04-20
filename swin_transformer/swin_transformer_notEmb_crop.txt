@@ -1,0 +1,32 @@
+Epoch [1/10], Loss: 1.0811
+Val Loss: 1.0540, Val Accuracy: 58.51%
+
+Epoch [2/10], Loss: 0.9431
+Val Loss: 0.6491, Val Accuracy: 72.34%
+
+Epoch [3/10], Loss: 0.5960
+Val Loss: 0.6689, Val Accuracy: 79.79%
+
+Epoch [4/10], Loss: 0.5800
+Val Loss: 0.7958, Val Accuracy: 63.83%
+
+Epoch [5/10], Loss: 0.2035
+Val Loss: 0.1958, Val Accuracy: 93.62%
+
+Epoch [6/10], Loss: 0.1892
+Val Loss: 0.1240, Val Accuracy: 95.74%
+
+Epoch [7/10], Loss: 0.4879
+Val Loss: 0.4183, Val Accuracy: 82.98%
+
+Epoch [8/10], Loss: 0.3672
+Val Loss: 0.1309, Val Accuracy: 92.55%
+
+Epoch [9/10], Loss: 0.1154
+Val Loss: 0.0476, Val Accuracy: 98.94%
+
+Epoch [10/10], Loss: 0.0609
+Val Loss: 0.0106, Val Accuracy: 100.00%
+
+Test Loss: 0.0165, Test Accuracy: 100.00%
+

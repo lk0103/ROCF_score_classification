@@ -1,0 +1,44 @@
+swin_transformer_embedding_translate
+Epoch [1/10], Loss: 1.3516
+Val Loss: 1.3700, Val Accuracy: 27.66% 
+
+
+Epoch [2/10], Loss: 1.2933
+Val Loss: 1.2445, Val Accuracy: 43.62% 
+
+
+Epoch [3/10], Loss: 0.8952
+Val Loss: 1.1141, Val Accuracy: 38.30% 
+
+
+Epoch [4/10], Loss: 0.9205
+Val Loss: 0.7029, Val Accuracy: 72.34% 
+
+
+Epoch [5/10], Loss: 0.6997
+Val Loss: 0.6144, Val Accuracy: 76.60% 
+
+
+Epoch [6/10], Loss: 0.5384
+Val Loss: 0.5175, Val Accuracy: 76.60% 
+
+
+Epoch [7/10], Loss: 0.5416
+Val Loss: 0.5025, Val Accuracy: 77.66% 
+
+
+Epoch [8/10], Loss: 0.6688
+Val Loss: 0.4508, Val Accuracy: 80.85% 
+
+
+Epoch [9/10], Loss: 0.4618
+Val Loss: 0.3651, Val Accuracy: 89.36% 
+
+
+Epoch [10/10], Loss: 0.2093
+Val Loss: 0.3858, Val Accuracy: 85.11% 
+
+
+Accuracy on testing set: 
+Test Loss: 0.4652, Test Accuracy: 80.95% 
+
