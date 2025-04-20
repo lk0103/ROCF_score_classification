@@ -13,7 +13,6 @@ This approach aims to provide clinicians and researchers with a faster, more con
 
 ## Description of the scripts
 + ***ROCFDataset_for_CNN.py***
-
 Loads raw images, handles preprocessing steps (noise reduction, resizing, normalization), and includes common image-related functionality used across the project.
 
 + ***Resnet18_experiments.py***
@@ -29,11 +28,11 @@ A streamlined script to load a pre‑trained Swin transformer model and evaluate
 Contains the preprocessed dataset images, all resized and cropped to 1500×1500 pixels.
 
 + ***Results of experiments folders***
-Stores output from experiments, including:
+ + Stores output from experiments, including:
 
-Model training logs, checkpoint files and graphs of validation accuracy and loss during training for different hyperparameter configurations (/old_experiments, /resnet18_4outputs, /swin_transformer, /swin-trans-not-learning).
+ + Model training logs, checkpoint files and graphs of validation accuracy and loss during training for different hyperparameter configurations (/old_experiments, /resnet18_4outputs, /swin_transformer, /swin-trans-not-learning).
 
-Heatmap visualizations highlighting which image regions contribute most to correct classifications (/heatmap_visualization, /heatmap_results).
+ + Heatmap visualizations highlighting which image regions contribute most to correct classifications (/heatmap_visualization, /heatmap_results).
 
-Statistical analysis outputs (e.g., proportion of pixels containing drawn elements per class, average grayscale pixel intensity distributions) - /pixel_count_analysis.
+ + Statistical analysis outputs (e.g., proportion of pixels containing drawn elements per class, average grayscale pixel intensity distributions) - /pixel_count_analysis.
 
