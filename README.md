@@ -28,7 +28,7 @@ A streamlined script to load a pre‑trained Swin transformer model and evaluate
 # orezane_1500x1500px/
 Contains the preprocessed dataset images, all resized and cropped to 1500×1500 pixels.
 
-# rest of the folders
+# Results of experiments folders
 Stores output from experiments, including:
 
 Model training logs, checkpoint files and graphs of validation accuracy and loss during training for different hyperparameter configurations (/old_experiments, /resnet18_4outputs, /swin_transformer, /swin-trans-not-learning).
