@@ -36,6 +36,6 @@ Stores output from experiments, including:
 
   - Statistical analysis outputs (e.g., proportion of pixels containing drawn elements per class, average grayscale pixel intensity distributions) - /pixel_count_analysis.
 
-+ ***Outline of Master's thesis***:
++ ***Outline of the Master's thesis***:
 Stores latex structure of the Master's thesis (ROCF_master_thesis_latex.zip) and its PDF version (ROCF_master_thesis.pdf)
 
