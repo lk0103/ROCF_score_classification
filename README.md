@@ -4,7 +4,7 @@ An AI‑powered tool for automating the scoring of the Rey–Osterrieth Complex 
 
 ## 📋 Project Overview
 
-The goal of this project is to develop an end-to-end automated system for evaluating performance on the Rey–Osterrieth Complex Figure test. Leveraging state-of-the-art computer vision and artificial intelligence methods, the system will:
+The goal of this project is to develop an end-to-end automated system for evaluating performance on the Rey–Osterrieth Complex Figure test. Leveraging state-of-the-art computer vision and artificial intelligence methods. The system currently:
 
 - **Preprocess input images** to enhance the drawing and remove noise.  
 - **Quantify similarity** to the original ROCF template by classifying each drawing into one of four categories (Class 0: least similar; Class 1: moderately similar; Class 2: similar; Class 3: very similar) through comprehensive hyperparameter testing of both ResNet‑18 and Swin Transformer architectures.
