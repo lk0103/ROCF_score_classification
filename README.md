@@ -6,8 +6,8 @@ An AI‑powered tool for automating the scoring of the Rey–Osterrieth Complex 
 
 The goal of this project is to develop an end-to-end automated system for evaluating performance on the Rey–Osterrieth Complex Figure test. Leveraging state-of-the-art computer vision and artificial intelligence methods. The system currently:
 
-- **Preprocess input images** to enhance the drawing and remove noise.  
-- **Quantify similarity** to the original ROCF template by classifying each drawing into one of four categories (Class 0: least similar; Class 1: moderately similar; Class 2: similar; Class 3: very similar) through comprehensive hyperparameter testing of both ResNet‑18 and Swin Transformer architectures.
+- **Preprocesses input images** to enhance the drawing and remove noise.  
+- **Trains Multiple Image Classifiers** that classify each drawing into one of four categories (Class 0: least similar; Class 1: moderately similar; Class 2: similar; Class 3: very similar) through comprehensive hyperparameter testing of both ResNet‑18 and Swin Transformer architectures.
 
 This approach aims to provide clinicians and researchers with a faster, more consistent, and scalable way to score ROCF tests, ultimately enhancing the diagnosis and monitoring of neurological and psychiatric memory disorders.
 
@@ -37,5 +37,5 @@ Stores output from experiments, including:
   - Statistical analysis outputs (e.g., proportion of pixels containing drawn elements per class, average grayscale pixel intensity distributions) - /pixel_count_analysis.
 
 + ***Outline of the Master's thesis***:
-Stores LaTeX structure of the Master's thesis (ROCF_master_thesis_latex.zip) and its PDF version (ROCF_master_thesis.pdf)
+Stores LaTeX structure of the Master's thesis (ROCF_master_thesis_latex.zip), its PDF version (ROCF_master_thesis.pdf) and presentation of current progress (ROCF_classification_PS1_Korbelova_final.pptx)
 
