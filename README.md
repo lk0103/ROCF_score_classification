@@ -1,6 +1,9 @@
 # Automated ROCF Assessment System
 
-An AI‑powered tool for automating the scoring of the Rey–Osterrieth Complex Figure (ROCF) neuropsychological test using computer vision and machine learning techniques.
+An AI‑powered tool for automating the scoring of the Rey–Osterrieth Complex Figure (ROCF) neuropsychological test using computer vision and machine learning techniques. 
+
+More information on web page dedicated to this Master's thesis: https://davinci.fmph.uniba.sk/~korbelova19/masters_thesis/masters_thesis_ROCF.html 
+
 
 ## 📋 Project Overview
 
@@ -25,7 +28,7 @@ Similar to Resnet18_experiments.py, but uses a Swin Transformer backbone. Includ
 A streamlined script to load a pre‑trained Swin transformer model and evaluate it on the test set, producing accuracy metrics.
 
 + ***orezane_1500x1500px/***: 
-Contains the preprocessed dataset images, all resized and cropped to 1500×1500 pixels.
+Contains dataset images, all resized and cropped to 1500×1500 pixels.
 
 + ***Results of experiments***: 
 Stores output from experiments, including:
