@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 from torchvision.transforms import functional as F
 
 from ROCFDataset_for_CNN import LoadROCFDataset, ROCFDataset
+from GeneralResNetTraining import GeneralResNetTraining
 
 
 class SwinTransformerClassifier(nn.Module):
@@ -33,70 +34,22 @@ class TrainSwinTransformer():
     def __init__(self, augmentations="none"):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.augmentations = augmentations
+        self.img_size = 224
 
-    def get_transforms(self, pos_embedding=False):
-        def to_rgb(image):
-            if isinstance(image, torch.Tensor):
-                image = F.to_pil_image(image)
-            if pos_embedding:
-                return F.to_tensor(image)
-            return F.to_tensor(image.convert("RGB"))
-
-        def scale_to_minus_one_to_one(image):
-            return (image * 2.0) - 1.0  # Scale to [-1, 1]
-
-        if self.augmentations == "crop":
-            return transforms.Compose([
-                transforms.ToPILImage(),
-                transforms.RandomResizedCrop(size=(224, 224), scale=(0.98, 1.0)),
-                transforms.Lambda(to_rgb),  # Ensure 3 channels (RGB)
-                transforms.Lambda(scale_to_minus_one_to_one)  # Scale to [-1, 1]
-            ])
-        elif self.augmentations == "translate":
-            return transforms.Compose([
-                transforms.ToPILImage(),
-                transforms.RandomAffine(degrees=0, translate=(0.02, 0.05)),
-                transforms.Lambda(to_rgb),
-                transforms.Lambda(scale_to_minus_one_to_one)  # Scale to [-1, 1]
-            ])
-        elif self.augmentations == "color":
-            return transforms.Compose([
-                transforms.ToPILImage(),
-                transforms.ColorJitter(brightness=0.2, contrast=0.2),
-                transforms.Lambda(to_rgb),
-                transforms.Lambda(scale_to_minus_one_to_one)  # Scale to [-1, 1]
-            ])
-        else:
-            return transforms.Compose([
-                transforms.ToPILImage(),
-                transforms.Lambda(to_rgb),
-                transforms.Lambda(scale_to_minus_one_to_one)  # Scale to [-1, 1]
-            ])
 
     def model_training(self, f, train_name='train', pos_embedding=False):
         # Load and preprocess data
-        X, y = [], []
-        self.img_size = 224
         ROCF_dataset = LoadROCFDataset(img_size=self.img_size)
 
-        for i in range(len(ROCF_dataset)):
-            img_name = ROCF_dataset.get_image_path_all_files(i)
-            name, order, score = ROCF_dataset.extract_from_name(img_name)
-            X.append(img_name)
-            y.append(score)
+        general_resnet_training = GeneralResNetTraining(
+            f=f, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=pos_embedding
+        )
+        transform = general_resnet_training.get_swin_transformer_transforms()
+        val_test_transform = general_resnet_training.get_swin_transformer_transforms(default=True)
 
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
-        X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.1, random_state=42)
-
-        transform = self.get_transforms(pos_embedding=pos_embedding)
-
-        train_dataset = ROCFDataset(X_train, y_train, transform=transform, pos_embedding=pos_embedding)
-        val_dataset = ROCFDataset(X_val, y_val, transform=transform, pos_embedding=pos_embedding)
-        test_dataset = ROCFDataset(X_test, y_test, transform=transform, pos_embedding=pos_embedding)
-
-        train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
-        val_loader = DataLoader(val_dataset, batch_size=16, shuffle=True)
-        test_loader = DataLoader(test_dataset, batch_size=16, shuffle=False)
+        train_loader, val_loader, test_loader = general_resnet_training.initialize_datasets(
+            rocf_dataset=ROCF_dataset, transform=transform, val_test_transform=val_test_transform
+        )
 
         # Initialize the Swin Transformer model, loss function, and optimizer
         num_classes = 4  # Assuming you have 4 classes
@@ -112,99 +65,160 @@ class TrainSwinTransformer():
         scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=4, gamma=0.5)
 
         # Training loop
-        num_epochs = 10
-        train_loss_epochs = []
-        val_loss_epochs = []
-        val_accuracy_epochs = []
+        num_epochs = 12
+        general_resnet_training.training_loop(
+            train_name=train_name, num_epochs=num_epochs,
+            train_loader=train_loader, val_loader=val_loader,
+            model=model, loss_fn=loss_fn, optimizer=optimizer, scheduler=scheduler
+        )
 
-        for epoch in range(num_epochs):
-            # Training
-            model.train()
-            epoch_loss = 0
-            for images, labels in train_loader:
-                images, labels = images.to(self.device), labels.to(self.device)
+        # Load last trained model weights
+        model_path = f'{train_name}_last_model.pth'
+        self.load_model(model, model_path)
 
-                optimizer.zero_grad()
-                outputs = model(images)
-                loss = loss_fn(outputs, labels)
-                loss.backward()
-                optimizer.step()
+        # Evaluation
+        print("LAST MODEL Accuracy on testing set: ")
+        general_resnet_training.test(model=model, dataloader=test_loader, loss_fn=loss_fn, prefix='LAST MODEL Test')
 
-                epoch_loss += loss.item()
+        print(f"\n\nEvaluating model on test set with test-time augmentation:")
+        general_resnet_training.test_with_tta_metrics(
+            model=model, rocf_dataset=ROCF_dataset, loss_fn=loss_fn, model_type='swin_transformer'
+        )
 
-            avg_train_loss = epoch_loss / len(train_loader)
-            train_loss_epochs.append(avg_train_loss)
+        # Load best trained model weights
+        model_path = f'{train_name}_model.pth'
+        self.load_model(model, model_path)
 
-            print(f"Epoch [{epoch + 1}/{num_epochs}], Loss: {loss:.4f}")
-            f.write(f"Epoch [{epoch + 1}/{num_epochs}], Loss: {loss:.4f}\n")
+        # Evaluation of best val model
+        print("BEST VAL MODEL Accuracy on testing set: ")
+        general_resnet_training.test(model=model, dataloader=test_loader, loss_fn=loss_fn, prefix='BEST VAL MODEL Test')
 
-            # Validation
-            val_accuracy, val_loss = self.test(f, model, val_loader, loss_fn, prefix='Val')
-            val_loss_epochs.append(val_loss)
-            val_accuracy_epochs.append(val_accuracy)
+        print(f"\n\nEvaluating model on test set with test-time augmentation:")
+        general_resnet_training.test_with_tta_metrics(
+            model=model, rocf_dataset=ROCF_dataset, loss_fn=loss_fn, model_type='swin_transformer'
+        )
 
-            scheduler.step()
-            torch.save(model.state_dict(), f'{train_name}_model.pth')
+        # torch.save(model.state_dict(), f'{train_name}_model.pth')
 
-        # Plot training and validation metrics
-        plt.plot(train_loss_epochs, c='r', label='Train Loss')
-        plt.plot(val_loss_epochs, c='b', label='Validation Loss')
-        plt.title(f'{train_name} Loss')
-        plt.legend()
-        plt.savefig(f'{train_name}_loss.png')
-        plt.show()
+    def model_testing(self, f, model_path, pos_embedding=True):
+        # Load and preprocess data
+        ROCF_dataset = LoadROCFDataset(img_size=self.img_size)
 
-        plt.plot(val_accuracy_epochs, c='g', label='Validation Accuracy')
-        plt.title(f'{train_name} Validation Accuracy')
-        plt.legend()
-        plt.savefig(f'{train_name}_val_accuracy.png')
-        plt.show()
+        general_resnet_training = GeneralResNetTraining(
+            f=f, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=pos_embedding
+        )
+        val_test_transform = general_resnet_training.get_swin_transformer_transforms(default=True)
+
+        _, _, test_loader = general_resnet_training.initialize_datasets(
+            rocf_dataset=ROCF_dataset, transform=val_test_transform, val_test_transform=val_test_transform
+        )
+
+        # Initialize the Swin Transformer model, loss function, and optimizer
+        num_classes = 4  # Assuming you have 4 classes
+        model = SwinTransformerClassifier(num_classes).to(self.device)
+
+        loss_fn = nn.CrossEntropyLoss()
+
+        # Load best trained model weights
+        self.load_model(model, model_path)
 
         print("Accuracy on testing set: ")
-        self.test(f, model, test_loader, loss_fn)
+        general_resnet_training.test(model=model, dataloader=test_loader, loss_fn=loss_fn)
 
-        torch.save(model.state_dict(), f'{train_name}_model.pth')
+        print(f"\n\nEvaluating model on test set with test-time augmentation:")
+        general_resnet_training.test_with_tta_metrics(
+            model=model, rocf_dataset=ROCF_dataset, loss_fn=loss_fn, model_type='swin_transformer'
+        )
 
-    def test(self, f, model, loader, loss_fn, prefix='Test'):
+    def load_model(self, model, model_path):
+        checkpoint = torch.load(model_path, map_location=self.device)
+        model.load_state_dict(checkpoint)
+        model.to(self.device)
         model.eval()
-        total_loss = 0
-        total_correct = 0
-        total_samples = 0
-        with torch.no_grad():
-            for images, labels in loader:
-                images, labels = images.to(self.device), labels.to(self.device)
-                outputs = model(images)
-                loss = loss_fn(outputs, labels)
-                total_loss += loss.item()
 
-                _, predicted = torch.max(outputs, dim=1)
-                if random.random() < 0.5:
-                    print(predicted.shape, predicted, 'ground truth', labels.argmax(dim=1))
-                total_correct += (predicted == labels.argmax(dim=1)).sum().item()
-                total_samples += labels.size(0)
+    def visualize_with_gradcam(self):
+        models = [
+            r'C:\Users\lucin\OneDrive\Desktop\diplomovka\thesis_code\transformer_new_results\swin_transformer_embedd_none_model.pth',
+        ]
+        file_names = [
+            'swin_embedd_none_model'
+        ]
 
-        avg_loss = total_loss / len(loader)
-        accuracy = 100 * total_correct / total_samples
-        print(f"{prefix} Loss: {avg_loss:.4f}, {prefix} Accuracy: {accuracy:.2f}% \n\n")
-        f.write(f"{prefix} Loss: {avg_loss:.4f}, {prefix} Accuracy: {accuracy:.2f}%\n\n")
-        return accuracy, avg_loss
+        for i in range(len(models)):
+            model_name = models[i]
+            file_name = file_names[i]
 
+            num_classes = 4
+            model = SwinTransformerClassifier(num_classes).to(self.device)
+
+            model.load_state_dict(torch.load(model_name, map_location=self.device))
+            model.eval()
+
+            LoadROCFDataset(transform=GeneralResNetTraining(
+                f=None, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=False
+            ).get_swin_transformer_transforms(default=True)
+                            ).visualize_gradcam(
+                model, model_name=file_name, device=self.device, model_type='swin_transformer'
+            )
 
 # Main training loop
-#transformations = ['none', 'color', 'translate', 'crop']
-transformations = ['translate', 'crop', 'none', 'color']
+transformations = ['none', 'color', 'translate', 'crop', 'rotate', 'combo']
 
-pos_embedding = True
+train = True
+analyze_results = False
+test = False
 
-for transformation in transformations:
-    for pos_embedding in [True, False]:
-        if transformation != 'crop' or pos_embedding:
-            continue
-        trainer = TrainSwinTransformer(transformation)
-        emb = 'embedding' if pos_embedding else 'notEmb'
-        train_name = f'swin_transformer_{emb}_{transformation}'
-        print(train_name)
+# VISUALIZE WITH Grad-Cam
+# trainer = TrainSwinTransformer('none')
+# trainer.visualize_with_gradcam()
+# train = False
 
-        with open(f'{train_name}.txt', 'w') as f:
+# ONLY TESTING
+# train = False
+# test = True
+
+# analyze results
+train = False
+test = False
+analyze_results = True
+
+if train:
+    for pos_embedding in [False, True]:
+        for transformation in transformations:
+            trainer = TrainSwinTransformer(transformation)
+            emb = 'embedd' if pos_embedding else 'notEmb'
+            train_name = f'swin_transformer_{emb}_{transformation}'
+            print("\n----------------------\n", train_name)
+
+            f = f'{train_name}.txt'
+            with open(f, 'w') as file:
+                file.write(f"{f}\n")
             trainer.model_training(f, train_name=train_name, pos_embedding=pos_embedding)
 
+if test:
+    model_dir = "C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/transformer_new_results/"
+
+    for pos_embedding in [False, True]:
+        for transformation in transformations:
+            trainer = TrainSwinTransformer(transformation)
+            emb = 'embedd' if pos_embedding else 'notEmb'
+            test_name = f'swin_transformer_{emb}_{transformation}'
+            print("\n-------------------------------------\n")
+            print(test_name)
+            model_path = model_dir + test_name + '_model.pth'
+            print(model_path)
+
+            f=f'{test_name}.txt'
+            with open(f, 'w') as file:
+                file.write(f"{f}\n")
+            # Call the model training with the current global_pooling and transformation settings
+            trainer.model_testing(f=f, pos_embedding=pos_embedding, model_path=model_path)
+
+
+if analyze_results:
+    model_dir = "C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/transformer_new_results/not_embedd/"
+    with open(f'swin_transformer_test_results_analysis.txt', 'w') as f:
+        general_resnet_training = GeneralResNetTraining(
+            f=f, pos_embedding=False
+        )
+        general_resnet_training.analyze_model_logs_with_tta(log_dir=model_dir)

@@ -8,6 +8,9 @@ from utils import plot_CE, plot_RE
 from matplotlib import pyplot as plt
 import numpy as np
 
+import matplotlib.pyplot as plt
+from collections import Counter
+
 from ROCFDataset_for_CNN import LoadROCFDataset
 
 class AnalysisImagesInFourCategories():
@@ -85,15 +88,109 @@ class AnalysisImagesInFourCategories():
         f.write(info_line + '\n')
         self.statistics_for_binary_4_score_classes(class_mean_intensity, f)
 
+    def analyse_score_frequency(self, f):
+        score_counts = Counter()
+        order_counts = Counter()
+        unique_names = set()
+
+        order_names = {1: 'copy', 2: 'immediate recall', 3: 'delayed recall'}
+
+        # Iterate through the dataset
+        for i in range(len(self.ROCFDataset)):
+            img_name = self.ROCFDataset.get_image_path_all_files(i)
+            name, order, score = self.ROCFDataset.extract_from_name(img_name)
+
+            order = order_names[order]
+            score_counts[score] += 1
+            order_counts[order] += 1
+            unique_names.add(name)
+
+        # Compute statistics
+        num_unique_names = len(unique_names)
+        total_images = len(self.ROCFDataset)
+
+        # Prepare readable statistics
+        stats_text = []
+        stats_text.append("===== ROCFDataset Analysis =====\n")
+        stats_text.append(f"Total images: {total_images}\n")
+        stats_text.append(f"Unique names: {num_unique_names}\n")
+        stats_text.append("\nScore frequencies:\n")
+
+        # Sorted score frequencies
+        stats_text.append("\nScore frequencies (sorted):\n")
+        for k in sorted(score_counts.keys()):
+            stats_text.append(f"  Score {k}: {score_counts[k]}\n")
+
+        # Compute and log score percentage distributions
+        score_list = list(score_counts.elements())
+
+        def percentage_in_range(low, high):
+            count = sum(1 for s in score_list if low < s <= high)
+            return 100 * count / total_images if total_images > 0 else 0
+
+        coarse_bins = [(0, 10), (10, 20), (20, 30), (30, 36)]
+        fine_bins = [(0, 6), (6, 12), (12, 18), (18, 24), (24, 30), (30, 36)]
+
+        stats_text.append("\nScore percentage distribution (coarse bins):\n")
+        for low, high in coarse_bins:
+            pct = percentage_in_range(low, high)
+            stats_text.append(f"  {low:>2}-{high:<2}: {pct:.2f}%\n")
+
+        stats_text.append("\nScore percentage distribution (fine bins):\n")
+        for low, high in fine_bins:
+            pct = percentage_in_range(low, high)
+            stats_text.append(f"  {low:>2}-{high:<2}: {pct:.2f}%\n")
+
+
+        # Sorted order frequencies
+        stats_text.append("\nOrder frequencies (sorted):\n")
+        for k in sorted(order_counts.keys()):
+            stats_text.append(f"  Order {k}: {order_counts[k]}\n")
+
+        stats_text_str = "".join(stats_text)
+
+        # Print statistics to console
+        print(stats_text_str)
+
+        # Save statistics to the file in readable form
+        f.write(stats_text_str)
+
+        # Plot histogram for score frequencies
+        plt.figure()
+        plt.bar(score_counts.keys(), score_counts.values(), width=0.4)
+        plt.title("Score Frequency")
+        plt.xlabel("Score")
+        plt.ylabel("Count")
+        plt.tight_layout()
+        plt.savefig("score_histogram.png")
+        plt.close()
+
+        # Plot histogram for order frequencies
+        plt.figure()
+        plt.bar(order_counts.keys(), order_counts.values())
+        plt.title("Drawing Phase Frequency")
+        plt.xlabel("Order")
+        plt.ylabel("Count")
+        plt.tight_layout()
+        plt.savefig("order_histogram.png")
+        plt.close()
+
+        print("\nHistograms saved as 'score_histogram.png' and 'order_histogram.png'.")
+        print(f"Statistics saved in '{f}'.")
+
+
     def analysis_four_categories(self):
-        with open(f'analysis_pixels_morphol_bin_4_classes.txt', 'w') as f:
-            self.count_pixels_binary_images(f, 'morphology')
+        # with open(f'analysis_pixels_morphol_bin_4_classes.txt', 'w') as f:
+        #     self.count_pixels_binary_images(f, 'morphology')
+        #
+        # with open(f'analysis_pixels_adaptive_bin_4_classes.txt', 'w') as f:
+        #     self.count_pixels_binary_images(f, 'adaptive')
+        #
+        # with open(f'analysis_pixel_intensities_greyscale_4_classes.txt', 'w') as f:
+        #     self.analyse_pixel_intensities_greyscale(f)
 
-        with open(f'analysis_pixels_adaptive_bin_4_classes.txt', 'w') as f:
-            self.count_pixels_binary_images(f, 'adaptive')
-
-        with open(f'analysis_pixel_intensities_greyscale_4_classes.txt', 'w') as f:
-            self.analyse_pixel_intensities_greyscale(f)
+        with open(f'analysis_frequency_scores.txt', 'w') as f:
+            self.analyse_score_frequency(f)
 
 AnalysisImagesInFourCategories().analysis_four_categories()
 
