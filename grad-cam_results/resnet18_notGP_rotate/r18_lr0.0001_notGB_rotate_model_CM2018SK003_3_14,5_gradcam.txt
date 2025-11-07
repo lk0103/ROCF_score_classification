@@ -1,0 +1,10 @@
+Model: r18_lr0.0001_notGB_rotate_model
+Image: CM2018SK003_3_14,5
+Predicted class: 0
+Correct class: 0
+
+CAM statistics:
+  Shape: (500, 500)
+  Min: 0.0000
+  Max: 1.0000
+  Mean: 0.2785
