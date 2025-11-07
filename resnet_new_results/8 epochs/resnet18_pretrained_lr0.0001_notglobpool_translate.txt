@@ -1,0 +1,125 @@
+
+number of all images:1041
+
+Loaded existing split files!!!
+
+number of images in trainset: 842,  valset: 94, testset: 105
+
+whole set class counts: {0: 258, 1: 256, 2: 266, 3: 261}
+train class counts: {0: 209, 1: 207, 2: 215, 3: 211}
+val class counts: {0: 23, 1: 23, 2: 24, 3: 24}
+test class counts: {0: 26, 1: 26, 2: 27, 3: 26}
+
+Train class counts: {0: 209, 1: 207, 2: 215, 3: 211}
+Val class counts: {0: 23, 1: 23, 2: 24, 3: 24}
+Test class counts: {0: 26, 1: 26, 2: 27, 3: 26} 
+
+loss: 1.789108  [    0/  842]
+loss: 1.456292  [  160/  842]
+loss: 1.553089  [  320/  842]
+loss: 1.283358  [  480/  842]
+loss: 0.915547  [  640/  842]
+loss: 0.541529  [  800/  842]
+Epoch [1/8], Loss: 0.6317
+Val Error: 
+47 correct out of 94
+Avg loss: 1.333371
+Accuracy: 0.5000, Precision: 0.6305, Recall: 0.5000, F1: 0.4524
+
+New best model saved with F1=0.4524!!
+
+loss: 0.556717  [    0/  842]
+loss: 0.305489  [  160/  842]
+loss: 0.571296  [  320/  842]
+loss: 0.610952  [  480/  842]
+loss: 0.407559  [  640/  842]
+loss: 0.753027  [  800/  842]
+Epoch [2/8], Loss: 0.2868
+Val Error: 
+63 correct out of 94
+Avg loss: 0.785255
+Accuracy: 0.6702, Precision: 0.7178, Recall: 0.6702, F1: 0.6793
+
+New best model saved with F1=0.6793!!
+
+loss: 0.314747  [    0/  842]
+loss: 0.176480  [  160/  842]
+loss: 0.083353  [  320/  842]
+loss: 0.327518  [  480/  842]
+loss: 1.049163  [  640/  842]
+loss: 0.196074  [  800/  842]
+Epoch [3/8], Loss: 0.1604
+Val Error: 
+51 correct out of 94
+Avg loss: 1.745814
+Accuracy: 0.5426, Precision: 0.4314, Recall: 0.5426, F1: 0.4163
+
+loss: 0.594361  [    0/  842]
+loss: 0.144795  [  160/  842]
+loss: 0.629922  [  320/  842]
+loss: 0.180922  [  480/  842]
+loss: 0.503227  [  640/  842]
+loss: 0.162147  [  800/  842]
+Epoch [4/8], Loss: 1.3358
+Val Error: 
+63 correct out of 94
+Avg loss: 0.951433
+Accuracy: 0.6702, Precision: 0.7420, Recall: 0.6702, F1: 0.6541
+
+loss: 0.131522  [    0/  842]
+loss: 0.173085  [  160/  842]
+loss: 0.083939  [  320/  842]
+loss: 0.197494  [  480/  842]
+loss: 0.122666  [  640/  842]
+loss: 0.185290  [  800/  842]
+Epoch [5/8], Loss: 0.0779
+Val Error: 
+63 correct out of 94
+Avg loss: 0.707410
+Accuracy: 0.6702, Precision: 0.6902, Recall: 0.6702, F1: 0.6758
+
+loss: 0.100811  [    0/  842]
+loss: 0.078179  [  160/  842]
+loss: 0.071364  [  320/  842]
+loss: 0.054941  [  480/  842]
+loss: 0.089672  [  640/  842]
+loss: 0.035811  [  800/  842]
+Epoch [6/8], Loss: 0.1027
+Val Error: 
+68 correct out of 94
+Avg loss: 0.882429
+Accuracy: 0.7234, Precision: 0.7215, Recall: 0.7234, F1: 0.7132
+
+New best model saved with F1=0.7132!!
+
+loss: 0.041190  [    0/  842]
+loss: 0.068193  [  160/  842]
+loss: 0.032411  [  320/  842]
+loss: 0.043200  [  480/  842]
+loss: 0.114540  [  640/  842]
+loss: 0.278945  [  800/  842]
+Epoch [7/8], Loss: 0.1471
+Val Error: 
+73 correct out of 94
+Avg loss: 0.721406
+Accuracy: 0.7766, Precision: 0.7858, Recall: 0.7766, F1: 0.7736
+
+New best model saved with F1=0.7736!!
+
+loss: 0.023828  [    0/  842]
+loss: 0.016275  [  160/  842]
+loss: 0.320646  [  320/  842]
+loss: 0.012119  [  480/  842]
+loss: 0.012590  [  640/  842]
+loss: 0.039726  [  800/  842]
+Epoch [8/8], Loss: 0.2117
+Val Error: 
+70 correct out of 94
+Avg loss: 0.578742
+Accuracy: 0.7447, Precision: 0.7398, Recall: 0.7447, F1: 0.7414
+
+Test Error: 
+76 correct out of 105
+Avg loss: 0.843038
+Accuracy: 0.7238, Precision: 0.7324, Recall: 0.7238, F1: 0.7196
+
