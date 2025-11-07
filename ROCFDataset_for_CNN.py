@@ -1,15 +1,17 @@
 import os
 import cv2 as cv
-from matplotlib import pyplot as plt
-import torch.nn.functional as F
-
 
 import torch
 from torch.utils.data import Dataset, DataLoader
 import numpy as np
-from skimage.feature import hog
 import torch.nn.functional as F
 import pandas as pd
+
+import matplotlib.pyplot as plt
+from pytorch_grad_cam import GradCAMPlusPlus
+from pytorch_grad_cam import GradCAM
+from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
+from pytorch_grad_cam.utils.image import show_cam_on_image
 
 
 class LoadROCFDataset(Dataset):
@@ -29,6 +31,7 @@ class LoadROCFDataset(Dataset):
 
         #self.num_score_classes = 73 # if we predict score
         self.num_score_classes = 4 # if we predict classes
+        # self.num_score_classes = 6  # if we predict classes
         self.img_size = img_size
         self.normalize = normalize
         self.transform = transform
@@ -122,6 +125,8 @@ class LoadROCFDataset(Dataset):
         return F.one_hot(torch.tensor(score_class), num_classes=self.num_score_classes).float()
 
     def class_from_score(self, score):
+        #ZMENIT SPAT AK CHCEM 4 CLASSES - treba aj pouzit stare rozdelenie do train, test splitov,
+        # self.num_score_classes and num_classes in resne18_experiment------------------------------
         if score < 15:
             return 0
         if score < 22.5:
@@ -129,9 +134,20 @@ class LoadROCFDataset(Dataset):
         if score < 30.5:
             return 2
         return 3
+        # if score <= 6:
+        #     return 0
+        # if score <= 12:
+        #     return 1
+        # if score <= 18:
+        #     return 2
+        # if score <= 24:
+        #     return 3
+        # if score <= 30:
+        #     return 4
+        # return 5
 
     def get_image_path_all_files(self, i):
-        return  self.all_file_names[i]
+        return self.all_file_names[i]
 
 
     def preprocess_image(self, img_name):
@@ -199,6 +215,14 @@ class LoadROCFDataset(Dataset):
 
         return reconstructed_image
 
+    def preprocess_image_adaptive_threshold(self, img_name):
+
+        gray = cv.imread(img_name, cv.IMREAD_GRAYSCALE)
+        resized = cv.resize(gray, (self.img_size, self.img_size), interpolation=cv.INTER_AREA)
+        blurred = cv.GaussianBlur(resized, (3, 3), 0)
+        img = cv.adaptiveThreshold(blurred, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C,
+                                   cv.THRESH_BINARY_INV, 11, 2)
+        return img
 
     def preprocess_image_greyscale(self, img_name):
 
@@ -210,14 +234,49 @@ class LoadROCFDataset(Dataset):
 
         return img
 
-    def preprocess_image_adaptive_threshold(self, img_name):
+    def preprocess_image_restoration(self, img_name):
+        """
+        Preprocesses and restores a drawing image by removing background noise and enhancing lines.
+        Similar to document restoration to emphasize pen strokes.
 
+
+        ------------------------------------
+        maybe LITERATURE AND SOURCES
+        Text Extraction and Restoration of Old Handwritten Documents
+        Mayank Wadhwani, Debapriya Kundu, Deepayan Chakraborty, Bhabatosh Chanda
+        ---
+        An enhanced binarization framework for degraded historical document images
+        Wei Xiong, Lei Zhou, Ling Yue, Lirong Li & Song Wang
+        ------
+        Enhancement of Degraded Historical Document Images for Binarization — Yogish Naik G.R. et al. (2024)
+        """
+        # Load grayscale image and resize
         gray = cv.imread(img_name, cv.IMREAD_GRAYSCALE)
-        resized = cv.resize(gray, (self.img_size, self.img_size), interpolation=cv.INTER_AREA)
-        blurred = cv.GaussianBlur(resized, (3, 3), 0)
-        img = cv.adaptiveThreshold(blurred, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C,
-                                   cv.THRESH_BINARY_INV, 11, 2)
-        return img
+        img = cv.resize(gray, (self.img_size, self.img_size), interpolation=cv.INTER_AREA)
+
+        # Remove uneven background using median blur
+        background = cv.medianBlur(img, 21)
+        img_no_bg = cv.absdiff(img, background)
+        img_no_bg = cv.normalize(img_no_bg, None, 0, 255, cv.NORM_MINMAX)
+
+        # Adaptive thresholding to emphasize fine strokes
+        binary = cv.adaptiveThreshold(img_no_bg, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C,
+                                      cv.THRESH_BINARY, 35, 10)
+
+        # Morphological cleaning and reconstruction
+        kernel = cv.getStructuringElement(cv.MORPH_RECT, (3, 3))
+        opened = cv.morphologyEx(binary, cv.MORPH_OPEN, kernel)
+        closed = cv.morphologyEx(opened, cv.MORPH_CLOSE, kernel)
+
+        # Enhance contrast with CLAHE
+        clahe = cv.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+        enhanced = clahe.apply(closed)
+
+        if self.normalize:
+            enhanced = enhanced.astype(np.float32) / 255.0
+            enhanced = (enhanced - 0.485) / 0.229
+
+        return enhanced
 
     def plot_comparing_original_preprocessed(self, gray, img, save=False, file_name='img', titles=None):
         if titles is None:
@@ -247,6 +306,7 @@ class LoadROCFDataset(Dataset):
 
     def preproces_and_transform_img(self, img_path):
         preprocessed = self.extract_features(img_path)
+
         if self.transform is None:
             preprocessed = preprocessed[np.newaxis, :, :]
             x = torch.tensor(preprocessed, dtype=torch.float32)
@@ -266,8 +326,8 @@ class LoadROCFDataset(Dataset):
                 # Concatenate positional embeddings to the original features
                 x = torch.cat((x, x_coords, y_coords), dim=0)  # Shape: (5, H, W)
 
-        if len(x.shape) == 3:
-            x = x[np.newaxis, :, :, :]
+        # if len(x.shape) == 3:
+        #     x = x[np.newaxis, :, :, :]
         return x
 
     def prepare_for_model(self, img):
@@ -311,9 +371,10 @@ class LoadROCFDataset(Dataset):
 
     def visualize_heatmaps(self, model, model_name=''):
         model.eval()
+        print(self.transform)
         for color in ['black', 'white']:
             for test_img in self.file_names_heatmap_imgs:
-                img_torch = self.preproces_and_transform_img(test_img)
+                img_torch = self.preproces_and_transform_img(test_img)[np.newaxis, :, :, :]
                 img_np = self.extract_features(test_img)
                 print('\nimg_torch: ', img_torch.shape, 'img_np: ', img_np.shape)
 
@@ -327,6 +388,82 @@ class LoadROCFDataset(Dataset):
                 self.plot_comparing_original_preprocessed(img_np, hmap, save=True, file_name=f'{model_name}_{img_name}_{color}',
                                                           titles=[f'{img_name}', f'heatmap_{color}'])
 
+    def visualize_gradcam(self, model, model_name='', device="cpu", model_type='resnet18'):
+        model.eval()
+        print(self.transform)
+
+        # Load image paths from file
+        list_test_images = r"C:\Users\lucin\OneDrive\Desktop\diplomovka\thesis_code\orezane_1500x1500px\Train_Val_Test_split\test_len_1041.txt"
+        with open(list_test_images, "r") as f:
+            test_image_paths = [line.strip() for line in f if line.strip()]
+
+        for test_img in test_image_paths:
+            # Preprocess
+            img_torch = self.preproces_and_transform_img(test_img)[np.newaxis, :, :, :].to(device)
+            img_np = self.extract_features(test_img)  # for plotting comparison
+            print('\nimg_torch: ', img_torch.shape, 'img_np: ', img_np.shape)
+
+            # Grad-CAM setup
+            if model_type == 'resnet18':
+                target_layers = [model.model.layer4[-1]]
+                cam = GradCAM(model=model, target_layers=target_layers)
+            else:
+                target_layers = [model.model.features[-1]]  # Last stage
+                cam = GradCAMPlusPlus(model=model, target_layers=target_layers)
+
+            # Use predicted class as target
+            with torch.no_grad():
+                outputs = model(img_torch)
+                predicted_class = torch.argmax(outputs, dim=1).item()
+
+            grayscale_cam = cam(input_tensor=img_torch, targets=[ClassifierOutputTarget(predicted_class)])[0, :]
+
+            # If not ResNet18, reshape CAM from patch tokens to 2D grid
+            if model_type != 'resnet18':
+                # For Swin, grayscale_cam.shape = (num_patches,)
+                n_patches = int(np.sqrt(grayscale_cam.size))  # compute side length
+                grayscale_cam = grayscale_cam.reshape(n_patches, n_patches)
+                grayscale_cam = cv.resize(grayscale_cam, (self.img_size, self.img_size))
+
+            # Overlay CAM on original
+            rgb_img = cv.resize(cv.imread(test_img)[:, :, ::-1], (self.img_size, self.img_size))
+            rgb_img_norm = np.float32(rgb_img) / 255
+            visualization = show_cam_on_image(rgb_img_norm, grayscale_cam, use_rgb=True)
+
+            # File names
+            img_name = os.path.basename(test_img).replace('.jpg', '').replace('.png', '')
+            output_file = f'{model_name}_{img_name}_gradcam.png'
+            log_file = f'{model_name}_{img_name}_gradcam.txt'
+
+            # Save side-by-side visualization
+            fig, axes = plt.subplots(1, 2, figsize=(10, 5))
+            axes[0].imshow(rgb_img)
+            axes[0].set_title("Original")
+            axes[0].axis("off")
+
+            axes[1].imshow(visualization)
+            axes[1].set_title("Grad-CAM")
+            axes[1].axis("off")
+
+            plt.tight_layout()
+            plt.savefig(output_file)
+            plt.close()
+
+            _, _, score = self.extract_from_name(img_name)
+
+            # Save .txt log
+            with open(log_file, "w") as f:
+                f.write(f"Model: {model_name}\n")
+                f.write(f"Image: {img_name}\n")
+                f.write(f"Predicted class: {predicted_class}\n")
+                f.write(f"Correct class: {self.class_from_score(score)}\n")
+                f.write("\nCAM statistics:\n")
+                f.write(f"  Shape: {grayscale_cam.shape}\n")
+                f.write(f"  Min: {grayscale_cam.min():.4f}\n")
+                f.write(f"  Max: {grayscale_cam.max():.4f}\n")
+                f.write(f"  Mean: {grayscale_cam.mean():.4f}\n")
+
+            print(f"Saved Grad-CAM visualization to {output_file} and log to {log_file}")
 
     def experiment(self):
         for i in range(400, 430):
@@ -353,14 +490,13 @@ class ROCFDataset(LoadROCFDataset):
 
 
     def __getitem__(self, idx):
-        img_path = self.get_image_path_all_files(idx)
+        img_path = self.image_paths[idx]
         name, order, score = self.extract_from_name(img_path)
         #print(img_path)
         score_one_hot = self.one_hot_class(score)
 
         x = self.preproces_and_transform_img(img_path)
-
-        return x, score_one_hot
+        return x, score_one_hot, img_path
 
 
 # rocf_dataset = LoadROCFDataset()

@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f5a3fa85-774d-49b3-86fb-639fea2f5fb2" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2mqZtwX06Y30AKfscpABdSCRx4V" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/Resnet18.py&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;debugger.dataViews.python.type.renderers&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Python.Resnet18_experiments">
+    <configuration name="CNN_Ivanyi" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="thesis_code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\lucin\OneDrive\Desktop\poc_videnie\cvicenie_1\thesis_code\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN_Ivanyi.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="NeuralNetwork" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="thesis_code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\lucin\OneDrive\Desktop\poc_videnie\cvicenie_1\thesis_code\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NeuralNetwork.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ROCFDataset_for_NN" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="thesis_code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ROCFDataset_for_NN.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Resnet18" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="thesis_code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\lucin\AppData\Local\Programs\Python\Python311\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Resnet18.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Resnet18_experiments" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="thesis_code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\lucin\AppData\Local\Programs\Python\Python311\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Resnet18_experiments.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Swin_experiments" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="thesis_code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\lucin\AppData\Local\Programs\Python\Python311\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Swin_experiments.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="WolfGoatCabbageCNFEncoder" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="thesis_code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../vypoc_logika/minisat/du1" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../vypoc_logika/minisat/du1/WolfGoatCabbageCNFEncoder.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="clean_augmented_dataset" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="thesis_code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../NLP/projekt/EXIST 2025 Dataset V0.3/EXIST 2025 Tweets Dataset/training" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../NLP/projekt/EXIST 2025 Dataset V0.3/EXIST 2025 Tweets Dataset/training/clean_augmented_dataset.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.ROCFDataset_for_NN" />
+      <item itemvalue="Python.Swin_experiments" />
+      <item itemvalue="Python.CNN_Ivanyi" />
+      <item itemvalue="Python.Resnet18" />
+      <item itemvalue="Python.NeuralNetwork" />
+      <item itemvalue="Python.Resnet18_experiments" />
+      <item itemvalue="Python.clean_augmented_dataset" />
+      <item itemvalue="Python.WolfGoatCabbageCNFEncoder" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.clean_augmented_dataset" />
+        <item itemvalue="Python.WolfGoatCabbageCNFEncoder" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f5a3fa85-774d-49b3-86fb-639fea2f5fb2" name="Changes" comment="" />
+      <created>1727806284518</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727806284518</updated>
+      <workItem from="1727806295612" duration="2076000" />
+      <workItem from="1727853835571" duration="578000" />
+      <workItem from="1727956984123" duration="8527000" />
+      <workItem from="1728021838921" duration="1746000" />
+      <workItem from="1728139487055" duration="10518000" />
+      <workItem from="1728212146204" duration="10611000" />
+      <workItem from="1728553882604" duration="4875000" />
+      <workItem from="1728590434335" duration="6017000" />
+      <workItem from="1728666699907" duration="4348000" />
+      <workItem from="1728721221683" duration="9573000" />
+      <workItem from="1729097239347" duration="3282000" />
+      <workItem from="1729280712727" duration="29000" />
+      <workItem from="1736928707477" duration="18661000" />
+      <workItem from="1737015736606" duration="8015000" />
+      <workItem from="1737634517022" duration="924000" />
+      <workItem from="1737655539774" duration="4411000" />
+      <workItem from="1737718995422" duration="6249000" />
+      <workItem from="1737799959726" duration="3869000" />
+      <workItem from="1737813673887" duration="686000" />
+      <workItem from="1737887717558" duration="7873000" />
+      <workItem from="1738053590091" duration="6194000" />
+      <workItem from="1738679749068" duration="12816000" />
+      <workItem from="1738910691559" duration="633000" />
+      <workItem from="1740240839914" duration="1646000" />
+      <workItem from="1740297680539" duration="17412000" />
+      <workItem from="1741621194112" duration="5609000" />
+      <workItem from="1741796300929" duration="4760000" />
+      <workItem from="1741801590050" duration="1261000" />
+      <workItem from="1742033780597" duration="2897000" />
+      <workItem from="1742474062825" duration="603000" />
+      <workItem from="1745160339609" duration="2812000" />
+      <workItem from="1746964354923" duration="1119000" />
+      <workItem from="1747308339889" duration="607000" />
+      <workItem from="1748448288886" duration="3520000" />
+      <workItem from="1748877665830" duration="5669000" />
+      <workItem from="1748930472135" duration="2019000" />
+      <workItem from="1748964747899" duration="233000" />
+      <workItem from="1758527150861" duration="6871000" />
+      <workItem from="1758868661764" duration="19614000" />
+      <workItem from="1758982637981" duration="7200000" />
+      <workItem from="1759044263373" duration="1625000" />
+      <workItem from="1759129422322" duration="16739000" />
+      <workItem from="1759221839045" duration="1407000" />
+      <workItem from="1759298090542" duration="3767000" />
+      <workItem from="1759414066159" duration="736000" />
+      <workItem from="1759474683128" duration="672000" />
+      <workItem from="1759647293769" duration="1208000" />
+      <workItem from="1759736184035" duration="12983000" />
+      <workItem from="1759828295642" duration="1339000" />
+      <workItem from="1759907986933" duration="655000" />
+      <workItem from="1760092643364" duration="4421000" />
+      <workItem from="1760339492760" duration="13719000" />
+      <workItem from="1760364483679" duration="6551000" />
+      <workItem from="1760680484165" duration="5864000" />
+      <workItem from="1760687274310" duration="864000" />
+      <workItem from="1761918304028" duration="1098000" />
+      <workItem from="1761919473273" duration="11000" />
+      <workItem from="1762155199111" duration="33000" />
+      <workItem from="1762155602662" duration="3185000" />
+      <workItem from="1762324397280" duration="9429000" />
+      <workItem from="1762509864679" duration="628000" />
+      <workItem from="1762543135106" duration="259000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../../NLP/projekt/EXIST 2025 Dataset V0.3/EXIST 2025 Tweets Dataset/training/clean_augmented_dataset.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../../NLP/projekt/EXIST 2025 Dataset V0.3/EXIST 2025 Tweets Dataset/training/clean_augmented_dataset.py</url>
+          <line>33</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="pred" language="Python" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/thesis_code$Swin_experiments___Copy.coverage" NAME="Swin_experiments - Copy Coverage Results" MODIFIED="1737803165731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/thesis_code$GeneralResNetTraining.coverage" NAME="GeneralResNetTraining Coverage Results" MODIFIED="1758873292468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/thesis_code$Swin_experiments.coverage" NAME="Swin_experiments Coverage Results" MODIFIED="1760683142700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/thesis_code$AnalysisImagesInFourCategories.coverage" NAME="AnalysisImagesInFourCategories Coverage Results" MODIFIED="1762159856257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/thesis_code$WolfGoatCabbageCNFEncoder.coverage" NAME="WolfGoatCabbageCNFEncoder Coverage Results" MODIFIED="1729101738643" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../vypoc_logika/minisat/du1" />
+    <SUITE FILE_PATH="coverage/thesis_code$clean_augmented_dataset.coverage" NAME="clean_augmented_dataset Coverage Results" MODIFIED="1748881123807" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../NLP/projekt/EXIST 2025 Dataset V0.3/EXIST 2025 Tweets Dataset/training" />
+    <SUITE FILE_PATH="coverage/thesis_code$Resnet18_experiments.coverage" NAME="Resnet18_experiments Coverage Results" MODIFIED="1762350277296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/thesis_code$NeuralNetwork.coverage" NAME="NeuralNetwork Coverage Results" MODIFIED="1727807640975" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/thesis_code$ROCFDataset_for_CNN.coverage" NAME="ROCFDataset_for_CNN Coverage Results" MODIFIED="1740327878585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/thesis_code$ROCFDataset_for_NN.coverage" NAME="ROCFDataset_for_NN Coverage Results" MODIFIED="1762155906063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/thesis_code$CNN_Ivanyi.coverage" NAME="CNN_Ivanyi Coverage Results" MODIFIED="1728030079590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/thesis_code$VlkKozaKapusta.coverage" NAME="VlkKozaKapusta Coverage Results" MODIFIED="1728732867001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../vypoc_logika/minisat/du1" />
+    <SUITE FILE_PATH="coverage/thesis_code$Resnet18.coverage" NAME="Resnet18 Coverage Results" MODIFIED="1759144461200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
