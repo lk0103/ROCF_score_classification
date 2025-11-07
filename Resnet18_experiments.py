@@ -9,15 +9,17 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 from ROCFDataset_for_CNN import LoadROCFDataset, ROCFDataset
+from GeneralResNetTraining import GeneralResNetTraining
 
 
 class ResNet18Classifier(nn.Module):
     def __init__(self, num_classes, global_pooling=True):
         super(ResNet18Classifier, self).__init__()
+        print(num_classes)
         self.global_pooling = global_pooling
 
         # Load ResNet18 pre-trained model
-        self.model = models.resnet18(pretrained=True)
+        self.model = models.resnet18(weights=models.ResNet18_Weights.DEFAULT)
 
         # Modify the first conv layer to accept 1 input channel (for grayscale images)
         self.model.conv1 = nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3, bias=False)
@@ -34,9 +36,9 @@ class ResNet18Classifier(nn.Module):
         else:
             #self.model.avgpool = nn.Identity()  # No pooling
             #self.model.fc = nn.Linear(num_features * 16 * 16, num_classes)
-
             self.model.avgpool = nn.AvgPool2d(kernel_size=2, stride=2)  # Use AvgPool2d
             self.model.fc = nn.Linear(num_features * 8 * 8, num_classes)
+
 
     def forward(self, x):
         return self.model(x)
@@ -46,72 +48,41 @@ class TrainResNet18():
     def __init__(self, augmentations="none"):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.augmentations = augmentations
-
-    def get_transforms(self):
-        if self.augmentations == "crop":
-            return transforms.Compose([
-                transforms.ToPILImage(),
-                transforms.RandomResizedCrop(
-                    size=(self.img_size, self.img_size),
-                    scale=(0.98, 1.0)  # Crop between 90% and 100% of the original size
-                ),
-                transforms.ToTensor()
-            ])
-        elif self.augmentations == "translate":
-            return transforms.Compose([
-                transforms.ToPILImage(),
-                transforms.RandomAffine(degrees=0, translate=(0.02, 0.05)),
-                transforms.ToTensor()
-            ])
-        elif self.augmentations == "color":
-            return transforms.Compose([
-                transforms.ToPILImage(),
-                transforms.ColorJitter(brightness=0.2, contrast=0.2),  # Adjust brightness and contrast
-                transforms.ToTensor()
-            ])
-        else:
-            return transforms.Compose([
-                transforms.ToTensor()
-            ])
+        self.img_size = 500
 
     def plot_first_10_images(self, dataloader):
-        plt.figure(figsize=(15, 6))
+        # Create figure with black background
+        plt.figure(figsize=(15, 6), facecolor='black')
+
         for i, (images, _) in enumerate(dataloader):
-            if i >= 10:
+            if i >= 12:  # plot at most 12 images
                 break
+
             image = images[0].squeeze(0).numpy()
-            image = image
-            plt.subplot(2, 5, i + 1)
-            plt.imshow(image, cmap="gray", origin="upper")
-            plt.axis('off')
+
+            ax = plt.subplot(2, 6, i + 1)
+            ax.imshow(image, cmap="gray", origin="upper")
+            ax.axis('off')  # remove axis ticks and labels
+
+            # Set subplot background to black
+            ax.set_facecolor('black')
+
+        plt.tight_layout()
         plt.show()
 
     def model_training(self, f, global_pooling=True, train_name='train'):
         # Load your dataset
-        X, y = [], []
-        self.img_size = 500
         ROCF_dataset = LoadROCFDataset(img_size=self.img_size)
 
-        for i in range(len(ROCF_dataset)):
-            img_name = ROCF_dataset.get_image_path_all_files(i)
-            name, order, score = ROCF_dataset.extract_from_name(img_name)
-            X.append(img_name)
-            y.append(score)
+        general_resnet_training = GeneralResNetTraining(
+            f=f, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=False
+        )
+        transform = general_resnet_training.get_resnet_transforms()
+        val_test_transform = general_resnet_training.get_resnet_transforms(default=True)
 
-        print(len(y))
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
-        X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.1, random_state=42)
-
-        print(len(X_train), len(X_val), len(X_test))
-        transform = self.get_transforms()
-
-        train_dataset = ROCFDataset(X_train, y_train, transform=transform)
-        val_dataset = ROCFDataset(X_val, y_val, transform=transform)
-        test_dataset = ROCFDataset(X_test, y_test, transform=transform)
-
-        train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
-        val_loader = DataLoader(val_dataset, batch_size=16, shuffle=True)
-        test_loader = DataLoader(test_dataset, batch_size=16, shuffle=False)
+        train_loader, val_loader, test_loader = general_resnet_training.initialize_datasets(
+            rocf_dataset=ROCF_dataset, transform=transform, val_test_transform=val_test_transform
+        )
 
         # Plot the first 10 images in the training loader
         # self.plot_first_10_images(train_loader)
@@ -121,50 +92,84 @@ class TrainResNet18():
         loss_fn, model, optimizer, scheduler = self.initialize_model(global_pooling, lr)
 
         # Training loop
-        num_epochs = 8
-        train_loss_epochs = []
-        val_loss_epochs = []
-        val_accuracy_epochs = []
-        for epoch in range(num_epochs):
-            loss = self.train(f, train_loader, model, loss_fn, optimizer)
-            loss = loss.item()
-            print(f"Epoch [{epoch + 1}/{num_epochs}], Loss: {loss:.4f}")
-            f.write(f"Epoch [{epoch + 1}/{num_epochs}], Loss: {loss:.4f}\n")
+        num_epochs = 25
+        general_resnet_training.training_loop(
+            train_name=train_name, num_epochs=num_epochs,
+            train_loader=train_loader, val_loader=val_loader,
+            model=model, loss_fn=loss_fn, optimizer=optimizer, scheduler=scheduler
+        )
 
-            val_accuracy, val_loss = self.test(f, model, val_loader, loss_fn, prefix='Val')
 
-            val_loss_epochs.append(val_loss)
-            val_accuracy_epochs.append(val_accuracy)
-            train_loss_epochs.append(loss)
-
-            scheduler.step()
-            torch.save(model.state_dict(), f'{train_name}_model.pth')
-
-        # plot_CE(val_accuracy_epochs, name_file='adaptive_thresh_resnet18_not_pretrained_validation_accuracy', show=False)
-        # plot_RE(val_loss_epochs, name_file='adaptive_thresh_resnet18_not_pretrained_validation_loss', show=False)
-
-        plt.plot(train_loss_epochs, c='r', label='epoch train losses')
-        plt.plot(val_loss_epochs, c='b', label='epoch val losses')
-        plt.title(f'{train_name} loss')
-        plt.legend()
-        plt.savefig(f'{train_name}_loss.png')
-        plt.show()
-
-        plt.plot(val_accuracy_epochs, c='g', label='epoch val accuracy')
-        plt.title(f'{train_name} val accuracy')
-        plt.legend()
-        plt.savefig(f'{train_name}_val_accuracy.png')
-        plt.show()
+        # Load last trained model weights
+        model_path = f'{train_name}_last_model.pth'
+        self.load_model(model, model_path)
 
         # Evaluation
-        print("Accuracy on testing set: ")
-        self.test(f, model, test_loader, loss_fn)
+        print("LAST MODEL Accuracy on testing set: ")
+        general_resnet_training.test(model=model, dataloader=test_loader, loss_fn=loss_fn, prefix='LAST MODEL Test')
+
+        print(f"\n\nEvaluating model on test set with test-time augmentation:")
+        general_resnet_training.test_with_tta_metrics(
+            model=model, rocf_dataset=ROCF_dataset, loss_fn=loss_fn, model_type='resnet18'
+        )
+
+        # Load best trained model weights
+        model_path = f'{train_name}_model.pth'
+        self.load_model(model, model_path)
+
+        # Evaluation of best val model
+        print("BEST VAL MODEL Accuracy on testing set: ")
+        general_resnet_training.test(model=model, dataloader=test_loader, loss_fn=loss_fn, prefix='BEST VAL MODEL Test')
+
+        print(f"\n\nEvaluating model on test set with test-time augmentation:")
+        general_resnet_training.test_with_tta_metrics(
+            model=model, rocf_dataset=ROCF_dataset, loss_fn=loss_fn, model_type='resnet18'
+        )
 
         # Save the trained model
-        torch.save(model.state_dict(), f'{train_name}_model.pth')
+        # torch.save(model.state_dict(), f'{train_name}_model.pth')
+
+    def load_model(self, model, model_path):
+        checkpoint = torch.load(model_path, map_location=self.device)
+        model.load_state_dict(checkpoint)
+        model.to(self.device)
+        model.eval()
+
+    def model_testing(self, f, model_path, global_pooling=True):
+        # Load dataset
+        ROCF_dataset = LoadROCFDataset(img_size=self.img_size)
+
+        general_resnet_training = GeneralResNetTraining(
+            f=f, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=False
+        )
+        val_test_transform = general_resnet_training.get_resnet_transforms(default=True)
+
+        # Initialize only test dataset (train not needed)
+        _, _, test_loader = general_resnet_training.initialize_datasets(
+            rocf_dataset=ROCF_dataset, transform=val_test_transform, val_test_transform=val_test_transform
+        )
+
+        # Initialize model and loss function
+        lr = 0.0001
+        loss_fn, model, _, _ = self.initialize_model(global_pooling, lr)
+
+        # Load best trained model weights
+        self.load_model(model, model_path)
+
+        # Evaluate on test set
+        print(f"Evaluating model from {model_path} on test set:")
+        general_resnet_training.test(
+            model=model, dataloader=test_loader, loss_fn=loss_fn, prefix='Test'
+        )
+
+        print(f"\n\nEvaluating model on test set with test-time augmentation:")
+        general_resnet_training.test_with_tta_metrics(
+            model=model, rocf_dataset=ROCF_dataset, loss_fn=loss_fn, model_type='resnet18'
+        )
 
     def initialize_model(self, global_pooling, lr):
         # Initialize the ResNet18 model, loss function, and optimizer
+        ###ZMENIT NA 4, treba aj pouzit stare rozdelenie do train, test splitov a pridelovanie classes -----------------------------------------------------
         num_classes = 4  # Assuming you have 4 classes
         model = ResNet18Classifier(num_classes, global_pooling=global_pooling).to(self.device)
         loss_fn = nn.CrossEntropyLoss()  # Assuming classification task
@@ -172,89 +177,140 @@ class TrainResNet18():
         scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=4, gamma=0.5)  # Learning rate scheduler
         return loss_fn, model, optimizer, scheduler
 
-    def train(self, f, dataloader, model, loss_fn, optimizer):
-        size = len(dataloader.dataset)
-        model.train()
-        for batch, (X, y) in enumerate(dataloader):
-            X, y = X.to(self.device), y.to(self.device)
-
-            # Compute prediction error
-            pred = model(X)
-            loss = loss_fn(pred, y)
-
-            # Backpropagation
-            optimizer.zero_grad()
-            loss.backward()
-            optimizer.step()
-
-            if batch % 10 == 0:
-                loss, current = loss.item(), batch * len(X)
-                print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")
-                f.write(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]\n")
-
-        return loss
-
-    def test(self, f, model, dataloader, loss_fn, prefix='Test'):
-        size = len(dataloader.dataset)
-        num_batches = len(dataloader)
-        model.eval()
-        test_loss, correct = 0, 0
-        with torch.no_grad():
-            for X, y in dataloader:
-                X, y = X.to(self.device), y.to(self.device)
-                pred = model(X)
-                test_loss += loss_fn(pred, y).item()
-                correct += (pred.argmax(1) == y.argmax(1)).type(torch.float).sum().item()
-        test_loss /= num_batches
-        correct /= size
-        print(f"{prefix} Error: \n Accuracy: {(100 * correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
-        f.write(f"{prefix} Error: \n Accuracy: {(100 * correct):>0.1f}%, Avg loss: {test_loss:>8f} \n\n")
-        return correct, test_loss
-
 
     def visualize_with_heatmap(self):
-        models = ['C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet18_4outputs/pretrained/global_pooling_lr_0.001/resnet18_pretrained_globpool_color_model.pth',
-                  'C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet18_4outputs/pretrained/not_global_pooling_lr_0.001/resnet18_pretrained_notglobpool_translate_model.pth',
-                  'C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet18_4outputs/pretrained/global_pooling_lr_0.0001/resnet18_pretrained_lr0.0001_globpool_none_model.pth',
-                  'C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet18_4outputs/pretrained/not_global_pooling_lr_0.0001/resnet18_pretrained_lr0.0001_notglobpool_none_model.pth']
-        file_names = ['r18_GB_color_model',
-                  'r18_notGB_translate_model',
-                  'r18_lr0.0001_GB_none_model',
-                  'r18_lr0.0001_notGB_none_model']
+        models = ['C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet_new_results/resnet18_pretrain_lr0.0001_sts3_15e_is400_GP_combo_model.pth',
+                  'C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet_new_results/resnet18_pretrain_lr0.0001_sts3_15e_is400_notGP_rotate_model.pth']
+        file_names = ['r18_lr0.0001_GB_combo_model',
+                  'r18_lr0.0001_notGB_rotate_model']
 
         for i in range(len(models)):
             model_name = models[i]
             file_name = file_names[i]
 
-            global_pooling = True if '_globpool_' in model_name else False
+            global_pooling = True if '_GP_' in model_name else False
             lr = 0.0001 if '0.0001' in model_name else 0.001
             _, model, _, _ = self.initialize_model(global_pooling, lr)
             self.augmentations = 'none'
 
             model.load_state_dict(torch.load(model_name))
+            model.eval()
 
-            LoadROCFDataset(transform=self.get_transforms()).visualize_heatmaps(model, model_name=file_name)
+            LoadROCFDataset(transform=GeneralResNetTraining(
+                    f=None, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=False
+                ).get_resnet_transforms(default=True)
+            ).visualize_heatmaps(model, model_name=file_name)
 
+    def visualize_with_gradcam(self):
+        models = [
+            'C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet_new_results/resnet18_pretrain_lr0.0001_sts3_15e_is400_GP_combo_model.pth',
+            'C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet_new_results/resnet18_pretrain_lr0.0001_sts3_15e_is400_notGP_rotate_model.pth'
+        ]
+        file_names = [
+            'r18_lr0.0001_GB_combo_model',
+            'r18_lr0.0001_notGB_rotate_model'
+        ]
+
+        for i in range(len(models)):
+            model_name = models[i]
+            file_name = file_names[i]
+
+            global_pooling = True if '_GP_' in model_name else False
+            lr = 0.0001 if '0.0001' in model_name else 0.001
+            _, model, _, _ = self.initialize_model(global_pooling, lr)
+            self.augmentations = 'none'
+
+            model.load_state_dict(torch.load(model_name, map_location=self.device))
+            model.eval()
+
+            LoadROCFDataset(transform=GeneralResNetTraining(
+                f=None, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=False
+            ).get_resnet_transforms(default=True)
+                            ).visualize_gradcam(model, model_name=file_name, device=self.device, model_type='resnet18')
 
 
 # trainer = TrainResNet18('color')
 # trainer.model_training(global_pooling=False)
 
-trainer = TrainResNet18('none')
-trainer.visualize_with_heatmap()
+train = True
+test = False
+analyze_results = False
 
-train = False
+# VISUALIZE WITH HEATMAPS
+# trainer = TrainResNet18('none')
+# trainer.visualize_with_heatmap()
+# train = False
+
+
+# VISUALIZE WITH Grad-Cam
+# trainer = TrainResNet18('none')
+# trainer.visualize_with_gradcam()
+# train = False
+
+# ONLY TESTING
+# train = False
+# test = True
+
+# analyze results
+# train = False
+# test = False
+# analyze_results = True
+
+
 if train:
-    transformations = ['none', 'color', 'translate', 'crop']
-    global_pooling_values = [False, True]
+    # transformations = ['none', 'color', 'translate', 'crop', 'rotate', 'combo']
+    # global_pooling_values = [True, False]
+    transformations = ['combo']
+    global_pooling_values = [True]
 
     for global_pooling in global_pooling_values:
         for transformation in transformations:
+
             trainer = TrainResNet18(transformation)
 
-            train_name = f'resnet18_pretrained_lr0.0001_{"globpool" if global_pooling else "notglobpool"}_{transformation}'
+            train_name = f'resnet18_pretrain_lr0.0001_sts4_25e_is500_{"GP" if global_pooling else "notGP"}_{transformation}'
+            print("\n-------------------------------------\n")
             print(train_name)
 
-            with open(f'{train_name}.txt', 'w') as f:
-                # Call the model training with the current global_pooling and transformation settings
-                trainer.model_training(f, global_pooling=global_pooling, train_name=train_name)
+            f = f'{train_name}.txt'
+            with open(f, 'w') as file:
+                file.write(f"{f}\n")
+            # Call the model training with the current global_pooling and transformation settings
+            trainer.model_training(f=f, global_pooling=global_pooling, train_name=train_name)
+
+
+if test:
+    # transformations = ['none', 'color', 'translate', 'crop', 'rotate', 'combo']
+    # global_pooling_values = [True, False]
+    transformations = ['combo']
+    global_pooling_values = [True]
+    model_dir = "C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/"
+
+    for global_pooling in global_pooling_values:
+        for transformation in transformations:
+            if not global_pooling and transformation == 'crop':
+                continue
+            trainer = TrainResNet18(transformation)
+
+            test_name = f'resnet18_pretrain_lr0.0001_sts5_25e_is500_{"GP" if global_pooling else "notGP"}_{transformation}'
+            print("\n-------------------------------------\n")
+            print(test_name)
+            model_path = model_dir + test_name + '_model.pth'
+            print(model_path)
+            print(model_path)
+
+            f = f'{test_name}.txt'
+            with open(f, 'w') as file:
+                file.write(f"{f}\n")
+            # Call the model training with the current global_pooling and transformation settings
+            trainer.model_testing(f=f, global_pooling=global_pooling, model_path=model_path)
+
+
+if analyze_results:
+    model_dir = "C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet_new_results/not_GP/"
+    with open(f'resnet18_test_results_analysis.txt', 'w') as f:
+        general_resnet_training = GeneralResNetTraining(
+            f=f, pos_embedding=False
+        )
+        general_resnet_training.analyze_model_logs_with_tta(log_dir=model_dir)
+
