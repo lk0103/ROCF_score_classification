@@ -7,10 +7,18 @@ More information on web page dedicated to this Master's thesis: https://davinci.
 
 ## 📋 Project Overview
 
-The goal of this project is to develop an end-to-end automated system for evaluating performance on the Rey–Osterrieth Complex Figure test. Leveraging state-of-the-art computer vision and artificial intelligence methods. The system currently:
-
-- **Preprocesses input images** to enhance the drawing and remove noise.  
-- **Trains Multiple Image Classifiers** that classify each drawing into one of four categories (Class 0: least similar; Class 1: moderately similar; Class 2: similar; Class 3: very similar) through comprehensive hyperparameter testing of both ResNet‑18 and Swin Transformer architectures.
+The goal of this project is to develop an end-to-end automated system for evaluating performance on the Rey–Osterrieth Complex Figure test. Leveraging state-of-the-art computer vision and artificial intelligence methods. The system has the following functionality:
+ 
+- **Training of multiple image classifiers**: models classify each drawing into one of four categories (Class 0: least similar, score 0-14.5; Class 1: moderately similar, score 15-22; Class 2: similar, score 22.5-30; Class 3: very similar, score 30.5-36) or one of 6 categories (Class 0: score 0-6; Class 1: score 6-12; Class 2: score 12-18; Class 3: score 18-24; Class 4: score 24-30; Class 3: score 30-36) through comprehensive hyperparameter testing of both ResNet‑18 and Swin Transformer architectures.
+- **Augmentation of training images**: one of the hyperparameters selects the augmentation applied to images in the training dataset. Six augmentation modes are available::
+    - No augmentation
+    - Random crop
+    - Random translation
+    - Random rotation
+    - Random color brightness and contrast
+    - A combination of random translation, rotation, and color brightness/contrast
+- **Ability to add image preprocessing in the future**: the system is designed to easily incorporate improved preprocessing methods later.
+- **Evaluation of results on validation or test set**: comprehensive evaluation of model performance, including multiple metrics. The system computes loss, accuracy, recall, precision, F1 score, the confusion matrix, MAE, and records all misclassified images on the validation and test sets. On the test set, it also evaluates performance in a test-time augmentation mode: for each image, five versions are sent to the model—one unmodified, one rotated, one translated, one with altered brightness/contrast, and one combining all three augmentations. The final prediction is the majority vote across the five outputs.
 
 This approach aims to provide clinicians and researchers with a faster, more consistent, and scalable way to score ROCF tests, ultimately enhancing the diagnosis and monitoring of neurological and psychiatric memory disorders.
 
@@ -19,26 +27,170 @@ This approach aims to provide clinicians and researchers with a faster, more con
 Loads raw images, handles preprocessing steps (noise reduction, resizing, normalization), and includes common image-related functionality used across the project.
 
 + ***Resnet18_experiments.py***:
-Implements training pipelines for ResNet‑18 on the ROCF dataset. Supports hyperparameter search, saves model checkpoints and result summaries, and generates heatmap visualizations that show the impact of occluding each square patch (replacing it with a black square) on the softmax output for the correct class.
+Implements training pipelines for ResNet-18 on the ROCF dataset, supports hyperparameter search, saves model checkpoints and result summaries with graphs, and uses Grad-CAM to generate the most significant image regions that influence the final prediction.
 
 + ***Swin_experiments.py***: 
 Similar to Resnet18_experiments.py, but uses a Swin Transformer backbone. Includes hyperparameter search, checkpoint saving, and performance logging.
 
 + ***Swin_experiments_test.py***: 
-A streamlined script to load a pre‑trained Swin transformer model and evaluate it on the test set, producing accuracy metrics.
+A streamlined script to load a pre‑trained Swin transformer model and evaluate it on the test set, producing performance metrics.
+
++ ***AnalysisImagesInFourCategories.py***:
+Computes dataset and class-level statistics, including a histogram of image counts by score and the average number of drawing pixels in the four classes.
+
++ ***GeneralResNetTraining.py***:
+Contains all shared training and evaluation code used for both the ResNet-18 and Swin Transformer models.
 
 + ***orezane_1500x1500px/***: 
 Contains dataset images, all resized and cropped to 1500×1500 pixels.
 
-+ ***Results of experiments***: 
++ ***Directories with results***: 
 Stores output from experiments, including:
 
-  - Model training logs, checkpoint files and graphs of validation accuracy and loss during training for different hyperparameter configurations (/old_experiments, /resnet18_4outputs, /swin_transformer, /swin-trans-not-learning).
+  - Model training logs, checkpoint files, and graphs of validation accuracy, recall, precision, F1 score, and loss for different hyperparameter configurations (/old_experiments, /resnet_new_results, /transformer_new_resutls).
 
   - Heatmap visualizations highlighting which image regions contribute most to correct classifications (/heatmap_visualization, /heatmap_results).
+ 
+  - Grad-CAM visualizations highlighting the regions most influential for the final classification (/grad-cam_results).
 
-  - Statistical analysis outputs (e.g., proportion of pixels containing drawn elements per class, average grayscale pixel intensity distributions) - /pixel_count_analysis.
+  - Statistical analysis outputs (e.g., proportion of pixels containing drawn elements per class, average grayscale intensity distributions) (/pixel_count_analysis).
+ 
+  - Dataset-level statistics (e.g., histogram of image counts by score and phase of the ROCF test) (/dataset_stats).
 
 + ***Outline of the Master's thesis***:
-Stores LaTeX structure of the Master's thesis (ROCF_master_thesis_latex.zip), its PDF version (ROCF_master_thesis.pdf) and presentation of current progress (ROCF_classification_PS1_Korbelova_final.pptx)
+Stores LaTeX structure of the Master's thesis (ROCF_master_thesis_latex.zip), its PDF version (ROCF_master_thesis.pdf) and presentation of current progress (ROCF_classification_PS1_Korbelova_final.pptx, ROCF_classification_PS2_Korbelova.pptx)
 
+
+## Evaluation results demonstration
+ 
+  Examples of graphs tracking validation performance metrics during training for one of the trained ResNet-18 models:
+
+<table>
+  <tr>
+    <td><img width="320" height="240" alt="resnet18_pretrain_lr0 0001_sts4_25e_is500_GP_combo_loss" src="https://github.com/user-attachments/assets/88c839a6-1511-48c2-9d50-b388a6c847b5" /></td>
+    <td><img width="320" height="240" alt="resnet18_pretrain_lr0 0001_sts4_25e_is500_GP_combo_val_accuracy" src="https://github.com/user-attachments/assets/b3750c6f-c195-4589-bdfd-73f29afa1a8d" /> </td>
+    <td><img width="320" height="240" alt="resnet18_pretrain_lr0 0001_sts4_25e_is500_GP_combo_val_metrics" src="https://github.com/user-attachments/assets/c7cba4bf-1153-47d4-a5b1-8fec4cbb7a4f" /> </td>
+  </tr>
+</table>
+
+Example of validation results during training for one of the ResNet-18 models: 
+
+```
+loss: 0.843152  [    0/  842]
+loss: 0.726993  [  160/  842]
+loss: 0.644688  [  320/  842]
+loss: 0.826014  [  480/  842]
+loss: 0.992870  [  640/  842]
+loss: 0.969303  [  800/  842]
+Epoch [2/25], Average epoch loss: 0.7943
+Val Error: 
+66 correct out of 94
+Avg Val loss: 0.740291
+Mean absolute score (MAE): 0.2979
+Accuracy: 0.7021, Precision: 0.7793, Recall: 0.7021, F1: 0.7041
+Val Confusion Matrix:
+[[12, 11,  0,  0],
+ [ 0, 18,  5,  0],
+ [ 0,  2, 21,  1],
+ [ 0,  0,  9, 15]]
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina//FF2018MA017_1_34.jpg
+./orezane_1500x1500px/Kontrolna skupina//CM2018PB022_2_11,5.jpg
+./orezane_1500x1500px/Klinicka skupina//SM2017PB014_3_12,5.jpg
+...
+
+
+New best model saved with F1=0.7041!!
+
+loss: 0.518577  [    0/  842]
+loss: 0.579501  [  160/  842]
+loss: 0.446504  [  320/  842]
+loss: 0.383556  [  480/  842]
+loss: 0.500368  [  640/  842]
+loss: 0.585142  [  800/  842]
+Epoch [3/25], Average epoch loss: 0.6309
+Val Error: 
+69 correct out of 94
+Avg Val loss: 0.627315
+Mean absolute score (MAE): 0.2766
+Accuracy: 0.7340, Precision: 0.7672, Recall: 0.7340, F1: 0.7393
+Val Confusion Matrix:
+[[15,  7,  1,  0],
+ [ 0, 16,  7,  0],
+ [ 0,  2, 18,  4],
+ [ 0,  0,  4, 20]]
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina//FF2018MA001_1_32.jpg
+./orezane_1500x1500px/Kontrolna skupina//FF2017PB003_2_30.jpg
+...
+
+
+New best model saved with F1=0.7393!!
+
+loss: 0.322925  [    0/  842]
+loss: 0.604705  [  160/  842]
+loss: 0.664534  [  320/  842]
+loss: 0.753824  [  480/  842]
+loss: 0.608738  [  640/  842]
+loss: 0.752622  [  800/  842]
+Epoch [4/25], Average epoch loss: 0.5254
+Val Error: 
+74 correct out of 94
+Avg Val loss: 0.558598
+Mean absolute score (MAE): 0.2128
+Accuracy: 0.7872, Precision: 0.7902, Recall: 0.7872, F1: 0.7880
+Val Confusion Matrix:
+[[18,  5,  0,  0],
+ [ 3, 18,  2,  0],
+ [ 0,  2, 18,  4],
+ [ 0,  0,  4, 20]]
+Wrongly classified images:
+./orezane_1500x1500px/Klinicka skupina//SM2017PB015_3_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina//CM2017SK023_1_30.jpg
+...
+```
+
+Example of the final model (model from epoch with the highest F1 score on the validation set during training) testing results logged for one of the ResNet-18 models:: 
+
+```
+BEST VAL MODEL Test Error: 
+81 correct out of 105
+Avg BEST VAL MODEL Test loss: 0.628914
+Mean absolute score (MAE): 0.2381
+Accuracy: 0.7714, Precision: 0.7718, Recall: 0.7714, F1: 0.7707
+BEST VAL MODEL Test Confusion Matrix:
+[[22,  4,  0,  0],
+ [ 4, 20,  2,  0],
+ [ 0,  3, 18,  6],
+ [ 0,  1,  4, 21]]
+Wrongly classified images:
+./orezane_1500x1500px/Klinicka skupina//MCI2017MA007_1_30.jpg
+./orezane_1500x1500px/Klinicka skupina//CM2017SK040_2_22,5.jpg
+....
+
+
+Test TTA metrics:
+Augmentations: ['none', 'rotate', 'color', 'translate', 'combo']
+Average loss across all augmentations: 0.6245
+Average loss for none: 0.6289
+Average loss for rotate: 0.6657
+Average loss for color: 0.6318
+Average loss for translate: 0.6187
+Average loss for combo: 0.5775
+Accuracy (majority vote): 0.7619, Precision: 0.7612, Recall: 0.7619, F1: 0.7611
+
+Agreement with 'none' augmentation:
+rotate: 91.43% images agree with 'none'
+color: 95.24% images agree with 'none'
+translate: 94.29% images agree with 'none'
+combo: 90.48% images agree with 'none'
+
+Avg number of augmentations agreeing with majority per image: 4.77
+Percentage of images where all augmentations agree with majority: 82.86%
+Wrongly classified images after majority vote:
+./orezane_1500x1500px/Klinicka skupina//MCI2017MA007_1_30.jpg
+./orezane_1500x1500px/Klinicka skupina//CM2017SK040_2_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina//PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina//FF2017VM09_3_12,5.jpg
+....
+```
