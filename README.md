@@ -60,6 +60,47 @@ Stores output from experiments, including:
 + ***Outline of the Master's thesis***:
 Stores LaTeX structure of the Master's thesis (ROCF_master_thesis_latex.zip), its PDF version (ROCF_master_thesis.pdf) and presentation of current progress (ROCF_classification_PS1_Korbelova_final.pptx, ROCF_classification_PS2_Korbelova.pptx)
 
+## Results
+
+This project compares several deep learning models (ResNet-18, Swin Transformer, and a baseline CNN) for ROCF image classification using fixed train/validation/test splits. All models are evaluated with recall, precision, F1 score, MAE, and confusion matrices. Test-time augmentation (five augmented variants per image with majority vote) is used to improve prediction stability.
+
+Both architectures are first trained without augmentation, then with multiple augmentation strategies. ResNet-18 consistently performs best, with the strongest results achieved using a combined augmentation consisting of brightness/contrast changes, translation, and rotation. This optimal configuration will be then used for a six-class classification task, along with further experiments involving preprocessing and an encoder–decoder feature-extraction approach.
+
+### Models trained without augmentation (4 classes)
+
+| TTA Metric | Ivanyi | ResNet-18 | Swin Transformer |
+| ---------- | ------ | --------- | ---------------- |
+| recall     | 72.5%  | 71.43%    | 68.57%           |
+| precision  | —      | 72.14%    | 68.61%           |
+| F1 score   | —      | 70.51%    | 68.25%           |
+| loss       | —      | 0.9951    | 1.0253           |
+
+### ResNet-18 — Augmentation comparison (4 classes)
+
+| TTA Metric | No     | contrast brightness | translation | rotation | crop   | contrast, brightness translation, rotation |
+| ---------- | ------ | ------------------- | ----------- | -------- | ------ | ------------------------------------------ |
+| recall     | 71.43% | 72.38%              | 73.33%      | 73.33%   | 50.48% | **77.14%**                                 |
+| precision  | 72.14% | 72.69%              | 73.51%      | 73.37%   | 53.43% | **77.61%**                                 |
+| F1 score   | 70.51% | 71.58%              | 73.17%      | 72.77%   | 42.88% | **76.94%**                                 |
+| loss       | 0.9951 | 0.8071              | 0.9922      | 0.9214   | 1.0312 | **0.6135**                                 |
+
+In the following images, the training curves for the best-performing ResNet-18 model using combaned augmentation are shown. They display the loss as well as F1 score, recall, and precision on the validation set throughout training, illustrating model convergence and comparative performance across epochs.
+<img width="320" height="240" alt="resnet18_pretrain_lr0_0001_sts3_15e_is400_GP_combo_val_metrics" src="https://github.com/user-attachments/assets/8a77b52e-02cc-4c45-a563-71cbea8efa7d" />
+<img width="320" height="240" alt="resnet18_pretrain_lr0_0001_sts3_15e_is400_GP_combo_loss" src="https://github.com/user-attachments/assets/2be7d54a-6933-42d3-8a7b-c312c1b7f592" />
+
+### Swin Transformer — Augmentation comparison (4 classes)
+
+| TTA Metric | No     | contrast brightness | translation | rotation | crop   | contrast, brightness translation, rotation |
+| ---------- | ------ | ------------------- | ----------- | -------- | ------ | ------------------------------------------ |
+| recall     | 68.57% | 64.76%              | 66.67%      | 73.33%   | 24.76% | 69.52%                                     |
+| precision  | 68.61% | 65.41%              | 66.71%      | 73.29%   | 6.13%  | 69.08%                                     |
+| F1 score   | 68.25% | 64.98%              | 66.57%      | 72.23%   | 9.83%  | 68.85%                                     |
+| loss       | 1.0253 | 0.987               | 0.7173      | 0.7681   | 2.4093 | 0.7053                                     |
+
+In the following images, the training curves for the best-performing Swin Transformer model using rotation augmentation are shown. They display the loss as well as F1 score, recall, and precision on the validation set throughout training, illustrating model convergence and comparative performance across epochs.
+<img width="320" height="240" alt="swin_transformer_notEmb_rotate_loss" src="https://github.com/user-attachments/assets/8749abe7-47a3-4849-9b04-3d76aebb5bae" />
+<img width="320" height="240" alt="swin_transformer_notEmb_rotate_val_metrics" src="https://github.com/user-attachments/assets/2e76712b-1cbd-4451-9f71-46d27e6c93de" />
+
 
 ## Evaluation results demonstration
  
