@@ -4,6 +4,24 @@ An AI‑powered tool for automating the scoring of the Rey–Osterrieth Complex 
 
 More information on web page dedicated to this Master's thesis: https://davinci.fmph.uniba.sk/~korbelova19/masters_thesis/masters_thesis_ROCF.html 
 
+## Libraries Used
+
+This project relies on several open-source libraries:
+
+- **PyTorch** – Deep learning framework used for model training and inference.  
+  https://pytorch.org/
+
+- **scikit-learn** – Machine learning algorithms and evaluation tools.  
+  [https://scikit-learn.org/](https://scikit-learn.org/stable/)
+
+- **Matplotlib** – Visualization library used for generating plots and graphs.  
+ [https://matplotlib.org/](https://matplotlib.org/)
+
+- **NumPy** – Fundamental package for numerical and vectorized computation.  
+  [https://numpy.org/](https://numpy.org/)
+
+- **OpenCV** – Computer vision library used for image preprocessing and contour extraction.  
+  [https://opencv.org/](https://opencv.org/)
 
 ## 📋 Project Overview
 
