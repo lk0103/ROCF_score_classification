@@ -1,14 +1,10 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torch.utils.data import DataLoader
-from sklearn.model_selection import train_test_split
-from torchvision import transforms, models
-from utils import plot_CE, plot_RE
+from torchvision import models
 from matplotlib import pyplot as plt
-import numpy as np
 
-from ROCFDataset_for_CNN import LoadROCFDataset, ROCFDataset
+from ROCFDataset_for_CNN import LoadROCFDataset
 from GeneralResNetTraining import GeneralResNetTraining
 
 
@@ -22,11 +18,15 @@ class ResNet18Classifier(nn.Module):
         self.model = models.resnet18(weights=models.ResNet18_Weights.DEFAULT)
 
         # Modify the first conv layer to accept 1 input channel (for grayscale images)
-        self.model.conv1 = nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3, bias=False)
+        # self.model.conv1 = nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3, bias=False)
 
         # # Replace the fully connected layer to match the number of classes
         # num_features = self.model.fc.in_features
         # self.model.fc = nn.Linear(num_features, num_classes)
+
+        # freeze parameters in convolutional layers
+        # for param in self.model.parameters():
+        #     param.requires_grad = False
 
         # Replace the original average pooling and fully connected layer
         num_features = self.model.fc.in_features
@@ -39,43 +39,68 @@ class ResNet18Classifier(nn.Module):
             self.model.avgpool = nn.AvgPool2d(kernel_size=2, stride=2)  # Use AvgPool2d
             self.model.fc = nn.Linear(num_features * 8 * 8, num_classes)
 
+        # unfreeze fully connected layers
+        # for param in self.model.fc.parameters():
+        #     param.requires_grad = True
+
 
     def forward(self, x):
         return self.model(x)
 
 
 class TrainResNet18():
-    def __init__(self, augmentations="none"):
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+    def __init__(self, augmentations="none", preprocessing='grey'):
+        self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.augmentations = augmentations
+        self.preprocessing = preprocessing
+
         self.img_size = 500
+        self.lr = 0.0001
+        self.num_epochs = 25
+        self.num_classes = LoadROCFDataset(img_size=self.img_size).num_score_classes
+        print(f'number of classes {self.num_classes} inside resnet18')
+
+        self.step_size_lr_scheduler = 4
+        self.gamma_lr_scheduler = 0.5
 
     def plot_first_10_images(self, dataloader):
         # Create figure with black background
         plt.figure(figsize=(15, 6), facecolor='black')
 
-        for i, (images, _) in enumerate(dataloader):
-            if i >= 12:  # plot at most 12 images
+        count = 0
+        for batch in dataloader:
+            if len(batch) == 2:
+                images, labels = batch
+            else:
+                images = batch[0]
+
+            for j in range(images.size(0)):
+                if count >= 12:
+                    break
+
+                # images[j] má tvar [3, H, W] pre RGB
+                image = images[j].cpu().numpy().transpose(1, 2, 0)  # [H, W, C]
+
+                ax = plt.subplot(2, 6, count + 1)
+                ax.imshow(image)  # RGB obrázok, cmap nepoužívame
+                ax.axis('off')
+                ax.set_facecolor('black')
+
+                count += 1
+
+            if count >= 12:
                 break
-
-            image = images[0].squeeze(0).numpy()
-
-            ax = plt.subplot(2, 6, i + 1)
-            ax.imshow(image, cmap="gray", origin="upper")
-            ax.axis('off')  # remove axis ticks and labels
-
-            # Set subplot background to black
-            ax.set_facecolor('black')
 
         plt.tight_layout()
         plt.show()
 
     def model_training(self, f, global_pooling=True, train_name='train'):
         # Load your dataset
-        ROCF_dataset = LoadROCFDataset(img_size=self.img_size)
+        ROCF_dataset = LoadROCFDataset(img_size=self.img_size, preprocessing=self.preprocessing)
 
         general_resnet_training = GeneralResNetTraining(
-            f=f, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=False
+            f=f, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=False,
+            preprocessing=self.preprocessing
         )
         transform = general_resnet_training.get_resnet_transforms()
         val_test_transform = general_resnet_training.get_resnet_transforms(default=True)
@@ -88,13 +113,11 @@ class TrainResNet18():
         # self.plot_first_10_images(train_loader)
         # return
 
-        lr = 0.0001
-        loss_fn, model, optimizer, scheduler = self.initialize_model(global_pooling, lr)
+        loss_fn, model, optimizer, scheduler = self.initialize_model(global_pooling)
 
         # Training loop
-        num_epochs = 25
         general_resnet_training.training_loop(
-            train_name=train_name, num_epochs=num_epochs,
+            train_name=train_name, num_epochs=self.num_epochs,
             train_loader=train_loader, val_loader=val_loader,
             model=model, loss_fn=loss_fn, optimizer=optimizer, scheduler=scheduler
         )
@@ -140,7 +163,8 @@ class TrainResNet18():
         ROCF_dataset = LoadROCFDataset(img_size=self.img_size)
 
         general_resnet_training = GeneralResNetTraining(
-            f=f, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=False
+            f=f, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=False,
+            preprocessing=self.preprocessing
         )
         val_test_transform = general_resnet_training.get_resnet_transforms(default=True)
 
@@ -150,8 +174,7 @@ class TrainResNet18():
         )
 
         # Initialize model and loss function
-        lr = 0.0001
-        loss_fn, model, _, _ = self.initialize_model(global_pooling, lr)
+        loss_fn, model, _, _ = self.initialize_model(global_pooling)
 
         # Load best trained model weights
         self.load_model(model, model_path)
@@ -167,20 +190,21 @@ class TrainResNet18():
             model=model, rocf_dataset=ROCF_dataset, loss_fn=loss_fn, model_type='resnet18'
         )
 
-    def initialize_model(self, global_pooling, lr):
+    def initialize_model(self, global_pooling):
         # Initialize the ResNet18 model, loss function, and optimizer
-        ###ZMENIT NA 4, treba aj pouzit stare rozdelenie do train, test splitov a pridelovanie classes -----------------------------------------------------
-        num_classes = 4  # Assuming you have 4 classes
-        model = ResNet18Classifier(num_classes, global_pooling=global_pooling).to(self.device)
+        model = ResNet18Classifier(self.num_classes, global_pooling=global_pooling).to(self.device)
         loss_fn = nn.CrossEntropyLoss()  # Assuming classification task
-        optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=0.0025)  # L2 regularization
-        scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=4, gamma=0.5)  # Learning rate scheduler
+        optimizer = optim.Adam(model.parameters(), lr=self.lr, weight_decay=0.0025)  # L2 regularization
+        scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=self.step_size_lr_scheduler,
+                                              gamma=self.gamma_lr_scheduler)  # Learning rate scheduler
         return loss_fn, model, optimizer, scheduler
 
 
     def visualize_with_heatmap(self):
-        models = ['C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet_new_results/resnet18_pretrain_lr0.0001_sts3_15e_is400_GP_combo_model.pth',
-                  'C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet_new_results/resnet18_pretrain_lr0.0001_sts3_15e_is400_notGP_rotate_model.pth']
+        models = [
+            # 'C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet_new_results/resnet18_pretrain_lr0.0001_sts3_15e_is400_GP_combo_model.pth',
+            #       'C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet_new_results/resnet18_pretrain_lr0.0001_sts3_15e_is400_notGP_rotate_model.pth'
+                  ]
         file_names = ['r18_lr0.0001_GB_combo_model',
                   'r18_lr0.0001_notGB_rotate_model']
 
@@ -197,14 +221,15 @@ class TrainResNet18():
             model.eval()
 
             LoadROCFDataset(transform=GeneralResNetTraining(
-                    f=None, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=False
+                    f=None, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=False,
+                    preprocessing=self.preprocessing
                 ).get_resnet_transforms(default=True)
             ).visualize_heatmaps(model, model_name=file_name)
 
     def visualize_with_gradcam(self):
         models = [
-            'C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet_new_results/resnet18_pretrain_lr0.0001_sts3_15e_is400_GP_combo_model.pth',
-            'C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet_new_results/resnet18_pretrain_lr0.0001_sts3_15e_is400_notGP_rotate_model.pth'
+            # 'C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet_new_results/resnet18_pretrain_lr0.0001_sts3_15e_is400_GP_combo_model.pth',
+            # 'C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet_new_results/resnet18_pretrain_lr0.0001_sts3_15e_is400_notGP_rotate_model.pth'
         ]
         file_names = [
             'r18_lr0.0001_GB_combo_model',
@@ -224,7 +249,8 @@ class TrainResNet18():
             model.eval()
 
             LoadROCFDataset(transform=GeneralResNetTraining(
-                f=None, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=False
+                f=None, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=False,
+                preprocessing=self.preprocessing
             ).get_resnet_transforms(default=True)
                             ).visualize_gradcam(model, model_name=file_name, device=self.device, model_type='resnet18')
 
@@ -232,6 +258,8 @@ class TrainResNet18():
 # trainer = TrainResNet18('color')
 # trainer.model_training(global_pooling=False)
 
+#########################################################spravit automaticke prepinanie medzi 6 a 4 classes
+########################################################automaticke mena filov podla parametrov
 train = True
 test = False
 analyze_results = False
@@ -252,65 +280,77 @@ analyze_results = False
 # test = True
 
 # analyze results
-# train = False
-# test = False
-# analyze_results = True
+train = False
+test = False
+analyze_results = True
 
 
 if train:
-    # transformations = ['none', 'color', 'translate', 'crop', 'rotate', 'combo']
+    # transformations = ['none', 'color', 'translate', 'crop', 'rotate', 'combo', 'combo_crop', 'all']
+    transformations = ['combo_crop', 'all']
     # global_pooling_values = [True, False]
-    transformations = ['combo']
-    global_pooling_values = [True]
+    preprocessing_settings = ['grey', 'restoration']
+    # transformations = ['combo']
+    global_pooling_values = [True, False]
+    global_pooling_values = [False]
 
     for global_pooling in global_pooling_values:
         for transformation in transformations:
+            for preprocessing in preprocessing_settings:
+                trainer = TrainResNet18(augmentations=transformation, preprocessing=preprocessing)
 
-            trainer = TrainResNet18(transformation)
+                train_name = f'./results/resnet18_pretrain_lr{trainer.lr}_sts{trainer.step_size_lr_scheduler}_' \
+                             f'{trainer.num_epochs}e_is{trainer.img_size}_{"GP" if global_pooling else "notGP"}_' \
+                             f'{transformation}_{preprocessing}_{trainer.num_classes}cls'
+                print("\n-------------------------------------\n")
+                print(train_name)
 
-            train_name = f'resnet18_pretrain_lr0.0001_sts4_25e_is500_{"GP" if global_pooling else "notGP"}_{transformation}'
-            print("\n-------------------------------------\n")
-            print(train_name)
-
-            f = f'{train_name}.txt'
-            with open(f, 'w') as file:
-                file.write(f"{f}\n")
-            # Call the model training with the current global_pooling and transformation settings
-            trainer.model_training(f=f, global_pooling=global_pooling, train_name=train_name)
-
-
-if test:
-    # transformations = ['none', 'color', 'translate', 'crop', 'rotate', 'combo']
-    # global_pooling_values = [True, False]
-    transformations = ['combo']
-    global_pooling_values = [True]
-    model_dir = "C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/"
-
-    for global_pooling in global_pooling_values:
-        for transformation in transformations:
-            if not global_pooling and transformation == 'crop':
-                continue
-            trainer = TrainResNet18(transformation)
-
-            test_name = f'resnet18_pretrain_lr0.0001_sts5_25e_is500_{"GP" if global_pooling else "notGP"}_{transformation}'
-            print("\n-------------------------------------\n")
-            print(test_name)
-            model_path = model_dir + test_name + '_model.pth'
-            print(model_path)
-            print(model_path)
-
-            f = f'{test_name}.txt'
-            with open(f, 'w') as file:
-                file.write(f"{f}\n")
-            # Call the model training with the current global_pooling and transformation settings
-            trainer.model_testing(f=f, global_pooling=global_pooling, model_path=model_path)
+                f = f'{train_name}.txt'
+                with open(f, 'w') as file:
+                    file.write(f"{f}\n")
+                # Call the model training with the current global_pooling and transformation settings
+                trainer.model_training(f=f, global_pooling=global_pooling, train_name=train_name)
 
 
-if analyze_results:
-    model_dir = "C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet_new_results/not_GP/"
-    with open(f'resnet18_test_results_analysis.txt', 'w') as f:
-        general_resnet_training = GeneralResNetTraining(
-            f=f, pos_embedding=False
-        )
-        general_resnet_training.analyze_model_logs_with_tta(log_dir=model_dir)
+
+# if test:
+#     # transformations = ['none', 'color', 'translate', 'crop', 'rotate', 'combo', 'combo_crop', 'all']
+#     # global_pooling_values = [True, False]
+#     preprocessing_settings = ['grey', 'restoration']
+#     transformations = ['combo']
+#     global_pooling_values = [True]
+#     model_dir = "C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet_new_results/GP/"
+#
+#     for global_pooling in global_pooling_values:
+#         for transformation in transformations:
+#             for preprocessing in preprocessing_settings:
+#                 if not global_pooling and transformation == 'crop':
+#                     continue
+#                 trainer = TrainResNet18(augmentations=transformation, preprocessing=preprocessing)
+#
+#                 test_name = f'resnet18_pretrain_lr0.0001_sts5_25e_is500_{"GP" if global_pooling else "notGP"}_{transformation}_{preprocessing}'
+#                 # test_name = f'resnet18_pretrain_lr0_0001_sts3_15e_is400_{"GP" if global_pooling else "notGP"}_{transformation}'
+#                 test_name = f'resnet18_pretrain_lr{trainer.lr}_sts{trainer.step_size_lr_scheduler}_' \
+#                             f'{trainer.num_epochs}e_is{trainer.img_size}_{"GP" if global_pooling else "notGP"}_{transformation}_{preprocessing}'
+#                 print("\n-------------------------------------\n")
+#                 print(test_name)
+#                 model_path = model_dir + test_name + '_model.pth'
+#                 print(model_path)
+#                 print(model_path)
+#
+#                 f = f'{test_name}.txt'
+#                 with open(f, 'w') as file:
+#                     file.write(f"{f}\n")
+#                 # Call the model training with the current global_pooling and transformation settings
+#                 trainer.model_testing(f=f, global_pooling=global_pooling, model_path=model_path)
+
+
+# if analyze_results:
+#     model_dir = "C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/resnet_new_results/GP_25e_6classes/grey"
+#
+#     f = f'resnet18_GP_25_grey_6classes_test_results_analysis.txt'
+#     general_resnet_training = GeneralResNetTraining(
+#         f=f, pos_embedding=False
+#     )
+#     general_resnet_training.analyze_model_logs_with_tta(log_dir=model_dir)
 

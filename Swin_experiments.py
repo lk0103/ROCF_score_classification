@@ -31,10 +31,18 @@ class SwinTransformerClassifier(nn.Module):
 
 
 class TrainSwinTransformer():
-    def __init__(self, augmentations="none"):
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+    def __init__(self, augmentations="none", preprocessing='grey'):
+        self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.augmentations = augmentations
-        self.img_size = 224
+        self.preprocessing = preprocessing
+
+        self.img_size = 500
+        self.num_epochs = 30
+        self.num_classes = LoadROCFDataset(img_size=self.img_size).num_score_classes
+        print(f'number of classes {self.num_classes} inside swin')
+        self.lr = 0.0001
+        self.step_size_lr_scheduler = 4
+        self.gamma_lr_scheduler = 0.5
 
 
     def model_training(self, f, train_name='train', pos_embedding=False):
@@ -42,7 +50,8 @@ class TrainSwinTransformer():
         ROCF_dataset = LoadROCFDataset(img_size=self.img_size)
 
         general_resnet_training = GeneralResNetTraining(
-            f=f, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=pos_embedding
+            f=f, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=pos_embedding,
+            preprocessing=self.preprocessing
         )
         transform = general_resnet_training.get_swin_transformer_transforms()
         val_test_transform = general_resnet_training.get_swin_transformer_transforms(default=True)
@@ -52,8 +61,7 @@ class TrainSwinTransformer():
         )
 
         # Initialize the Swin Transformer model, loss function, and optimizer
-        num_classes = 4  # Assuming you have 4 classes
-        model = SwinTransformerClassifier(num_classes).to(self.device)
+        model = SwinTransformerClassifier(self.num_classes).to(self.device)
 
 
         # Ensure all parameters are trainable
@@ -61,13 +69,13 @@ class TrainSwinTransformer():
             param.requires_grad = True
 
         loss_fn = nn.CrossEntropyLoss()
-        optimizer = optim.Adam(model.parameters(), lr=0.0001, weight_decay=0.0025)
-        scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=4, gamma=0.5)
+        optimizer = optim.Adam(model.parameters(), lr=self.lr, weight_decay=0.0025)
+        scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=self.step_size_lr_scheduler,
+                                              gamma=self.gamma_lr_scheduler)
 
         # Training loop
-        num_epochs = 12
         general_resnet_training.training_loop(
-            train_name=train_name, num_epochs=num_epochs,
+            train_name=train_name, num_epochs=self.num_epochs,
             train_loader=train_loader, val_loader=val_loader,
             model=model, loss_fn=loss_fn, optimizer=optimizer, scheduler=scheduler
         )
@@ -105,7 +113,8 @@ class TrainSwinTransformer():
         ROCF_dataset = LoadROCFDataset(img_size=self.img_size)
 
         general_resnet_training = GeneralResNetTraining(
-            f=f, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=pos_embedding
+            f=f, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=pos_embedding,
+            preprocessing=self.preprocessing
         )
         val_test_transform = general_resnet_training.get_swin_transformer_transforms(default=True)
 
@@ -114,8 +123,7 @@ class TrainSwinTransformer():
         )
 
         # Initialize the Swin Transformer model, loss function, and optimizer
-        num_classes = 4  # Assuming you have 4 classes
-        model = SwinTransformerClassifier(num_classes).to(self.device)
+        model = SwinTransformerClassifier(self.num_classes).to(self.device)
 
         loss_fn = nn.CrossEntropyLoss()
 
@@ -138,7 +146,7 @@ class TrainSwinTransformer():
 
     def visualize_with_gradcam(self):
         models = [
-            r'C:\Users\lucin\OneDrive\Desktop\diplomovka\thesis_code\transformer_new_results\swin_transformer_embedd_none_model.pth',
+            # r'C:\Users\lucin\OneDrive\Desktop\diplomovka\thesis_code\transformer_new_results\swin_transformer_embedd_none_model.pth',
         ]
         file_names = [
             'swin_embedd_none_model'
@@ -155,14 +163,19 @@ class TrainSwinTransformer():
             model.eval()
 
             LoadROCFDataset(transform=GeneralResNetTraining(
-                f=None, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=False
+                f=None, img_size=self.img_size, augmentation=self.augmentations, pos_embedding=False,
+                preprocessing=self.preprocessing
             ).get_swin_transformer_transforms(default=True)
                             ).visualize_gradcam(
                 model, model_name=file_name, device=self.device, model_type='swin_transformer'
             )
 
 # Main training loop
-transformations = ['none', 'color', 'translate', 'crop', 'rotate', 'combo']
+# transformations = ['none', 'color', 'translate', 'crop', 'rotate', 'combo', 'combo_crop', 'all']
+transformations = ['all']
+
+# preprocessing_settings = ['grey', 'restoration']
+preprocessing_settings = ['restoration']
 
 train = True
 analyze_results = False
@@ -178,47 +191,52 @@ test = False
 # test = True
 
 # analyze results
-train = False
-test = False
-analyze_results = True
+# train = False
+# test = False
+# analyze_results = True
 
 if train:
-    for pos_embedding in [False, True]:
+    # for pos_embedding in [False, True]:
+    for pos_embedding in [False]:
         for transformation in transformations:
-            trainer = TrainSwinTransformer(transformation)
-            emb = 'embedd' if pos_embedding else 'notEmb'
-            train_name = f'swin_transformer_{emb}_{transformation}'
-            print("\n----------------------\n", train_name)
+            for preprocessing in preprocessing_settings:
+                trainer = TrainSwinTransformer(augmentations=transformation, preprocessing=preprocessing)
+                emb = 'embedd' if pos_embedding else 'notEmb'
+                train_name = f'./results/swin_transformer_lr{trainer.lr}_sts{trainer.step_size_lr_scheduler}_' \
+                             f'{trainer.num_epochs}e_is{trainer.img_size}_{emb}_' \
+                             f'{transformation}_{preprocessing}_{trainer.num_classes}cls'
+                print("\n----------------------\n", train_name)
 
-            f = f'{train_name}.txt'
-            with open(f, 'w') as file:
-                file.write(f"{f}\n")
-            trainer.model_training(f, train_name=train_name, pos_embedding=pos_embedding)
+                f = f'{train_name}.txt'
+                with open(f, 'w') as file:
+                    file.write(f"{f}\n")
+                trainer.model_training(f, train_name=train_name, pos_embedding=pos_embedding)
 
-if test:
-    model_dir = "C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/transformer_new_results/"
-
-    for pos_embedding in [False, True]:
-        for transformation in transformations:
-            trainer = TrainSwinTransformer(transformation)
-            emb = 'embedd' if pos_embedding else 'notEmb'
-            test_name = f'swin_transformer_{emb}_{transformation}'
-            print("\n-------------------------------------\n")
-            print(test_name)
-            model_path = model_dir + test_name + '_model.pth'
-            print(model_path)
-
-            f=f'{test_name}.txt'
-            with open(f, 'w') as file:
-                file.write(f"{f}\n")
-            # Call the model training with the current global_pooling and transformation settings
-            trainer.model_testing(f=f, pos_embedding=pos_embedding, model_path=model_path)
-
-
-if analyze_results:
-    model_dir = "C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/transformer_new_results/not_embedd/"
-    with open(f'swin_transformer_test_results_analysis.txt', 'w') as f:
-        general_resnet_training = GeneralResNetTraining(
-            f=f, pos_embedding=False
-        )
-        general_resnet_training.analyze_model_logs_with_tta(log_dir=model_dir)
+# if test:
+#     model_dir = "C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/transformer_new_results/"
+#
+#     for pos_embedding in [False, True]:
+#         for transformation in transformations:
+#             for preprocessing in preprocessing_settings:
+#                 trainer = TrainSwinTransformer(augmentations=transformation, preprocessing=preprocessing)
+#                 emb = 'embedd' if pos_embedding else 'notEmb'
+#                 test_name = f'swin_transformer_{emb}_{transformation}_{preprocessing}'
+#                 print("\n-------------------------------------\n")
+#                 print(test_name)
+#                 model_path = model_dir + test_name + '_model.pth'
+#                 print(model_path)
+#
+#                 f = f'{test_name}.txt'
+#                 with open(f, 'w') as file:
+#                     file.write(f"{f}\n")
+#                 # Call the model training with the current global_pooling and transformation settings
+#                 trainer.model_testing(f=f, pos_embedding=pos_embedding, model_path=model_path)
+#
+#
+# if analyze_results:
+#     model_dir = "C:/Users/lucin/OneDrive/Desktop/diplomovka/thesis_code/transformer_new_results/not_embedd/"
+#     with open(f'swin_transformer_test_results_analysis.txt', 'w') as f:
+#         general_resnet_training = GeneralResNetTraining(
+#             f=f, pos_embedding=False
+#         )
+#         general_resnet_training.analyze_model_logs_with_tta(log_dir=model_dir)
