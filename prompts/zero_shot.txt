@@ -1,0 +1,28 @@
+You are evaluating a hand-drawn copy of the Rey–Osterrieth Complex Figure (ROCF).
+
+The ROCF is evaluated using Osterrieth’s accuracy scoring system, which considers:
+- the presence of key structural elements,
+- the geometric accuracy of shapes,
+- the correctness of their relative placement.
+
+For this task, do NOT assign an exact numerical score.
+Instead, classify the drawing into ONE of the following four score intervals based on its overall similarity to the original ROCF:
+
+Class 1: 0–14.5 points (very low accuracy, many missing or severely distorted elements)
+Class 2: 15–22 points (low to moderate accuracy, several errors in shape or placement)
+Class 3: 22.5–30 points (good accuracy, most elements present with minor distortions)
+Class 4: 30.5–36 points (high accuracy, most elements correctly drawn and placed)
+
+Base your decision on the overall correctness, structure, proportions, and relative placement of the elements.
+
+Output the result as a JSON object in the following format:
+{
+  "image_name": image_name,
+  "answer": class_int,
+  "reasoning": one_sentence_reasoning
+}
+
+Where:
+- image_name is the identifier of the evaluated image,
+- class_int is an integer value: 1, 2, 3, or 4,
+- one_sentence_reasoning is a single concise sentence justifying the classification.

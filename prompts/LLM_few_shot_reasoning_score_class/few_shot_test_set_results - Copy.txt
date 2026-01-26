@@ -1,0 +1,630 @@
+{
+"image_name": "CM17SG02_3.jpg",
+"class_int": 1,
+"score": 17.5,
+"reasoning": "The overall outline and a few key elements are present, but many internal components are missing or overly simplified and several proportions/placements are inaccurate."
+}
+{
+"image_name": "CM2016PB002_3.jpg",
+"class_int": 2,
+"score": 27,
+"reasoning": "Most major structural elements are present and recognizable with the overall layout preserved, but there are noticeable distortions and a few placement/proportion errors in the internal lines and right-side extensions."
+}
+{
+"image_name": "CM2016PB007_2.jpg",
+"class_int": 2,
+"score": 28,
+"reasoning": "The global structure and most key elements are present and roughly correctly arranged, but several lines are faint/unclear with noticeable distortions and minor placement errors in internal segments and the right-side extension."
+}
+{
+"image_name": "CM2016SK001_2.jpg",
+"class_int": 2,
+"score": 29,
+"reasoning": "Most key elements and the overall configuration are present with fairly correct relative placement, but there are visible distortions and some misplacements in the internal diagonals, right-side attachments, and lower details."
+}
+{
+"image_name": "CM2016SK005_1.jpg",
+"class_int": 2,
+"score": 26,
+"reasoning": "The overall structure and most major elements are present, but several components are distorted or cluttered with clear placement inaccuracies in the left box, central intersections, and right-side extension."
+}
+{
+"image_name": "CM2016SK011_3.jpg",
+"class_int": 2,
+"score": 28.5,
+"reasoning": "Most major elements are present and the overall layout is preserved, but several shapes are simplified and there are noticeable proportion and placement inaccuracies in the left details and right-side extension."
+}
+{
+"image_name": "CM2017PB001_3.jpg",
+"class_int": 1,
+"score": 18,
+"reasoning": "The main rectangular framework is present, but many defining ROCF components (diagonals, complex right-side structure, and multiple internal details) are missing or poorly placed, with overall simplification."
+}
+{
+"image_name": "CM2017PB039_3.jpg",
+"class_int": 2,
+"score": 24.5,
+"reasoning": "The overall configuration and several key internal divisions are present, but multiple elements are simplified or missing and there are clear proportion and placement inaccuracies, especially in the left sub-structures and right extension."
+}
+{
+"image_name": "CM2017PB041_3.jpg",
+"class_int": 1,
+"score": 20,
+"reasoning": "Several major components of the overall frame are present, but many key internal diagonals and right-side structures are missing or distorted and the proportions/placements are notably inaccurate."
+}
+{
+"image_name": "CM2017PB046_2.jpg",
+"class_int": 2,
+"score": 26.5,
+"reasoning": "The main structure and most key elements (central cross/diagonals, left stripes, and right extension) are present, but several details are simplified with mild-to-moderate proportion and placement errors."
+}
+{
+"image_name": "CM2017PB051_2.jpg",
+"class_int": 1,
+"score": 17.0,
+"reasoning": "The main rectangle and some internal divisions/diagonals are present, but several key elements are missing and the right-side structure is heavily distorted and misplaced."
+}
+{
+"image_name": "CM2017PB055_1.jpg",
+"class_int": 2,
+"score": 25.5,
+"reasoning": "Most major ROCF components are present and the global layout is recognizable, but several elements are weakly drawn with noticeable distortions and some placement/proportion errors."
+}
+{
+"image_name": "CM2017PB066_3.jpg",
+"class_int": 2,
+"score": 24.5,
+"reasoning": "The overall ROCF structure and most key elements are present, but several components are faint, simplified, and somewhat distorted with noticeable proportion and placement errors."
+}
+{
+"image_name": "CM2017PB067_1.jpg",
+"class_int": 2,
+"score": 26.0,
+"reasoning": "Most structural elements and internal lines are present with a clear overall configuration, but there are moderate distortions and some misplacements, especially on the right-side extensions."
+}
+{
+"image_name": "CM2017PB067_2.jpg",
+"class_int": 1,
+"score": 18.5,
+"reasoning": "The main outline and some central diagonals are present, but multiple key substructures are missing or oversimplified and the right-side elements are distorted with placement errors."
+}
+{
+"image_name": "CM2017PB076_1.jpg",
+"class_int": 2,
+"score": 24.0,
+"reasoning": "Most key ROCF elements and the overall layout are present, but many lines are distorted/wavy and several components show noticeable proportion and placement errors."
+}
+{
+"image_name": "CM2017PB076_3.jpg",
+"class_int": 1,
+"score": 20.0,
+"reasoning": "The main outline and central cross/diagonals are present, but many key left-side substructures and internal details are missing or simplified with noticeable placement inaccuracies."
+}
+{
+"image_name": "CM2017PB086_1.jpg",
+"class_int": 2,
+"score": 27.0,
+"reasoning": "Nearly all major elements are present and the overall configuration is well preserved, but there are moderate distortions and some proportion/placement errors in the right-side extensions and internal divisions."
+}
+{
+"image_name": "CM2017PB087_2.jpg",
+"class_int": 1,
+"score": 18.0,
+"reasoning": "Several major outer components are present (left blocks and right wedge), but many key internal diagonals/cross-lines are missing or simplified and proportions/placements are notably inaccurate."
+}
+{
+"image_name": "CM2017SG003_3.jpg",
+"class_int": 0,
+"score": 14.0,
+"reasoning": "Only the central square with a few diagonals and one hatched corner is reproduced, while many key external and internal ROCF elements are missing and overall structure is incomplete."
+}
+{
+"image_name": "CM2017SK001_1.jpg",
+"class_int": 2,
+"score": 26,
+"reasoning": "Most major elements are present and the overall layout is preserved, but several components are faint, distorted, or slightly misplaced (notably the right extension and lower structures)."
+}
+{
+"image_name": "CM2017SK001_2.jpg",
+"class_int": 1,
+"score": 18.5,
+"reasoning": "Several key internal structures are missing or oversimplified and some proportions/placements are off, though the main outline and a few recognizable elements are present."
+}
+{
+"image_name": "CM2017SK007_1.jpg",
+"class_int": 2,
+"score": 27,
+"reasoning": "The global structure is well preserved and most key elements are present, but there are noticeable distortions and a few placement/proportion inaccuracies (especially in the right-side extension and some internal lines)."
+}
+{
+"image_name": "CM2017SK010_1.jpg",
+"class_int": 3,
+"score": 31.5,
+"reasoning": "Nearly all key elements are present and correctly arranged with a well-preserved overall structure, with only minor distortions and small placement/proportion deviations in some right-side details."
+}
+{
+"image_name": "CM2017SK014_1.jpg",
+"class_int": 2,
+"score": 25,
+"reasoning": "Most main structural elements are present and recognizable, but several lines are faint or incomplete with noticeable distortions and some placement/proportion errors, especially on the left and right extensions."
+}
+{
+"image_name": "CM2017SK023_2.jpg",
+"class_int": 1,
+"score": 17,
+"reasoning": "The overall outer shape is roughly captured, but many key internal details are missing or incorrectly formed and several elements are misplaced or disproportionately drawn."
+}
+{
+"image_name": "CM2017SK028_1.jpg",
+"class_int": 3,
+"score": 31,
+"reasoning": "Nearly all key elements are present and correctly organized with good overall proportions, with only minor distortions and small placement inaccuracies in some right-side details."
+}
+{
+"image_name": "CM2017SK040_2.jpg",
+"class_int": 2,
+"score": 24.5,
+"reasoning": "The main overall structure and several key elements are present, but multiple internal details are simplified or missing and a few components show noticeable proportion and placement errors."
+}
+{
+"image_name": "CM2017SK044_3.jpg",
+"class_int": 1,
+"score": 16.5,
+"reasoning": "While the central structure and a few key features are recognizable, large portions of the figure are missing and several elements are distorted or incorrectly placed."
+}
+{
+"image_name": "CM2017SK046_1.jpg",
+"class_int": 2,
+"score": 26.5,
+"reasoning": "Most key elements are present and the overall configuration is preserved, but there are noticeable distortions and a few placement/proportion inaccuracies, especially in the right-side extension."
+}
+{
+"image_name": "CM2017SK046_2.jpg",
+"class_int": 1,
+"score": 16.5,
+"reasoning": "The global outline is partially captured, but many key internal elements are missing and several shapes/placements are simplified or inaccurate."
+}
+{
+"image_name": "CM2017SK047_3.jpg",
+"class_int": 1,
+"score": 17,
+"reasoning": "Several recognizable core parts are present (main rectangle, left X-box, some diagonals), but the right-side structure and multiple internal elements are missing or inaccurately placed."
+}
+{
+"image_name": "CM2017SK048_2.jpg",
+"class_int": 0,
+"score": 13.5,
+"reasoning": "Only a few elements are loosely recognizable while the overall structure is severely distorted with major omissions and incorrect relative placement."
+}
+{
+"image_name": "CM2017SK053_1.jpg",
+"class_int": 3,
+"score": 31.5,
+"reasoning": "Most key structural elements are present and largely well-placed, with only minor proportional distortions and small inaccuracies in the right-side extension."
+}
+{
+"image_name": "CM2017SK057_2.jpg",
+"class_int": 1,
+"score": 17.5,
+"reasoning": "The main outline and a few key details (left X-box, circle, major diagonal) are present, but many internal divisions and secondary elements are missing or inaccurately placed."
+}
+{
+"image_name": "CM2017SK070_3.jpg",
+"class_int": 2,
+"score": 26.0,
+"reasoning": "Most major elements are present and recognizable, but there are noticeable placement/proportion errors (e.g., detached/misplaced parts) and several internal details are simplified or inaccurate."
+}
+{
+"image_name": "CM2018PB008_1.jpg",
+"class_int": 1,
+"score": 18.0,
+"reasoning": "Several key components are present (left bar with X-box, central diagonals, circle, right extension), but many internal divisions are missing and proportions/placements are notably distorted."
+}
+{
+"image_name": "CM2018PB013_3.jpg",
+"class_int": 1,
+"score": 20.0,
+"reasoning": "The main outline and some key elements (central diagonals, striped area, small X-box, right triangle) are present, but many internal subdivisions and placements are simplified or missing."
+}
+{
+"image_name": "CM2018PB018_1.jpg",
+"class_int": 2,
+"score": 27.5,
+"reasoning": "Most major structural elements are present and generally well-arranged, but there are clear proportional distortions and some misplaced/simplified internal details, especially on the right extension."
+}
+{
+"image_name": "CM2018PB022_1.jpg",
+"class_int": 3,
+"score": 31.0,
+"reasoning": "Nearly all key elements are present and correctly organized, with only minor proportional distortions and slight inaccuracies in the right-side extension."
+}
+{
+"image_name": "CM2018SK001_3.jpg",
+"class_int": 0,
+"score": 11.5,
+"reasoning": "Only the main rectangle with diagonals and a few small details are present, while many key elements are missing and several remaining parts are poorly shaped or placed."
+}
+{
+"image_name": "CM2018SK003_3.jpg",
+"class_int": 1,
+"score": 16.5,
+"reasoning": "The overall configuration (main rectangle with diagonals and right triangular extension) is recognizable, but several key elements are missing and multiple shapes/placements are distorted."
+}
+{
+"image_name": "CM2018SK006_2.jpg",
+"class_int": 2,
+"score": 24.5,
+"reasoning": "Most major elements are present and the global structure is recognizable, but several internal lines and subdivisions are simplified or misplaced with noticeable distortions."
+}
+{
+"image_name": "CM2018SK006_3.jpg",
+"class_int": 2,
+"score": 25.5,
+"reasoning": "The main rectangle, diagonal structure, left inner square, and right triangular extension are largely correct, but several secondary details are missing and some proportions/placements are off."
+}
+{
+"image_name": "CM2018SK015_3.jpg",
+"class_int": 2,
+"score": 28.5,
+"reasoning": "Most key elements and the overall structure are present and recognizable, but there are noticeable proportion and placement inaccuracies with some secondary details simplified."
+}
+{
+"image_name": "FF17SG002_3.jpg",
+"class_int": 2,
+"score": 29.5,
+"reasoning": "Nearly all major components are present with a clear global structure, but some internal subdivisions and proportions are imperfect and a few details are simplified."
+}
+{
+"image_name": "FF17SG003_1.jpg",
+"class_int": 2,
+"score": 30,
+"reasoning": "Most structural elements are present and largely well placed, but there are some distortions in proportions and a few inaccuracies in internal line placements."
+}
+{
+"image_name": "FF17SG003_3.jpg",
+"class_int": 1,
+"score": 21,
+"reasoning": "The main rectangle with diagonals and the right extension are present, but several key internal details are missing and proportions/placements are noticeably inaccurate."
+}
+{
+"image_name": "FF17SG007_1.jpg",
+"class_int": 2,
+"score": 28,
+"reasoning": "Most main structural elements are present and reasonably placed, but several lines are distorted or overdrawn and some proportions and secondary details are inaccurate."
+}
+{
+"image_name": "FF17SG008_3.jpg",
+"class_int": 2,
+"score": 24,
+"reasoning": "The overall configuration and several key elements are present, but many lines are faint/uncertain with noticeable distortions and multiple secondary details are missing or poorly placed."
+}
+{
+"image_name": "FF17ZD011_1.jpg",
+"class_int": 2,
+"score": 27.5,
+"reasoning": "Most key elements are present and recognizable with the overall structure preserved, but there are noticeable proportional inaccuracies and several line/shape placement distortions."
+}
+{
+"image_name": "FF17ZD013_3.jpg",
+"class_int": 2,
+"score": 26.5,
+"reasoning": "The global ROCF structure and most major elements are present, but several parts show clear distortions and proportional/placement errors (notably in the lower-left section and some interior lines)."
+}
+{
+"image_name": "FF2016AHS03_3.jpg",
+"class_int": 1,
+"score": 19.0,
+"reasoning": "While the main outer framework and a few key features are present, multiple internal substructures are missing or oversimplified and several lines are inaccurately placed, reducing overall similarity."
+}
+{
+"image_name": "FF2016MH004_3.jpg",
+"class_int": 0,
+"score": 13.5,
+"reasoning": "The overall outline is partially present, but many key internal elements are missing or only faintly suggested and several components are poorly defined or inaccurately placed."
+}
+{
+"image_name": "FF2016MH006_3.jpg",
+"class_int": 2,
+"score": 28.0,
+"reasoning": "Most structural elements are present and correctly organized, but there are noticeable distortions in proportions and some misplacements in internal lines and right-side extensions."
+}
+{
+"image_name": "FF2016MJ004_2.jpg",
+"class_int": 0,
+"score": 14.0,
+"reasoning": "Although a basic outer layout and a few diagonals are present, many key subcomponents are missing or greatly simplified and the right-side structure is poorly defined and misplaced."
+}
+{
+"image_name": "FF2017AS001_3.jpg",
+"class_int": 2,
+"score": 29.0,
+"reasoning": "Nearly all major ROCF components are present and in roughly correct arrangement, but there are several noticeable distortions and proportional/placement errors, especially in the right-side extension and some interior details."
+}
+{
+"image_name": "FF2017AS002_2.jpg",
+"class_int": 2,
+"score": 27.0,
+"reasoning": "Most key structural elements and internal divisions are present with the overall configuration preserved, but there are noticeable proportional inaccuracies and some simplified or slightly misplaced details."
+}
+{
+"image_name": "FF2017AS004_1.jpg",
+"class_int": 2,
+"score": 25.5,
+"reasoning": "The main framework and many characteristic elements are present, but multiple parts are noticeably distorted or misproportioned and several internal lines are misplaced or overly emphasized."
+}
+{
+"image_name": "FF2017AS010_3.jpg",
+"class_int": 2,
+"score": 25.0,
+"reasoning": "Most major structural components are present and the overall configuration is recognizable, but several lines are faint or poorly defined and there are clear distortions/misplacements (especially around the central vertical division and left substructure)."
+}
+{
+  "image_name": "FF2017DM009_2.jpg",
+  "class_int": 1,
+  "score": 16.5,
+  "reasoning": "Several major elements are missing or overly simplified, with noticeable distortions and placement errors despite a partially recognizable global structure."
+}
+{
+  "image_name": "FF2017ES02_2.jpg",
+  "class_int": 2,
+  "score": 24.5,
+  "reasoning": "Most key structural elements are present and the overall configuration is recognizable, but there are clear distortions and some placement inaccuracies that limit accuracy."
+}
+{
+  "image_name": "FF2017ES03_1.jpg",
+  "class_int": 2,
+  "score": 26,
+  "reasoning": "Most key elements are present and the overall structure is preserved, but there are noticeable distortions in shapes and some inaccuracies in proportions and placement."
+}
+{
+  "image_name": "FF2017ES005_2.jpg",
+  "class_int": 2,
+  "score": 25,
+  "reasoning": "The majority of key structural elements are present and correctly arranged, but there are visible distortions and minor placement inaccuracies that reduce overall accuracy."
+}
+{
+  "image_name": "FF2017ES007_2.jpg",
+  "class_int": 1,
+  "score": 17.5,
+  "reasoning": "Although some main structural elements are present, several key components are missing or overly simplified, with notable distortions and placement errors that reduce overall accuracy."
+}
+{
+  "image_name": "FF2017ES009_2.jpg",
+  "class_int": 2,
+  "score": 27,
+  "reasoning": "Most key structural elements are present and the overall organization is preserved, but there are noticeable distortions in shapes and some inaccuracies in proportions and placement."
+}
+{
+  "image_name": "FF2017PB002_3.jpg",
+  "class_int": 2,
+  "score": 28,
+  "reasoning": "Most structural elements are present and recognizable with a coherent overall layout, but there are clear distortions in shape and some placement inaccuracies that prevent higher accuracy."
+}
+{
+  "image_name": "FF2017VM03_2.jpg",
+  "class_int": 2,
+  "score": 26.5,
+  "reasoning": "Most key elements of the figure are present and correctly organized, but there are visible distortions and minor placement inaccuracies that reduce overall accuracy."
+}
+{
+  "image_name": "FF2017VM05_1.jpg",
+  "class_int": 2,
+  "score": 24,
+  "reasoning": "Most major structural elements are present and the overall configuration is recognizable, but there are clear distortions and several placement inaccuracies that limit accuracy."
+}
+{
+  "image_name": "FF2017VM07_3.jpg",
+  "class_int": 2,
+  "score": 26,
+  "reasoning": "Most key structural elements are present and the overall layout is recognizable, but there are noticeable distortions in shapes and some placement inaccuracies that prevent a higher classification."
+}
+{
+  "image_name": "FF2017VM09_3.jpg",
+  "class_int": 2,
+  "score": 23.5,
+  "reasoning": "Most major structural elements are present and correctly organized, but there are noticeable omissions and minor distortions in shape and placement."
+}
+{
+  "image_name": "FF2017ZD005_1.jpg",
+  "class_int": 2,
+  "score": 25,
+  "reasoning": "The majority of key elements are present and recognizable with an overall preserved structure, but several shapes show distortions and some elements are imperfectly placed."
+}
+{
+  "image_name": "FF2017ZD014_2.jpg",
+  "class_int": 2,
+  "score": 24,
+  "reasoning": "Most core structural elements are present and correctly organized, but several components are simplified, partially distorted, or imperfectly placed."
+}
+{
+  "image_name": "FF2017ZH03_1.jpg",
+  "class_int": 2,
+  "score": 26,
+  "reasoning": "Most major elements are present and recognizable with the global structure preserved, but several shapes are distorted and some elements are imprecisely placed."
+}
+{
+  "image_name": "FF2017ZP007_1.jpg",
+  "class_int": 2,
+  "score": 23,
+  "reasoning": "Most structural components are present and the overall configuration is recognizable, but several elements are faint, distorted, or imprecisely placed."
+}
+{
+  "image_name": "FF2017ZP012_2.jpg",
+  "class_int": 2,
+  "score": 24,
+  "reasoning": "Most key elements are present and the overall structure is recognizable, but there are several distortions in shape and minor placement inaccuracies."
+}
+{
+  "image_name": "FF2018MA007_1.jpg",
+  "class_int": 2,
+  "score": 23,
+  "reasoning": "The overall structure is preserved and most key elements are present, but several lines are faint, shapes are distorted, and some elements are imprecisely placed."
+}
+{
+  "image_name": "FF2018MA010_3.jpg",
+  "class_int": 1,
+  "score": 18,
+  "reasoning": "Several major structural elements are missing or incomplete, and while parts of the global configuration are suggested, distortions and placement errors are prominent."
+}
+{
+  "image_name": "FF2018PB005_2.jpg",
+  "class_int": 1,
+  "score": 17.5,
+  "reasoning": "Several key structural components are missing or incomplete, and although some elements are recognizable, there are clear distortions and placement errors that reduce overall accuracy."
+}
+{
+  "image_name": "FF2018PB007_1.jpg",
+  "class_int": 2,
+  "score": 25,
+  "reasoning": "Most major structural elements are present and the overall configuration is preserved, but there are noticeable distortions and several placement inaccuracies."
+}
+{
+  "image_name": "FF2018PB007_3.jpg",
+  "class_int": 0,
+  "score": 9,
+  "reasoning": "Many key structural elements are missing, with only a few large shapes present and major inaccuracies in overall structure and placement."
+}
+{
+  "image_name": "FF2018PB011_3.jpg",
+  "class_int": 2,
+  "score": 24,
+  "reasoning": "Most major structural elements are present and recognizable, but there are clear distortions and some placement inaccuracies that reduce overall precision."
+}
+{
+  "image_name": "FF2018PB019_3.jpg",
+  "class_int": 1,
+  "score": 18,
+  "reasoning": "Several key elements are present and the global structure is partially recognizable, but there are notable distortions, missing details, and placement inaccuracies."
+}
+{
+  "image_name": "FF2018ZD032_3.jpg",
+  "class_int": 2,
+  "score": 26,
+  "reasoning": "Most major elements are present and the overall structure is preserved, but there are visible distortions in shapes and some inaccuracies in proportions and placement."
+}
+{
+  "image_name": "FF2018ZD034_1.jpg",
+  "class_int": 2,
+  "score": 28,
+  "reasoning": "Most structural elements are present and recognizable with the global organization preserved, but several shapes show distortions and minor placement inaccuracies."
+}
+{
+  "image_name": "FF2018ZD040_1.jpg",
+  "class_int": 2,
+  "score": 25,
+  "reasoning": "Most major elements are present and identifiable with the overall structure preserved, but there are several shape distortions and noticeable placement inaccuracies."
+}
+{
+  "image_name": "MCI2017MA007_1.jpg",
+  "class_int": 2,
+  "score": 23,
+  "reasoning": "Most major structural elements are present and the global configuration is recognizable, but there are clear distortions, uneven line quality, and placement inaccuracies that limit accuracy."
+}
+{
+  "image_name": "MCI2018MA016_3.jpg",
+  "class_int": 1,
+  "score": 17.5,
+  "reasoning": "Several key structural elements are missing and proportions are simplified, with noticeable placement inaccuracies despite a partially recognizable global layout."
+}
+{
+  "image_name": "MCI2018MA019_2.jpg",
+  "class_int": 1,
+  "score": 20,
+  "reasoning": "Several major elements are present, but there are clear omissions, shape distortions, and placement inaccuracies that limit overall structural accuracy."
+}
+{
+  "image_name": "MCI2018MA019_3.jpg",
+  "class_int": 1,
+  "score": 19,
+  "reasoning": "Several key elements are present and the general layout is recognizable, but there are missing details, simplified shapes, and noticeable placement inaccuracies."
+}
+{
+  "image_name": "PE2016PB004_2.jpg",
+  "class_int": 2,
+  "score": 26,
+  "reasoning": "Most major structural elements are present and recognizable, but several shapes are simplified or distorted and some internal lines are missing or imprecisely placed."
+}
+{
+  "image_name": "PE2016SK004_1.jpg",
+  "class_int": 2,
+  "score": 28,
+  "reasoning": "The global structure is well preserved with most elements present and reasonably placed, but there are minor distortions and small inaccuracies in several internal lines and proportions."
+}
+{
+  "image_name": "PE2017PB002_2.jpg",
+  "class_int": 1,
+  "score": 18,
+  "reasoning": "Some key elements (left cross, small squares with diagonals, main frame) are present, but the right-side structure is largely missing or distorted and several internal lines are absent or misplaced."
+}
+{
+  "image_name": "PE2017PB007_1.jpg",
+  "class_int": 2,
+  "score": 29,
+  "reasoning": "Most structural elements are present and correctly arranged (including the left block, central cross/diagonals, and right extension), but there are minor distortions and small placement/proportion inaccuracies in several internal lines."
+}
+{
+  "image_name": "PE2017PB007_3.jpg",
+  "class_int": 2,
+  "score": 29,
+  "reasoning": "The overall configuration is well preserved with most key elements present, but several internal details are simplified and there are minor proportional and placement inaccuracies, especially in the right-side sections."
+}
+{
+  "image_name": "PE2017ZM13_1.jpg",
+  "class_int": 2,
+  "score": 27,
+  "reasoning": "Most key structural components are present and in roughly correct relations, but the drawing shows noticeable line waviness, simplified internal details, and minor placement/proportion inaccuracies."
+}
+{
+  "image_name": "PE2017ZM13_3.jpg",
+  "class_int": 1,
+  "score": 17,
+  "reasoning": "The central rectangle with diagonals and a few auxiliary shapes are present, but many key elements (left cross, small subdivided square, several internal lines and correct right-side structure) are missing or poorly placed."
+}
+{
+  "image_name": "SM2017PB003_1.jpg",
+  "class_int": 2,
+  "score": 28,
+  "reasoning": "Most major elements and the overall layout are present, but several internal lines are simplified or slightly misplaced and proportions are somewhat uneven, especially in the right-side sections."
+}
+{
+  "image_name": "SM2017PB010_3.jpg",
+  "class_int": 0,
+  "score": 9,
+  "reasoning": "Only a rough outer shape and a few lines are present, with most key ROCF elements missing and the internal structure and placements largely absent."
+}
+{
+  "image_name": "SM2017PB011_1.jpg",
+  "class_int": 2,
+  "score": 28,
+  "reasoning": "The overall ROCF structure is largely preserved with most key elements present and reasonably placed, though several internal lines are simplified and some proportions and placements are slightly off."
+}
+{
+"image_name": "SM2017PB011_2.jpg",
+"class_int": 2,
+"score": 26.5,
+"reasoning": "Most major structural elements are present and generally well placed, but there are noticeable distortions and some missing or imprecisely rendered details."
+}
+{
+"image_name": "SM2017PB018_3.jpg",
+"class_int": 1,
+"score": 20.5,
+"reasoning": "Most major components are attempted, but several shapes are distorted and multiple elements are poorly proportioned or inaccurately placed."
+}
+{
+"image_name": "SM2017PB024_3.jpg",
+"class_int": 0,
+"score": 11.0,
+"reasoning": "Only the rough outer structure and a few internal lines are present, while many key elements are missing or too imprecise to be considered correctly drawn and placed."
+}
+{
+"image_name": "SM2017PB025_1.jpg",
+"class_int": 2,
+"score": 24.5,
+"reasoning": "Most key structural elements are present with a recognizable overall layout, but several lines are faint or imprecise and there are noticeable distortions and minor placement errors."
+}
+{
+"image_name": "SM2017PB025_3.jpg",
+"class_int": 2,
+"score": 23.0,
+"reasoning": "The overall ROCF structure is recognizable with most major elements included, but proportions are notably stretched and several details are faint or imprecisely placed."
+}
