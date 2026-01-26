@@ -1,0 +1,420 @@
+{
+"image_name": "CM2018SK006_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "CM2018SK006_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "CM2018PB013_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "CM2017PB086_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF17SG007_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2018SK003_3.jpg",
+"class_int": 0
+}
+{
+"image_name": "CM2017SK070_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "FF2017ES03_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017PB039_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "CM2017SK053_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017SK010_1.jpg",
+"class_int": 3
+}
+{
+"image_name": "CM2017PB087_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "FF2018ZD040_1.jpg",
+"class_int": 3
+}
+{
+"image_name": "CM2017SK028_1.jpg",
+"class_int": 3
+}
+{
+"image_name": "FF2017ES009_2.jpg",
+"class_int": 3
+}
+{
+"image_name": "FF2017VM07_3.jpg",
+"class_int": 3
+}
+{
+"image_name": "FF2017ZH03_1.jpg",
+"class_int": 3
+}
+{
+"image_name": "FF17SG003_1.jpg",
+"class_int": 3
+}
+{
+"image_name": "FF17ZD013_3.jpg",
+"class_int": 3
+}
+{
+"image_name": "FF2017ZD005_1.jpg",
+"class_int": 3
+}
+{
+"image_name": "FF2017PB002_3.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2017VM03_2.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF17ZD011_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "SM2017PB011_2.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2017AS004_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2016SK005_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2017AS001_3.jpg",
+"class_int": 3
+}
+{
+"image_name": "FF2018PB007_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF17SG002_3.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017PB041_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "PE2017PB007_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "PE2016PB004_2.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2018ZD034_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2018PB022_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2017VM05_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "PE2016SK004_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2017ES02_2.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2018ZD032_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "CM2017SK040_2.jpg",
+"class_int": 2
+}
+{
+"image_name": "SM2017PB011_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2016MH006_3.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2016PB002_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "CM2017PB076_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017SK014_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "PE2017PB007_3.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017SK046_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "SM2017PB003_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017SK047_3.jpg",
+"class_int": 0
+}
+{
+"image_name": "CM2018SK015_3.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF17SG003_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "CM2017PB046_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "CM2017SK044_3.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2018PB018_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2018SK001_3.jpg",
+"class_int": 0
+}
+{
+"image_name": "PE2017PB002_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "FF2017ZD014_2.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2016SK001_2.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2016SK011_3.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017SK007_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2017AS002_2.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2017ZP012_2.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2018PB011_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "MCI2017MA007_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017SK048_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "FF2016AHS03_3.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2018PB005_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "FF2017VM09_3.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017SK046_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "PE2017ZM13_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2016PB007_2.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017PB055_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2017ZP007_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017SK001_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2017ES005_2.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017PB051_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "SM2017PB018_3.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017PB076_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "CM2017PB066_3.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2017DM009_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "CM2017PB067_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017SK023_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "FF2018PB019_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "CM2017SG003_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "CM2018PB008_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF17SG008_3.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017PB001_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "FF2018MA007_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2017AS010_3.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM17SG02_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "SM2017PB024_3.jpg",
+"class_int": 0
+}
+{
+"image_name": "MCI2018MA016_3.jpg",
+"class_int": 0
+}
+{
+"image_name": "CM2017SK001_2.jpg",
+"class_int": 2
+}
+{
+"image_name": "SM2017PB010_3.jpg",
+"class_int": 0
+}
+{
+"image_name": "CM2017SK057_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "FF2016MJ004_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "MCI2018MA019_2.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2017ES007_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "MCI2018MA019_3.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017PB067_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "FF2018MA010_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "FF2018PB007_3.jpg",
+"class_int": 0
+}
+{
+"image_name": "PE2017ZM13_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "SM2017PB025_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "FF2016MH004_3.jpg",
+"class_int": 1
+}
+{
+"image_name": "SM2017PB025_3.jpg",
+"class_int": 2
+}

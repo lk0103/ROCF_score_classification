@@ -1,0 +1,352 @@
+=== MODEL LOG ANALYSIS ===
+Total log files: 5
+
+File: swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt
+  LAST MODEL -> Acc: 0.6857, Prec: 0.6992, Rec: 0.6857, F1: 0.683, Loss: None, MAE: 0.3429
+  Confusion matrix: 
+[[ 3,  1,  1,  0,  0,  0],
+ [ 1,  7,  4,  1,  0,  0],
+ [ 0,  1, 13,  5,  0,  0],
+ [ 0,  0,  5, 15,  2,  0],
+ [ 0,  0,  1,  5, 10,  4],
+ [ 0,  0,  0,  0,  2, 24]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 8.5: 1, 10.0: 1, 10.5: 2, 11.0: 1, 11.5: 1, 16.0: 2, 17.0: 1, 17.5: 1, 18.0: 2, 18.5: 1, 20.0: 1, 21.5: 1, 22.5: 1, 23.0: 2, 24.0: 1, 24.5: 2, 25.5: 1, 26.0: 1, 26.5: 1, 28.0: 2, 29.5: 1, 30.0: 2, 32.0: 1, 34.0: 1}
+  Wrong class histogram: 
+{0: 2, 1: 6, 2: 6, 3: 7, 4: 10, 5: 2}
+  BEST VAL MODEL -> Acc: 0.6857, Prec: 0.6933, Rec: 0.6857, F1: 0.682, Loss: None, MAE: 0.3429
+  Confusion matrix: 
+[[ 3,  1,  1,  0,  0,  0],
+ [ 1,  9,  2,  1,  0,  0],
+ [ 0,  3, 14,  2,  0,  0],
+ [ 0,  0,  8, 10,  4,  0],
+ [ 0,  0,  1,  2, 13,  4],
+ [ 0,  0,  0,  0,  3, 23]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 10.0: 1, 10.5: 2, 11.5: 1, 14.5: 2, 16.0: 1, 17.5: 1, 18.0: 1, 18.5: 2, 20.0: 2, 21.0: 1, 21.5: 2, 22.5: 2, 23.0: 2, 24.0: 1, 24.5: 3, 28.0: 2, 30.0: 2, 31.0: 1, 33.0: 1, 34.0: 1}
+  Wrong class histogram: 
+{0: 2, 1: 4, 2: 5, 3: 12, 4: 7, 5: 3}
+  TTA LAST MAJORITY VOTE -> Acc: 0.6952, Prec: 0.7146, Rec: 0.6952, F1: 0.6925, Loss: 0.8711, MAE: 0.3333
+  Per-augmentation losses: {'none': 0.8617, 'rotate': 0.894, 'color': 0.8434, 'translate': 0.8997, 'combo': 0.8566}
+  Agreement with 'none': {'rotate': 91.43, 'color': 98.1, 'translate': 93.33, 'combo': 89.52}
+  Confusion matrix: 
+[[ 3,  1,  1,  0,  0,  0],
+ [ 1,  7,  4,  1,  0,  0],
+ [ 0,  0, 14,  5,  0,  0],
+ [ 0,  0,  5, 15,  2,  0],
+ [ 0,  0,  1,  5, 10,  4],
+ [ 0,  0,  0,  0,  2, 24]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 8.5: 1, 10.0: 1, 10.5: 2, 11.0: 1, 11.5: 1, 16.0: 1, 17.0: 1, 17.5: 1, 18.0: 2, 18.5: 1, 20.0: 1, 21.5: 1, 22.5: 1, 23.0: 2, 24.0: 1, 24.5: 2, 25.5: 1, 26.0: 1, 26.5: 1, 28.0: 2, 29.5: 1, 30.0: 2, 32.0: 1, 34.0: 1}
+  Wrong class histogram: 
+{0: 2, 1: 6, 2: 5, 3: 7, 4: 10, 5: 2}
+  Avg augmentations agreeing with majority per image: 4.73
+  % of images where all augmentations agree with majority: 80.95%
+  TTA BEST MAJORITY VOTE -> Acc: 0.6857, Prec: 0.7042, Rec: 0.6857, F1: 0.6804, Loss: 0.8214, MAE: 0.3429
+  Per-augmentation losses: {'none': 0.8116, 'rotate': 0.8097, 'color': 0.8176, 'translate': 0.8095, 'combo': 0.8588}
+  Agreement with 'none': {'rotate': 91.43, 'color': 97.14, 'translate': 86.67, 'combo': 84.76}
+  Confusion matrix: 
+[[ 3,  1,  1,  0,  0,  0],
+ [ 1,  9,  2,  1,  0,  0],
+ [ 0,  4, 14,  1,  0,  0],
+ [ 0,  0,  9,  9,  4,  0],
+ [ 0,  0,  1,  1, 14,  4],
+ [ 0,  0,  0,  0,  3, 23]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 10.0: 1, 10.5: 2, 11.5: 1, 14.5: 2, 16.0: 1, 17.5: 2, 18.5: 2, 20.0: 2, 21.0: 2, 21.5: 2, 22.5: 2, 23.0: 2, 24.0: 1, 24.5: 2, 28.0: 2, 30.0: 2, 31.0: 1, 33.0: 1, 34.0: 1}
+  Wrong class histogram: 
+{0: 2, 1: 4, 2: 5, 3: 13, 4: 6, 5: 3}
+  Avg augmentations agreeing with majority per image: 4.66
+  % of images where all augmentations agree with majority: 76.19%
+  Wrongly classified images TTA BEST VAL MODEL (majority class): 33
+  Wrongly classified images TTA LAST MODEL (majority class): 32
+  Wrongly classified images (normal best val model): 33
+  Wrongly classified images (normal last model): 33
+
+File: swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt
+  LAST MODEL -> Acc: 0.7429, Prec: 0.7472, Rec: 0.7429, F1: 0.741, Loss: None, MAE: 0.2857
+  Confusion matrix: 
+[[ 3,  1,  1,  0,  0,  0],
+ [ 1,  8,  3,  1,  0,  0],
+ [ 0,  1, 13,  5,  0,  0],
+ [ 0,  0,  3, 17,  2,  0],
+ [ 0,  0,  1,  2, 13,  4],
+ [ 0,  0,  0,  0,  2, 24]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 10.0: 1, 10.5: 3, 11.5: 1, 16.0: 1, 17.0: 1, 17.5: 2, 18.0: 2, 18.5: 1, 21.5: 1, 22.5: 1, 23.0: 1, 24.0: 1, 24.5: 2, 28.0: 2, 29.5: 1, 30.0: 2, 30.5: 1, 36.0: 1}
+  Wrong class histogram: 
+{0: 2, 1: 5, 2: 6, 3: 5, 4: 7, 5: 2}
+  BEST VAL MODEL -> Acc: 0.7524, Prec: 0.7723, Rec: 0.7524, F1: 0.7506, Loss: None, MAE: 0.2857
+  Confusion matrix: 
+[[ 3,  1,  1,  0,  0,  0],
+ [ 1,  8,  3,  1,  0,  0],
+ [ 0,  1, 15,  3,  0,  0],
+ [ 0,  0,  5, 16,  1,  0],
+ [ 0,  0,  1,  3, 12,  4],
+ [ 0,  0,  0,  1,  0, 25]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 10.0: 1, 10.5: 3, 11.5: 1, 16.0: 1, 17.0: 1, 17.5: 2, 18.5: 2, 20.0: 1, 21.5: 1, 22.5: 1, 23.0: 1, 24.5: 2, 26.0: 1, 28.0: 2, 29.5: 1, 30.0: 2, 30.5: 1}
+  Wrong class histogram: 
+{0: 2, 1: 5, 2: 4, 3: 6, 4: 8, 5: 1}
+  TTA LAST MAJORITY VOTE -> Acc: 0.7524, Prec: 0.7638, Rec: 0.7524, F1: 0.7509, Loss: 0.9899, MAE: 0.2762
+  Per-augmentation losses: {'none': 1.0107, 'rotate': 1.0431, 'color': 1.0014, 'translate': 0.9071, 'combo': 0.9874}
+  Agreement with 'none': {'rotate': 92.38, 'color': 97.14, 'translate': 94.29, 'combo': 88.57}
+  Confusion matrix: 
+[[ 3,  1,  1,  0,  0,  0],
+ [ 1,  8,  3,  1,  0,  0],
+ [ 0,  0, 14,  5,  0,  0],
+ [ 0,  0,  4, 16,  2,  0],
+ [ 0,  0,  1,  2, 13,  4],
+ [ 0,  0,  0,  0,  1, 25]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 10.0: 1, 10.5: 3, 11.5: 1, 16.0: 1, 17.0: 1, 17.5: 1, 18.0: 2, 18.5: 2, 21.5: 1, 22.5: 1, 23.0: 1, 24.0: 1, 24.5: 2, 28.0: 2, 29.5: 1, 30.0: 2, 30.5: 1}
+  Wrong class histogram: 
+{0: 2, 1: 5, 2: 5, 3: 6, 4: 7, 5: 1}
+  Avg augmentations agreeing with majority per image: 4.75
+  % of images where all augmentations agree with majority: 82.86%
+  TTA BEST MAJORITY VOTE -> Acc: 0.7429, Prec: 0.752, Rec: 0.7429, F1: 0.7398, Loss: 0.7945, MAE: 0.2857
+  Per-augmentation losses: {'none': 0.8173, 'rotate': 0.7738, 'color': 0.8582, 'translate': 0.7675, 'combo': 0.7555}
+  Agreement with 'none': {'rotate': 92.38, 'color': 95.24, 'translate': 95.24, 'combo': 88.57}
+  Confusion matrix: 
+[[ 3,  1,  1,  0,  0,  0],
+ [ 1,  8,  3,  1,  0,  0],
+ [ 0,  1, 15,  3,  0,  0],
+ [ 0,  0,  5, 15,  2,  0],
+ [ 0,  0,  1,  3, 12,  4],
+ [ 0,  0,  0,  0,  1, 25]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 10.0: 1, 10.5: 3, 11.5: 1, 16.0: 1, 17.0: 1, 17.5: 2, 18.5: 2, 20.0: 1, 21.5: 1, 22.5: 1, 23.0: 1, 24.0: 1, 24.5: 2, 26.0: 1, 28.0: 2, 29.5: 1, 30.0: 2, 30.5: 1}
+  Wrong class histogram: 
+{0: 2, 1: 5, 2: 4, 3: 7, 4: 8, 5: 1}
+  Avg augmentations agreeing with majority per image: 4.73
+  % of images where all augmentations agree with majority: 80.95%
+  Wrongly classified images TTA BEST VAL MODEL (majority class): 27
+  Wrongly classified images TTA LAST MODEL (majority class): 26
+  Wrongly classified images (normal best val model): 26
+  Wrongly classified images (normal last model): 27
+
+File: swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt
+  LAST MODEL -> Acc: 0.6952, Prec: 0.6995, Rec: 0.6952, F1: 0.6927, Loss: None, MAE: 0.3143
+  Confusion matrix: 
+[[ 3,  2,  0,  0,  0,  0],
+ [ 1,  6,  6,  0,  0,  0],
+ [ 0,  1, 13,  5,  0,  0],
+ [ 0,  0,  3, 17,  2,  0],
+ [ 0,  0,  1,  3, 12,  4],
+ [ 0,  0,  0,  0,  4, 22]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 10.0: 1, 10.5: 3, 11.0: 1, 11.5: 2, 16.0: 1, 17.0: 1, 17.5: 2, 18.0: 2, 18.5: 1, 21.5: 2, 22.5: 1, 23.0: 1, 24.5: 2, 25.5: 1, 28.0: 2, 29.5: 1, 30.0: 2, 30.5: 1, 31.0: 1, 32.0: 1, 35.0: 1}
+  Wrong class histogram: 
+{0: 2, 1: 7, 2: 6, 3: 5, 4: 8, 5: 4}
+  BEST VAL MODEL -> Acc: 0.7143, Prec: 0.7153, Rec: 0.7143, F1: 0.7093, Loss: None, MAE: 0.3048
+  Confusion matrix: 
+[[ 3,  2,  0,  0,  0,  0],
+ [ 1,  6,  5,  1,  0,  0],
+ [ 0,  1, 13,  5,  0,  0],
+ [ 0,  0,  2, 18,  2,  0],
+ [ 0,  0,  1,  3, 12,  4],
+ [ 0,  0,  0,  0,  3, 23]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 10.0: 1, 10.5: 3, 11.0: 1, 11.5: 2, 16.0: 1, 17.0: 1, 17.5: 2, 18.0: 2, 21.5: 2, 22.5: 1, 23.0: 1, 24.5: 2, 25.5: 1, 28.0: 2, 29.5: 1, 30.0: 2, 30.5: 1, 31.0: 1, 35.0: 1}
+  Wrong class histogram: 
+{0: 2, 1: 7, 2: 6, 3: 4, 4: 8, 5: 3}
+  TTA LAST MAJORITY VOTE -> Acc: 0.6667, Prec: 0.6752, Rec: 0.6667, F1: 0.6666, Loss: 0.8839, MAE: 0.3429
+  Per-augmentation losses: {'none': 0.8837, 'rotate': 0.9224, 'color': 0.8768, 'translate': 0.8257, 'combo': 0.9111}
+  Agreement with 'none': {'rotate': 90.48, 'color': 99.05, 'translate': 91.43, 'combo': 87.62}
+  Confusion matrix: 
+[[ 3,  2,  0,  0,  0,  0],
+ [ 1,  6,  6,  0,  0,  0],
+ [ 0,  1, 13,  5,  0,  0],
+ [ 0,  0,  4, 15,  3,  0],
+ [ 0,  0,  1,  3, 12,  4],
+ [ 0,  0,  0,  0,  5, 21]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 10.0: 1, 10.5: 3, 11.0: 1, 11.5: 2, 16.0: 1, 17.0: 1, 17.5: 2, 18.0: 2, 18.5: 2, 21.5: 2, 22.5: 1, 23.0: 1, 24.0: 1, 24.5: 2, 25.5: 1, 28.0: 2, 29.5: 1, 30.0: 2, 30.5: 1, 31.0: 1, 32.0: 1, 33.0: 1, 35.0: 1}
+  Wrong class histogram: 
+{0: 2, 1: 7, 2: 6, 3: 7, 4: 8, 5: 5}
+  Avg augmentations agreeing with majority per image: 4.71
+  % of images where all augmentations agree with majority: 80.0%
+  TTA BEST MAJORITY VOTE -> Acc: 0.7048, Prec: 0.7112, Rec: 0.7048, F1: 0.7033, Loss: 0.8433, MAE: 0.3143
+  Per-augmentation losses: {'none': 0.849, 'rotate': 0.7978, 'color': 0.8542, 'translate': 0.824, 'combo': 0.8916}
+  Agreement with 'none': {'rotate': 92.38, 'color': 95.24, 'translate': 88.57, 'combo': 82.86}
+  Confusion matrix: 
+[[ 3,  2,  0,  0,  0,  0],
+ [ 1,  6,  5,  1,  0,  0],
+ [ 0,  1, 13,  5,  0,  0],
+ [ 0,  0,  4, 16,  2,  0],
+ [ 0,  0,  1,  3, 13,  3],
+ [ 0,  0,  0,  0,  3, 23]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 10.0: 1, 10.5: 3, 11.0: 1, 11.5: 2, 16.0: 1, 17.0: 1, 17.5: 2, 18.0: 2, 18.5: 1, 21.5: 2, 22.5: 1, 23.0: 2, 24.5: 2, 25.5: 1, 28.0: 1, 29.5: 1, 30.0: 2, 30.5: 1, 31.0: 1, 34.0: 1}
+  Wrong class histogram: 
+{0: 2, 1: 7, 2: 6, 3: 6, 4: 7, 5: 3}
+  Avg augmentations agreeing with majority per image: 4.66
+  % of images where all augmentations agree with majority: 77.14%
+  Wrongly classified images TTA BEST VAL MODEL (majority class): 31
+  Wrongly classified images TTA LAST MODEL (majority class): 35
+  Wrongly classified images (normal best val model): 30
+  Wrongly classified images (normal last model): 32
+
+File: swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt
+  LAST MODEL -> Acc: 0.6667, Prec: 0.6688, Rec: 0.6667, F1: 0.6616, Loss: None, MAE: 0.3619
+  Confusion matrix: 
+[[ 3,  1,  1,  0,  0,  0],
+ [ 2,  4,  6,  1,  0,  0],
+ [ 0,  2, 11,  6,  0,  0],
+ [ 0,  0,  3, 16,  3,  0],
+ [ 0,  0,  1,  2, 14,  3],
+ [ 0,  0,  0,  0,  4, 22]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 8.5: 2, 10.0: 1, 10.5: 3, 11.0: 1, 11.5: 2, 16.0: 2, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 18.5: 2, 21.5: 2, 22.5: 1, 24.0: 1, 24.5: 2, 28.0: 1, 29.5: 1, 30.0: 2, 31.0: 1, 32.0: 1, 33.0: 1, 34.0: 1}
+  Wrong class histogram: 
+{0: 2, 1: 9, 2: 8, 3: 6, 4: 6, 5: 4}
+  BEST VAL MODEL -> Acc: 0.6857, Prec: 0.6939, Rec: 0.6857, F1: 0.6816, Loss: None, MAE: 0.3429
+  Confusion matrix: 
+[[ 3,  1,  1,  0,  0,  0],
+ [ 1,  5,  6,  1,  0,  0],
+ [ 0,  1, 12,  6,  0,  0],
+ [ 0,  0,  3, 16,  3,  0],
+ [ 0,  0,  1,  2, 13,  4],
+ [ 0,  0,  0,  0,  3, 23]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 8.5: 1, 10.0: 1, 10.5: 3, 11.0: 1, 11.5: 2, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 18.5: 1, 21.0: 1, 21.5: 2, 22.5: 1, 24.0: 1, 24.5: 2, 28.0: 2, 29.5: 1, 30.0: 2, 31.0: 1, 32.0: 1, 33.0: 1}
+  Wrong class histogram: 
+{0: 2, 1: 8, 2: 7, 3: 6, 4: 7, 5: 3}
+  TTA LAST MAJORITY VOTE -> Acc: 0.6571, Prec: 0.6748, Rec: 0.6571, F1: 0.657, Loss: 1.387, MAE: 0.3714
+  Per-augmentation losses: {'none': 1.2518, 'rotate': 1.4147, 'color': 1.2941, 'translate': 1.471, 'combo': 1.5036}
+  Agreement with 'none': {'rotate': 89.52, 'color': 96.19, 'translate': 89.52, 'combo': 86.67}
+  Confusion matrix: 
+[[ 3,  1,  1,  0,  0,  0],
+ [ 1,  5,  6,  1,  0,  0],
+ [ 0,  1, 12,  6,  0,  0],
+ [ 0,  0,  4, 14,  4,  0],
+ [ 0,  0,  1,  2, 14,  3],
+ [ 0,  0,  0,  0,  5, 21]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 8.5: 1, 10.0: 1, 10.5: 3, 11.0: 1, 11.5: 2, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 18.5: 1, 21.0: 1, 21.5: 2, 22.5: 1, 23.0: 1, 24.0: 2, 24.5: 2, 28.0: 1, 29.5: 1, 30.0: 2, 30.5: 1, 31.0: 1, 32.0: 1, 33.0: 1, 34.0: 1}
+  Wrong class histogram: 
+{0: 2, 1: 8, 2: 7, 3: 8, 4: 6, 5: 5}
+  Avg augmentations agreeing with majority per image: 4.69
+  % of images where all augmentations agree with majority: 77.14%
+  TTA BEST MAJORITY VOTE -> Acc: 0.6952, Prec: 0.7011, Rec: 0.6952, F1: 0.6899, Loss: 0.939, MAE: 0.3333
+  Per-augmentation losses: {'none': 0.8997, 'rotate': 0.9423, 'color': 0.9146, 'translate': 0.9005, 'combo': 1.0382}
+  Agreement with 'none': {'rotate': 92.38, 'color': 99.05, 'translate': 91.43, 'combo': 93.33}
+  Confusion matrix: 
+[[ 3,  1,  1,  0,  0,  0],
+ [ 1,  5,  6,  1,  0,  0],
+ [ 0,  1, 12,  6,  0,  0],
+ [ 0,  0,  2, 17,  3,  0],
+ [ 0,  0,  1,  2, 13,  4],
+ [ 0,  0,  0,  0,  3, 23]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 8.5: 1, 10.0: 1, 10.5: 3, 11.0: 1, 11.5: 2, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 18.5: 1, 21.5: 2, 22.5: 1, 24.0: 1, 24.5: 2, 28.0: 2, 29.5: 1, 30.0: 2, 31.0: 1, 32.0: 1, 33.0: 1}
+  Wrong class histogram: 
+{0: 2, 1: 8, 2: 7, 3: 5, 4: 7, 5: 3}
+  Avg augmentations agreeing with majority per image: 4.77
+  % of images where all augmentations agree with majority: 82.86%
+  Wrongly classified images TTA BEST VAL MODEL (majority class): 32
+  Wrongly classified images TTA LAST MODEL (majority class): 36
+  Wrongly classified images (normal best val model): 33
+  Wrongly classified images (normal last model): 35
+
+File: swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt
+  LAST MODEL -> Acc: 0.7333, Prec: 0.7388, Rec: 0.7333, F1: 0.7295, Loss: None, MAE: 0.2857
+  Confusion matrix: 
+[[ 3,  2,  0,  0,  0,  0],
+ [ 1,  6,  5,  1,  0,  0],
+ [ 0,  0, 13,  6,  0,  0],
+ [ 0,  0,  3, 16,  3,  0],
+ [ 0,  0,  1,  2, 14,  3],
+ [ 0,  0,  0,  0,  1, 25]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 10.0: 1, 10.5: 3, 11.0: 1, 11.5: 2, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 1, 18.0: 2, 18.5: 1, 21.5: 1, 22.5: 1, 23.0: 1, 24.0: 2, 24.5: 2, 28.0: 1, 29.5: 1, 30.0: 2, 30.5: 1}
+  Wrong class histogram: 
+{0: 2, 1: 7, 2: 6, 3: 6, 4: 6, 5: 1}
+  BEST VAL MODEL -> Acc: 0.7048, Prec: 0.7224, Rec: 0.7048, F1: 0.7022, Loss: None, MAE: 0.3238
+  Confusion matrix: 
+[[ 3,  1,  1,  0,  0,  0],
+ [ 1,  6,  5,  1,  0,  0],
+ [ 0,  0, 15,  4,  0,  0],
+ [ 0,  0,  4, 16,  2,  0],
+ [ 0,  0,  1,  3, 12,  4],
+ [ 0,  0,  0,  0,  4, 22]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 10.0: 1, 10.5: 3, 11.0: 1, 11.5: 2, 16.0: 1, 16.5: 1, 17.5: 1, 18.0: 1, 18.5: 1, 21.5: 1, 22.5: 1, 23.0: 2, 24.0: 1, 24.5: 3, 28.0: 2, 29.5: 1, 30.0: 2, 30.5: 1, 33.0: 1, 34.0: 1, 35.0: 1}
+  Wrong class histogram: 
+{0: 2, 1: 7, 2: 4, 3: 6, 4: 8, 5: 4}
+  TTA LAST MAJORITY VOTE -> Acc: 0.7429, Prec: 0.7485, Rec: 0.7429, F1: 0.7382, Loss: 0.9493, MAE: 0.2762
+  Per-augmentation losses: {'none': 0.9442, 'rotate': 0.963, 'color': 0.9223, 'translate': 0.9235, 'combo': 0.9937}
+  Agreement with 'none': {'rotate': 97.14, 'color': 96.19, 'translate': 94.29, 'combo': 90.48}
+  Confusion matrix: 
+[[ 3,  2,  0,  0,  0,  0],
+ [ 1,  6,  5,  1,  0,  0],
+ [ 0,  0, 13,  6,  0,  0],
+ [ 0,  0,  3, 16,  3,  0],
+ [ 0,  0,  1,  2, 14,  3],
+ [ 0,  0,  0,  0,  0, 26]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 10.0: 1, 10.5: 3, 11.0: 1, 11.5: 2, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 1, 18.0: 2, 18.5: 1, 21.5: 1, 22.5: 1, 23.0: 1, 24.0: 2, 24.5: 2, 28.0: 1, 29.5: 1, 30.0: 2}
+  Wrong class histogram: 
+{0: 2, 1: 7, 2: 6, 3: 6, 4: 6}
+  Avg augmentations agreeing with majority per image: 4.79
+  % of images where all augmentations agree with majority: 84.76%
+  TTA BEST MAJORITY VOTE -> Acc: 0.7143, Prec: 0.7341, Rec: 0.7143, F1: 0.713, Loss: 0.8178, MAE: 0.3143
+  Per-augmentation losses: {'none': 0.8052, 'rotate': 0.8018, 'color': 0.8228, 'translate': 0.8061, 'combo': 0.8531}
+  Agreement with 'none': {'rotate': 93.33, 'color': 98.1, 'translate': 94.29, 'combo': 90.48}
+  Confusion matrix: 
+[[ 3,  1,  1,  0,  0,  0],
+ [ 1,  6,  5,  1,  0,  0],
+ [ 0,  0, 15,  4,  0,  0],
+ [ 0,  0,  4, 16,  2,  0],
+ [ 0,  0,  1,  3, 13,  3],
+ [ 0,  0,  0,  0,  4, 22]]
+  Wrong score histogram: 
+{4.5: 1, 5.5: 1, 10.0: 1, 10.5: 3, 11.0: 1, 11.5: 2, 16.0: 1, 16.5: 1, 17.5: 1, 18.0: 1, 18.5: 1, 21.5: 1, 22.5: 1, 23.0: 2, 24.0: 1, 24.5: 3, 28.0: 1, 29.5: 1, 30.0: 2, 30.5: 1, 33.0: 1, 34.0: 1, 35.0: 1}
+  Wrong class histogram: 
+{0: 2, 1: 7, 2: 4, 3: 6, 4: 7, 5: 4}
+  Avg augmentations agreeing with majority per image: 4.79
+  % of images where all augmentations agree with majority: 85.71%
+  Wrongly classified images TTA BEST VAL MODEL (majority class): 30
+  Wrongly classified images TTA LAST MODEL (majority class): 27
+  Wrongly classified images (normal best val model): 31
+  Wrongly classified images (normal last model): 28
+
+=== MODEL ORDERINGS ===
+By LAST MODEL Recall: [('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt', 0.7429), ('swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt', 0.7333), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt', 0.6952), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt', 0.6857), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt', 0.6667)]
+By LAST MODEL Precision: [('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt', 0.7472), ('swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt', 0.7388), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt', 0.6995), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt', 0.6992), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt', 0.6688)]
+By LAST MODEL F1: [('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt', 0.741), ('swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt', 0.7295), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt', 0.6927), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt', 0.683), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt', 0.6616)]
+By LAST MODEL Loss: [('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt', None), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt', None), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt', None), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt', None), ('swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt', None)]
+
+By BEST VAL MODEL Recall: [('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt', 0.7524), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt', 0.7143), ('swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt', 0.7048), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt', 0.6857), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt', 0.6857)]
+By BEST VAL MODEL Precision: [('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt', 0.7723), ('swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt', 0.7224), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt', 0.7153), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt', 0.6939), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt', 0.6933)]
+By BEST VAL MODEL F1: [('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt', 0.7506), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt', 0.7093), ('swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt', 0.7022), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt', 0.682), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt', 0.6816)]
+By BEST VAL MODEL Loss: [('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt', None), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt', None), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt', None), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt', None), ('swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt', None)]
+
+By LAST TTA Recall: [('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt', 0.7524), ('swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt', 0.7429), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt', 0.6952), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt', 0.6667), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt', 0.6571)]
+By LAST TTA Precision: [('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt', 0.7638), ('swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt', 0.7485), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt', 0.7146), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt', 0.6752), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt', 0.6748)]
+By LAST TTA F1: [('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt', 0.7509), ('swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt', 0.7382), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt', 0.6925), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt', 0.6666), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt', 0.657)]
+By LAST TTA Loss: [('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt', 0.8711), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt', 0.8839), ('swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt', 0.9493), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt', 0.9899), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt', 1.387)]
+
+By BEST TTA Recall: [('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt', 0.7429), ('swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt', 0.7143), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt', 0.7048), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt', 0.6952), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt', 0.6857)]
+By BEST TTA Precision: [('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt', 0.752), ('swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt', 0.7341), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt', 0.7112), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt', 0.7042), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt', 0.7011)]
+By BEST TTA F1: [('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt', 0.7398), ('swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt', 0.713), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt', 0.7033), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt', 0.6899), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt', 0.6804)]
+By BEST TTA Loss: [('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_crop_restoration_6cls.txt', 0.7945), ('swin_transformer_lr0.0001_sts4_30e_is500_notEmb_all_restoration_6cls.txt', 0.8178), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_all_restoration_6cls.txt', 0.8214), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_combo_restoration_6cls.txt', 0.8433), ('swin_transformer_lr0.0001_sts4_25e_is500_notEmb_none_restoration_6cls.txt', 0.939)]
+
+=== WRONG IMAGES ===
+Normal best val model testing (52): {'./orezane_1500x1500px/Klinicka skupina/SM2017PB016_3_10,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017SK012_3_5,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB083_2_21,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017SK026_1_28.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ZD08_1_30.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB015_2_11,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017SK079_2_10.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_22,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ES01_3_17,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_3_24,5.jpg': 5, './orezane_1500x1500px/Klinicka skupina/MCI2017MA006_3_4,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ES004_2_24,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB034_1_30.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB067_1_28.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2018MA012_2_10,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017DM004_2_23.jpg': 4, './orezane_1500x1500px/Kontrolna skupina/FF17SG002_3_18.jpg': 4, './orezane_1500x1500px/Kontrolna skupina/CM2017PB006_3_18,5.jpg': 4, './orezane_1500x1500px/Kontrolna skupina/CM2017SK044_2_16.jpg': 4, './orezane_1500x1500px/Kontrolna skupina/CM2017PB090_1_29,5.jpg': 4, './orezane_1500x1500px/Klinicka skupina/MCI2018MA014_3_10,5.jpg': 4, './orezane_1500x1500px/Kontrolna skupina/FF2017ZP007_1_30,5.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/CM2017PB039_3_17,5.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/FF2017AS003_2_17.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/FF2018PB008_3_11.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/FF2017AS006_2_11,5.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/CM2017PB026_3_18,5.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/PE2016SV002_2_24,5.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/CM2017PB076_1_33.jpg': 2, './orezane_1500x1500px/Klinicka skupina/SM2017PB006_1_31.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF2017VM06_2_21.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/CM2017SK027_3_20.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/CM2017PB055_1_34.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_2_23.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF2017ES03_2_18.jpg': 2, './orezane_1500x1500px/Klinicka skupina/SM2017PB018_1_35.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF2018PB010_2_21,5.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_24.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/CM2017PB049_3_16,5.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF2018PB006_2_20.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2017SK052_2_21,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2016PB002_2_14,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2018PB013_2_14,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF17SG009_2_24.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2017PB076_3_16.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2016SK004_3_22,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF2017PB004_3_26.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF2018MA002_1_25,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2017SK001_1_31.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF2018PB013_2_8,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2017SK003_1_32.jpg': 1, './orezane_1500x1500px/Klinicka skupina/SM2017PB013_1_33.jpg': 1}
+
+Normal last model testing (47): {'./orezane_1500x1500px/Kontrolna skupina/FF2017ES03_2_18.jpg': 5, './orezane_1500x1500px/Klinicka skupina/SM2017PB016_3_10,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017SK012_3_5,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB083_2_21,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017SK044_2_16.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ZD08_1_30.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF17SG002_3_18.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB015_2_11,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017AS003_2_17.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017SK079_2_10.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_22,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ES01_3_17,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_3_24,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB090_1_29,5.jpg': 5, './orezane_1500x1500px/Klinicka skupina/MCI2017MA006_3_4,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ES004_2_24,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB034_1_30.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB067_1_28.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2018MA012_2_10,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2018PB008_3_11.jpg': 4, './orezane_1500x1500px/Kontrolna skupina/FF2017DM004_2_23.jpg': 4, './orezane_1500x1500px/Kontrolna skupina/CM2017PB006_3_18,5.jpg': 4, './orezane_1500x1500px/Klinicka skupina/MCI2018MA014_3_10,5.jpg': 4, './orezane_1500x1500px/Kontrolna skupina/CM2017SK003_1_32.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/CM2017SK026_1_28.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/FF17SG009_2_24.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/FF2017ZP007_1_30,5.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/CM2017PB039_3_17,5.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/FF2017AS006_2_11,5.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/FF2018PB008_2_8,5.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/CM2017PB055_1_34.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF2018MA002_1_25,5.jpg': 2, './orezane_1500x1500px/Klinicka skupina/SM2017PB018_3_16.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/CM2017PB026_3_18,5.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF2018PB010_2_21,5.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_24.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/CM2017PB049_3_16,5.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/CM2017SK032_3_26,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF2017PB004_3_26.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2017SK027_3_20.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_2_23.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF17ZD011_1_36.jpg': 1, './orezane_1500x1500px/Klinicka skupina/SM2017PB018_1_35.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2017SK001_1_31.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF2018PB013_2_8,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2017PB076_1_33.jpg': 1, './orezane_1500x1500px/Klinicka skupina/SM2017PB006_1_31.jpg': 1}
+
+TTA testing best val model (53): {'./orezane_1500x1500px/Klinicka skupina/SM2017PB016_3_10,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017SK012_3_5,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB083_2_21,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ZD08_1_30.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB015_2_11,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017SK079_2_10.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_22,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ES01_3_17,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_3_24,5.jpg': 5, './orezane_1500x1500px/Klinicka skupina/MCI2017MA006_3_4,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ES004_2_24,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB034_1_30.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB067_1_28.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2018MA012_2_10,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017DM004_2_23.jpg': 4, './orezane_1500x1500px/Kontrolna skupina/CM2017PB039_3_17,5.jpg': 4, './orezane_1500x1500px/Kontrolna skupina/CM2017PB006_3_18,5.jpg': 4, './orezane_1500x1500px/Kontrolna skupina/CM2017SK044_2_16.jpg': 4, './orezane_1500x1500px/Kontrolna skupina/CM2017PB090_1_29,5.jpg': 4, './orezane_1500x1500px/Klinicka skupina/MCI2018MA014_3_10,5.jpg': 4, './orezane_1500x1500px/Kontrolna skupina/CM2017PB026_3_18,5.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/CM2017SK026_1_28.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/CM2017PB055_1_34.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_2_23.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/FF2017ZP007_1_30,5.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/FF2017AS003_2_17.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/FF2018PB008_3_11.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/FF17SG002_3_18.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/FF2017AS006_2_11,5.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/CM2017PB076_1_33.jpg': 2, './orezane_1500x1500px/Klinicka skupina/SM2017PB006_1_31.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF17SG009_2_24.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/CM2017SK027_3_20.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF2017ES03_2_18.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF2018PB010_2_21,5.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_24.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/CM2017PB049_3_16,5.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF2018PB006_2_20.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2017SK052_2_21,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2016PB002_2_14,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2018PB013_2_14,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF2017VM06_2_21.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2017PB076_3_16.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2017PB088_2_21.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2016SK004_3_22,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF2017PB004_3_26.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF2018MA002_1_25,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2017SK001_1_31.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF2018PB013_2_8,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2017SK003_1_32.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/PE2016SV002_2_24,5.jpg': 1, './orezane_1500x1500px/Klinicka skupina/SM2017PB018_1_35.jpg': 1, './orezane_1500x1500px/Klinicka skupina/SM2017PB013_1_33.jpg': 1}
+
+TTA testing last model (47): {'./orezane_1500x1500px/Kontrolna skupina/FF2017ES03_2_18.jpg': 5, './orezane_1500x1500px/Klinicka skupina/SM2017PB016_3_10,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017SK012_3_5,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017DM004_2_23.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB083_2_21,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017SK044_2_16.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ZD08_1_30.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF17SG002_3_18.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB015_2_11,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017AS003_2_17.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB006_3_18,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF17SG009_2_24.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017SK079_2_10.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_22,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ES01_3_17,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_3_24,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB090_1_29,5.jpg': 5, './orezane_1500x1500px/Klinicka skupina/MCI2017MA006_3_4,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2017ES004_2_24,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB034_1_30.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/CM2017PB067_1_28.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2018MA012_2_10,5.jpg': 5, './orezane_1500x1500px/Kontrolna skupina/FF2018PB008_3_11.jpg': 4, './orezane_1500x1500px/Klinicka skupina/MCI2018MA014_3_10,5.jpg': 4, './orezane_1500x1500px/Kontrolna skupina/CM2017SK003_1_32.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/CM2017SK026_1_28.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/FF2017ZP007_1_30,5.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/FF2017AS006_2_11,5.jpg': 3, './orezane_1500x1500px/Kontrolna skupina/CM2017PB055_1_34.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF2018MA002_1_25,5.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/CM2017PB026_3_18,5.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/CM2017PB039_3_17,5.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF2018PB010_2_21,5.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_24.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/CM2017PB049_3_16,5.jpg': 2, './orezane_1500x1500px/Kontrolna skupina/CM2017SK032_3_26,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF2018PB008_2_8,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF2017PB004_3_26.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2017SK027_3_20.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_2_23.jpg': 1, './orezane_1500x1500px/Klinicka skupina/SM2017PB018_1_35.jpg': 1, './orezane_1500x1500px/Klinicka skupina/SM2017PB013_1_33.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2017SK001_1_31.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF2018PB013_2_8,5.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/CM2017PB076_1_33.jpg': 1, './orezane_1500x1500px/Klinicka skupina/SM2017PB006_1_31.jpg': 1, './orezane_1500x1500px/Kontrolna skupina/FF2017VM06_2_21.jpg': 1}
+
+Images always wrong (normal best val model testing) (15): ['./orezane_1500x1500px/Klinicka skupina/SM2017PB016_3_10,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017SK012_3_5,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB083_2_21,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017SK026_1_28.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ZD08_1_30.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB015_2_11,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017SK079_2_10.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_22,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ES01_3_17,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_3_24,5.jpg', './orezane_1500x1500px/Klinicka skupina/MCI2017MA006_3_4,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ES004_2_24,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB034_1_30.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB067_1_28.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2018MA012_2_10,5.jpg']
+
+Images always wrong (normal last model testing) (19): ['./orezane_1500x1500px/Kontrolna skupina/FF2017ES03_2_18.jpg', './orezane_1500x1500px/Klinicka skupina/SM2017PB016_3_10,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017SK012_3_5,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB083_2_21,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017SK044_2_16.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ZD08_1_30.jpg', './orezane_1500x1500px/Kontrolna skupina/FF17SG002_3_18.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB015_2_11,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017AS003_2_17.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017SK079_2_10.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_22,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ES01_3_17,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_3_24,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB090_1_29,5.jpg', './orezane_1500x1500px/Klinicka skupina/MCI2017MA006_3_4,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ES004_2_24,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB034_1_30.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB067_1_28.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2018MA012_2_10,5.jpg']
+
+Images always wrong (TTA testing best val model) (14): ['./orezane_1500x1500px/Klinicka skupina/SM2017PB016_3_10,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017SK012_3_5,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB083_2_21,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ZD08_1_30.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB015_2_11,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017SK079_2_10.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_22,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ES01_3_17,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_3_24,5.jpg', './orezane_1500x1500px/Klinicka skupina/MCI2017MA006_3_4,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ES004_2_24,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB034_1_30.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB067_1_28.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2018MA012_2_10,5.jpg']
+
+Images always wrong (TTA testing last mdoel) (22): ['./orezane_1500x1500px/Kontrolna skupina/FF2017ES03_2_18.jpg', './orezane_1500x1500px/Klinicka skupina/SM2017PB016_3_10,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017SK012_3_5,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017DM004_2_23.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB083_2_21,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017SK044_2_16.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ZD08_1_30.jpg', './orezane_1500x1500px/Kontrolna skupina/FF17SG002_3_18.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB015_2_11,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017AS003_2_17.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB006_3_18,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF17SG009_2_24.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017SK079_2_10.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_22,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ES01_3_17,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_3_24,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB090_1_29,5.jpg', './orezane_1500x1500px/Klinicka skupina/MCI2017MA006_3_4,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ES004_2_24,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB034_1_30.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB067_1_28.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2018MA012_2_10,5.jpg']
+
+

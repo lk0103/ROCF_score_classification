@@ -1,0 +1,40 @@
+{
+"image_name": "CM2016PB007_2.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2016SK011_3.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017PB046_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "CM2017PB051_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "CM2017PB055_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017PB066_3.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017PB067_2.jpg",
+"class_int": 1
+}
+{
+"image_name": "CM2017PB076_1.jpg",
+"class_int": 2
+}
+{
+"image_name": "CM2017PB086_1.jpg",
+"class_int": 3
+}
+{
+"image_name": "CM2017PB087_2.jpg",
+"class_int": 1
+}

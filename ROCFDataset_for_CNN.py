@@ -15,7 +15,7 @@ from pytorch_grad_cam.utils.image import show_cam_on_image
 
 
 class LoadROCFDataset(Dataset):
-    def __init__(self, img_size=500, normalize=False, transform=None, pos_embedding=False):
+    def __init__(self, img_size=500, normalize=False, transform=None, pos_embedding=False, preprocessing='grey'):
         self.directory_name_clinical = "./orezane_1500x1500px/Klinicka skupina/"
         self.file_names_clinical = self.list_files(self.directory_name_clinical)
 
@@ -36,6 +36,7 @@ class LoadROCFDataset(Dataset):
         self.normalize = normalize
         self.transform = transform
         self.pos_embedding = pos_embedding
+        self.preprocessing = preprocessing
 
 
     def __len__(self):
@@ -48,7 +49,6 @@ class LoadROCFDataset(Dataset):
         name, order, score = self.extract_from_name(img_path)
         return torch.tensor(preprocessed, dtype=torch.float64), torch.tensor(score, dtype=torch.float32)
 
-
     def list_files(self, directory):
         files = []
         for filename in os.listdir(directory):
@@ -56,16 +56,13 @@ class LoadROCFDataset(Dataset):
                 files.append(directory + '/' + filename)
         return files
 
-
     def show_image(self, img):
         cv.imshow("Display window", img)
         k = cv.waitKey(0)
 
-
     def plot_image(self, img):
         plt.imshow(img, cmap='gray'), plt.show()
         k = cv.waitKey(0)
-
 
     def extract_from_name(self, img_name):
         #CM17SG02_1_32.jpg
@@ -125,26 +122,27 @@ class LoadROCFDataset(Dataset):
         return F.one_hot(torch.tensor(score_class), num_classes=self.num_score_classes).float()
 
     def class_from_score(self, score):
-        #ZMENIT SPAT AK CHCEM 4 CLASSES - treba aj pouzit stare rozdelenie do train, test splitov,
-        # self.num_score_classes and num_classes in resne18_experiment------------------------------
-        if score < 15:
-            return 0
-        if score < 22.5:
-            return 1
-        if score < 30.5:
-            return 2
-        return 3
-        # if score <= 6:
-        #     return 0
-        # if score <= 12:
-        #     return 1
-        # if score <= 18:
-        #     return 2
-        # if score <= 24:
-        #     return 3
-        # if score <= 30:
-        #     return 4
-        # return 5
+        if self.num_score_classes == 4:
+            if score < 15:
+                return 0
+            if score < 22.5:
+                return 1
+            if score < 30.5:
+                return 2
+            return 3
+
+        elif self.num_score_classes == 6:
+            if score <= 6:
+                return 0
+            if score <= 12:
+                return 1
+            if score <= 18:
+                return 2
+            if score <= 24:
+                return 3
+            if score <= 30:
+                return 4
+            return 5
 
     def get_image_path_all_files(self, i):
         return self.all_file_names[i]
@@ -239,43 +237,150 @@ class LoadROCFDataset(Dataset):
         Preprocesses and restores a drawing image by removing background noise and enhancing lines.
         Similar to document restoration to emphasize pen strokes.
 
-
         ------------------------------------
-        maybe LITERATURE AND SOURCES
-        Text Extraction and Restoration of Old Handwritten Documents
-        Mayank Wadhwani, Debapriya Kundu, Deepayan Chakraborty, Bhabatosh Chanda
-        ---
-        An enhanced binarization framework for degraded historical document images
-        Wei Xiong, Lei Zhou, Ling Yue, Lirong Li & Song Wang
-        ------
-        Enhancement of Degraded Historical Document Images for Binarization — Yogish Naik G.R. et al. (2024)
+        from A decision support system for rey–osterrieth complex fig
+        ure evaluation
+        which was changed by me
         """
         # Load grayscale image and resize
         gray = cv.imread(img_name, cv.IMREAD_GRAYSCALE)
-        img = cv.resize(gray, (self.img_size, self.img_size), interpolation=cv.INTER_AREA)
 
-        # Remove uneven background using median blur
-        background = cv.medianBlur(img, 21)
-        img_no_bg = cv.absdiff(img, background)
-        img_no_bg = cv.normalize(img_no_bg, None, 0, 255, cv.NORM_MINMAX)
+        # Low-pass filtering (Gaussian blur) + median filtering for noise reduction
+        low_pass = cv.GaussianBlur(gray, (5, 5), 0)
+        denoised = cv.medianBlur(low_pass, 9)
+        # self.plot_comparing_original_preprocessed(gray, denoised)
 
-        # Adaptive thresholding to emphasize fine strokes
-        binary = cv.adaptiveThreshold(img_no_bg, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C,
-                                      cv.THRESH_BINARY, 35, 10)
+        denoised = cv.resize(denoised, (self.img_size, self.img_size), interpolation=cv.INTER_AREA)
 
-        # Morphological cleaning and reconstruction
-        kernel = cv.getStructuringElement(cv.MORPH_RECT, (3, 3))
-        opened = cv.morphologyEx(binary, cv.MORPH_OPEN, kernel)
-        closed = cv.morphologyEx(opened, cv.MORPH_CLOSE, kernel)
+        background = cv.medianBlur(denoised, 29)
+        # self.plot_comparing_original_preprocessed(gray, background)
+        img_no_bg = cv.absdiff(denoised, background)
+        img_no_bg = 255 - cv.normalize(img_no_bg, None, 0, 255, cv.NORM_MINMAX)
+        # self.plot_comparing_original_preprocessed(gray, img_no_bg)
 
-        # Enhance contrast with CLAHE
-        clahe = cv.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
-        enhanced = clahe.apply(closed)
+        # Contrast enhancement to emphasize strokes
+        clahe = cv.createCLAHE(clipLimit=2.0, tileGridSize=(16, 16))
+        contrast_enhanced = clahe.apply(img_no_bg)
+        # self.plot_comparing_original_preprocessed(gray, contrast_enhanced)
+
+        # clahe = cv.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+        contrast_enhanced = clahe.apply(contrast_enhanced)
+
 
         if self.normalize:
-            enhanced = enhanced.astype(np.float32) / 255.0
-            enhanced = (enhanced - 0.485) / 0.229
+            contrast_enhanced = contrast_enhanced.Normalize(mean=[0.485], std=[0.229])
 
+        # self.plot_comparing_original_preprocessed(gray, contrast_enhanced)
+
+        return contrast_enhanced
+
+    def preprocess_image_restoration_old(self, img_name):
+        """
+        Preprocesses and restores a drawing image by removing background noise and enhancing lines.
+        Similar to document restoration to emphasize pen strokes.
+
+
+        ------------------------------------
+        from A decision support system for rey–osterrieth complex fig
+        ure evaluation
+        which was changed by me
+        """
+        # Load grayscale image and resize
+        gray = cv.imread(img_name, cv.IMREAD_GRAYSCALE)
+
+        # Low-pass filtering (Gaussian blur) + median filtering for noise reduction
+        low_pass = cv.GaussianBlur(gray, (5, 5), 0)
+        denoised = cv.medianBlur(low_pass, 9)
+        # self.plot_comparing_original_preprocessed(gray, denoised)
+
+        denoised = cv.resize(denoised, (self.img_size, self.img_size), interpolation=cv.INTER_AREA)
+
+        background = cv.medianBlur(denoised, 29)
+        # self.plot_comparing_original_preprocessed(gray, background)
+        img_no_bg = cv.absdiff(denoised, background)
+        img_no_bg = 255 - cv.normalize(img_no_bg, None, 0, 255, cv.NORM_MINMAX)
+        # self.plot_comparing_original_preprocessed(gray, img_no_bg)
+
+        # Contrast enhancement to emphasize strokes
+        clahe = cv.createCLAHE(clipLimit=2.0, tileGridSize=(16, 16))
+        contrast_enhanced = clahe.apply(img_no_bg)
+        # self.plot_comparing_original_preprocessed(gray, contrast_enhanced)
+
+        # Erosion to suppress thick background regions
+        # kernel = cv.getStructuringElement(cv.MORPH_RECT, (3, 3))
+        # opened = cv.morphologyEx(contrast_enhanced, cv.MORPH_OPEN, kernel)
+        # self.plot_comparing_original_preprocessed(gray, opened)
+
+        # clahe = cv.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+        opened = clahe.apply(contrast_enhanced)
+
+
+        if self.normalize:
+            opened = opened.Normalize(mean=[0.485], std=[0.229])
+
+        # self.plot_comparing_original_preprocessed(gray, opened)
+
+        return opened
+
+        # Remove uneven background using median blur
+        # background = cv.medianBlur(img, 21)
+        # self.plot_comparing_original_preprocessed(gray, background)
+        # img_no_bg = cv.absdiff(img, background)
+        # img_no_bg = 255 - cv.normalize(img_no_bg, None, 0, 255, cv.NORM_MINMAX)
+        # self.plot_comparing_original_preprocessed(gray, img_no_bg)
+
+        # # Adaptive thresholding to emphasize fine strokes
+        # binary = cv.adaptiveThreshold(img_no_bg, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C,
+        #                               cv.THRESH_BINARY, 35, 10)
+        # self.plot_comparing_original_preprocessed(gray, binary)
+        #
+        # # Morphological cleaning and reconstruction
+        # kernel = cv.getStructuringElement(cv.MORPH_RECT, (3, 3))
+        # opened = cv.morphologyEx(binary, cv.MORPH_OPEN, kernel)
+        # self.plot_comparing_original_preprocessed(gray, opened)
+        #
+        # # Enhance contrast with CLAHE
+        # clahe = cv.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+        # enhanced = clahe.apply(opened)
+        #
+        # if self.normalize:
+        #     enhanced = enhanced.Normalize(mean=[0.485], std=[0.229])
+        #
+        # self.plot_comparing_original_preprocessed(gray, enhanced)
+
+        # return gray
+
+    def preprocess_image_restoration_binary(self, img_name):
+        """
+        Preprocesses and restores a drawing image by removing background noise and enhancing lines.
+        Similar to document restoration to emphasize pen strokes.
+
+        ------------------------------------
+        from A decision support system for rey–osterrieth complex figure evaluation - exactly the same
+        - NOT VERY GOOD
+        """
+        gray = cv.imread(img_name, cv.IMREAD_GRAYSCALE)
+        img = cv.resize(gray, (self.img_size, self.img_size), interpolation=cv.INTER_AREA)
+
+        # Noise reduction: low-pass + median filtering
+        low_pass = cv.GaussianBlur(img, (5, 5), 0)
+        denoised = cv.medianBlur(low_pass, 5)
+
+        # Binarization: unimodal thresholding (Otsu)
+        _, binary = cv.threshold(denoised, 0, 255, cv.THRESH_BINARY + cv.THRESH_OTSU)
+        binary = 255 - binary
+
+        # Stroke enhancement: erosion
+        kernel = cv.getStructuringElement(cv.MORPH_RECT, (3, 3))
+        eroded = cv.erode(binary, kernel, iterations=1)
+
+        # Skeletonization
+        skeleton = cv.ximgproc.thinning(eroded, thinningType=cv.ximgproc.THINNING_ZHANGSUEN)
+
+        # Dilation to reconnect strokes
+        enhanced = cv.dilate(skeleton, kernel, iterations=1)
+
+        self.plot_comparing_original_preprocessed(gray, 255 - enhanced)
         return enhanced
 
     def plot_comparing_original_preprocessed(self, gray, img, save=False, file_name='img', titles=None):
@@ -301,8 +406,11 @@ class LoadROCFDataset(Dataset):
 
 
     def extract_features(self, image_path):
+        if self.preprocessing == 'restoration':
+            return self.preprocess_image_restoration(image_path)
 
         return self.preprocess_image_greyscale(image_path)
+
 
     def preproces_and_transform_img(self, img_path):
         preprocessed = self.extract_features(img_path)
@@ -466,24 +574,30 @@ class LoadROCFDataset(Dataset):
             print(f"Saved Grad-CAM visualization to {output_file} and log to {log_file}")
 
     def experiment(self):
-        for i in range(400, 430):
-            img_name = self.get_image_path_all_files(i)
-            img = self.preprocess_image_morphology(img_name)
+        files = ['CM17SG02_1_32.jpg', 'CM17SG02_2_11.jpg', 'CM17SG05_3_3.jpg', 'CM2016PB002_1_33.jpg', 'CM2016PB004_3_20,5.jpg',
+         'CM2016PB010_1_25.jpg', 'CM2016PB012_3_5.jpg', 'CM2017PB011_2_10.jpg', 'CM2017PB041_2_9.jpg', 'CM2017PB056_1_32.jpg',
+         'CM2017PB064_2_16,5.jpg', 'CM2017PB066_2_24,5.jpg', 'CM2017PB090_2_1,5.jpg']
+        # for i in range(100, 120):
+        for file_name in files:
+            # img_name = self.get_image_path_all_files(i)
+            img_name = self.directory_name_control + file_name
+            img = self.preprocess_image_restoration(img_name)
 
             name, order, score = self.extract_from_name(img_name)
-            print("{}. : {}, order of drawing {}, score: {}".format(i, name, order, score))
+            print("{}. : {}, order of drawing {}, score: {}".format(file_name, name, order, score))
         #self.plot_image(img)
 
 
 
 
-#LoadROCFDataset().experiment()
+# LoadROCFDataset().experiment()
 
 class ROCFDataset(LoadROCFDataset):
-    def __init__(self, image_paths, scores, transform=None, pos_embedding=False):
-        LoadROCFDataset.__init__(self, transform=transform, pos_embedding=pos_embedding)
+    def __init__(self, image_paths, scores, transform=None, pos_embedding=False, preprocessing='grey'):
+        LoadROCFDataset.__init__(self, transform=transform, pos_embedding=pos_embedding, preprocessing=preprocessing)
         self.image_paths = image_paths
         self.scores = scores
+        print(self.img_size)
 
     def __len__(self):
         return len(self.image_paths)

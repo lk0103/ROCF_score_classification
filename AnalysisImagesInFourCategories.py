@@ -1,11 +1,5 @@
-import torch
-import torch.nn as nn
-import torch.optim as optim
-from torch.utils.data import DataLoader
-from sklearn.model_selection import train_test_split
-from torchvision import transforms, models
-from utils import plot_CE, plot_RE
-from matplotlib import pyplot as plt
+import os
+import shutil
 import numpy as np
 
 import matplotlib.pyplot as plt
@@ -178,19 +172,203 @@ class AnalysisImagesInFourCategories():
         print("\nHistograms saved as 'score_histogram.png' and 'order_histogram.png'.")
         print(f"Statistics saved in '{f}'.")
 
+    def compute_union_intersection_and_histograms(
+        self,
+        img_dict: dict,
+        prefix: str,
+        output_root: str = "./wrong_images_analysis"
+    ):
+        """
+        Computes union and intersection of image paths, copies images,
+        extracts scores and classes, and creates histograms.
+
+        img_dict: Dict[str, List[str]]
+        prefix: prefix for output folders and histogram names
+        output_root: root output directory
+        """
+
+        os.makedirs(output_root, exist_ok=True)
+
+        # 1. Compute union & intersection
+        lists = list(img_dict.values())
+
+        union_paths = set().union(*lists)
+        intersection_paths = (
+            set(lists[0]).intersection(*lists[1:])
+            if len(lists) > 1 else set(lists[0])
+        )
+
+        union_dict = {prefix: sorted(union_paths)}
+        intersection_dict = {prefix: sorted(intersection_paths)}
+
+        # 2. Prepare directories & copy images
+        union_dir = os.path.join(output_root, f"{prefix}_union")
+        intersection_dir = os.path.join(output_root, f"{prefix}_intersection")
+
+        self._copy_images(union_paths, union_dir)
+        self._copy_images(intersection_paths, intersection_dir)
+
+        # 3. Extract scores & classes
+        union_scores, union_classes = self._extract_scores_and_classes(union_paths)
+        intersection_scores, intersection_classes = self._extract_scores_and_classes(intersection_paths)
+
+        # 4. Histograms
+        self._plot_and_save_histogram(
+            data=union_scores,
+            bins=np.arange(0, 38) - 0.5,
+            xticks=range(0, 37, 2),
+            xlabel="Score",
+            title=f"{prefix} – Score (Union)",
+            save_dir=union_dir,
+            filename=f"{prefix}_union_scores_hist.png"
+        )
+
+        self._plot_and_save_histogram(
+            data=intersection_scores,
+            bins=np.arange(0, 38) - 0.5,
+            xticks=range(0, 37, 2),
+            xlabel="Score",
+            title=f"{prefix} – Score (Intersection)",
+            save_dir=intersection_dir,
+            filename=f"{prefix}_intersection_scores_hist.png"
+        )
+
+        self._plot_and_save_histogram(
+            data=union_classes,
+            bins=np.arange(-0.5, 4.5),
+            xticks=range(0, 4),
+            xlabel="Class",
+            title=f"{prefix} – Class Histogram (Union)",
+            save_dir=union_dir,
+            filename=f"{prefix}_union_classes_hist.png"
+        )
+
+        self._plot_and_save_histogram(
+            data=intersection_classes,
+            bins=np.arange(-0.5, 4.5),
+            xticks=range(0, 4),
+            xlabel="Class",
+            title=f"{prefix} – Class Histogram (Intersection)",
+            save_dir=intersection_dir,
+            filename=f"{prefix}_intersection_classes_hist.png"
+        )
+
+        return intersection_dict, union_dict
+
+
+    def _copy_images(self, image_paths, target_dir):
+        os.makedirs(target_dir, exist_ok=True)
+        for path in image_paths:
+            if os.path.exists(path):
+                shutil.copy(path, target_dir)
+
+    def _extract_scores_and_classes(self, image_paths):
+        scores = []
+        classes = []
+
+        for img_name in image_paths:
+            _, _, score = self.ROCFDataset.extract_from_name(img_name)
+            score_class = self.ROCFDataset.class_from_score(score)
+
+            scores.append(score)
+            classes.append(score_class)
+
+        return scores, classes
+
+    def _plot_and_save_histogram( self, data, bins, xticks, xlabel,
+        title, save_dir, filename
+    ):
+        plt.figure(figsize=(7, 5))
+        plt.hist(data, bins=bins, edgecolor="black")
+        plt.xticks(xticks)
+        plt.xlabel(xlabel)
+        plt.ylabel("Count")
+        plt.title(title)
+        plt.tight_layout()
+        plt.savefig(os.path.join(save_dir, filename))
+        plt.show()
+
 
     def analysis_four_categories(self):
-        # with open(f'analysis_pixels_morphol_bin_4_classes.txt', 'w') as f:
-        #     self.count_pixels_binary_images(f, 'morphology')
-        #
-        # with open(f'analysis_pixels_adaptive_bin_4_classes.txt', 'w') as f:
-        #     self.count_pixels_binary_images(f, 'adaptive')
-        #
-        # with open(f'analysis_pixel_intensities_greyscale_4_classes.txt', 'w') as f:
-        #     self.analyse_pixel_intensities_greyscale(f)
+        with open(f'analysis_pixels_morphol_bin_4_classes.txt', 'w') as f:
+            self.count_pixels_binary_images(f, 'morphology')
+
+        with open(f'analysis_pixels_adaptive_bin_4_classes.txt', 'w') as f:
+            self.count_pixels_binary_images(f, 'adaptive')
+
+        with open(f'analysis_pixel_intensities_greyscale_4_classes.txt', 'w') as f:
+            self.analyse_pixel_intensities_greyscale(f)
 
         with open(f'analysis_frequency_scores.txt', 'w') as f:
             self.analyse_score_frequency(f)
 
-AnalysisImagesInFourCategories().analysis_four_categories()
+# AnalysisImagesInFourCategories().analysis_four_categories()
+
+AnalysisImagesInFourCategories().compute_union_intersection_and_histograms(
+    img_dict={
+        # 'always wrong (normal best val model testing': ['./orezane_1500x1500px/Klinicka skupina/CM2017SK040_2_22,5.jpg',', './orezane_1500x1500px/Kontrolna skupina/FF2017PB002_3_31.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2018ZD032_3_23.jpg', './orezane_1500x1500px/Klinicka skupina/MCI2018MA019_2_17,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2018MA007_1_28,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB067_1_28.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB076_3_16.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB051_2_15.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017SK010_1_30.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB046_2_23.jpg', './orezane_1500x1500px/Kontrolna skupina/PE2017ZM13_1_30.jpg', './orezane_1500x1500px/Klinicka skupina/MCI2018MA019_3_20.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB087_2_15,5.jpg'],
+        # 'always wrong (normal last model testing)': ['./orezane_1500x1500px/Klinicka skupina/CM2017SK040_2_22,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2018ZD032_3_23.jpg', './orezane_1500x1500px/Klinicka skupina/MCI2018MA019_2_17,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2018MA007_1_28,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB067_1_28.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB076_3_16.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB051_2_15.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017SK010_1_30.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB046_2_23.jpg', './orezane_1500x1500px/Kontrolna skupina/PE2017ZM13_1_30.jpg', './orezane_1500x1500px/Klinicka skupina/MCI2018MA019_3_20.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB087_2_15,5.jpg'],
+        # 'always wrong swin (TTA testing best val model)': ['./orezane_1500x1500px/Klinicka skupina/CM2017SK040_2_22,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017DM009_2_13.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2016PB002_3_15,5.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017PB002_3_31.jpg', './orezane_1500x1500px/Klinicka skupina/SM2017PB018_3_16.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2018MA007_1_28,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB076_3_16.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB051_2_15.jpg', './orezane_1500x1500px/Kontrolna skupina/FF2017ES009_2_30,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017SK010_1_30.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB046_2_23.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2017PB087_2_15,5.jpg', './orezane_1500x1500px/Kontrolna skupina/CM2018PB008_1_12.jpg'],
+        'GPT 5.2 thinking - wrong images- few shot ': [
+'./orezane_1500x1500px/Kontrolna skupina/FF2017AS002_2_22.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM17SG02_3_12,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF2017ES03_1_33.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017PB041_3_8,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017SK046_2_5,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF2017VM09_3_12,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF2017DM009_2_13.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017SK044_3_19,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF2017ZP007_1_30,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017SK001_2_14,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/PE2017ZM13_3_11,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF2017PB002_3_31.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/PE2017PB007_1_36.jpg',
+'./orezane_1500x1500px/Klinicka skupina/SM2017PB018_3_16.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF17SG002_3_18.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF2018ZD032_3_23.jpg',
+'./orezane_1500x1500px/Klinicka skupina/MCI2018MA019_2_17,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017PB001_3_9,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017SK023_2_12,5.jpg',
+'./orezane_1500x1500px/Klinicka skupina/SM2017PB025_3_22.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2018PB018_1_35.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017SK053_1_31.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF2018PB019_3_14.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF17ZD013_3_27.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF2018PB005_2_14,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017SK007_1_36.jpg',
+'./orezane_1500x1500px/Klinicka skupina/SM2017PB011_1_33.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017SK057_2_8,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2016SK001_2_22.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017SG003_3_10.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017SK048_2_10,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017SK014_1_31.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/PE2017PB007_3_22.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017SK010_1_30.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF2016MH006_3_34.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF2017ES005_2_20,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017PB046_2_23.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017SK001_1_31.jpg',
+'./orezane_1500x1500px/Klinicka skupina/MCI2018MA019_3_20.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2016PB007_2_22.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_1_36.jpg',
+'./orezane_1500x1500px/Klinicka skupina/SM2017PB025_1_32.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017PB076_1_33.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF2017VM07_3_26,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_3_23.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017PB086_1_35.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_1_34.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_2_11,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2018PB013_3_14,5.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/PE2016SK004_1_36.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF2018ZD034_1_34.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2018PB022_1_32.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2017PB055_1_34.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/CM2018PB008_1_12.jpg',
+'./orezane_1500x1500px/Kontrolna skupina/FF2017ES007_2_12,5.jpg'
+]
+    }, prefix='LLM_few_shot_class'
+)
 
