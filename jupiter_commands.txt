@@ -1,0 +1,14 @@
+jupiter.dai.fmph.uniba.sk
+
+tmux new -s rocf
+
+conda activate rocf-lk
+cd ~/thesis_code
+export CUDA_VISIBLE_DEVICES=1
+python ~/thesis_code/Resnet18_experiments.py
+
+python ~/thesis_code/Swin_experiments.py
+
+Stlač Ctrl+b, potom d
+
+tmux attach -t rocf
