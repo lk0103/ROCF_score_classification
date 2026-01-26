@@ -1,0 +1,1811 @@
+./results/resnet18_pretrain_lr0.0001_sts4_25e_is500_GP_none_restoration_6cls.txt
+
+number of all images:1041
+
+Loaded existing split files!!!
+
+number of images in trainset: 842,  valset: 94, testset: 105
+
+whole set class counts: {0: 47, 1: 125, 2: 194, 3: 216, 4: 198, 5: 261}
+train class counts: {0: 38, 1: 101, 2: 157, 3: 175, 4: 160, 5: 211}
+val class counts: {0: 4, 1: 11, 2: 18, 3: 19, 4: 18, 5: 24}
+test class counts: {0: 5, 1: 13, 2: 19, 3: 22, 4: 20, 5: 26}
+
+Train class counts: {0: 38, 1: 101, 2: 157, 3: 175, 4: 160, 5: 211}
+Val class counts: {0: 4, 1: 11, 2: 18, 3: 19, 4: 18, 5: 24}
+Test class counts: {0: 5, 1: 13, 2: 19, 3: 22, 4: 20, 5: 26} 
+
+loss: 2.178025  [    0/  842]
+loss: 1.461971  [  160/  842]
+loss: 1.350005  [  320/  842]
+loss: 0.953649  [  480/  842]
+loss: 0.861119  [  640/  842]
+loss: 0.808347  [  800/  842]
+Epoch [1/25], Average epoch loss: 1.2472
+Val Error: 
+33 correct out of 94
+Avg Val loss: 1.459346
+Mean absolute score (MAE): 0.8936
+Accuracy: 0.3511, Precision: 0.4142, Recall: 0.3511, F1: 0.2528
+Val Confusion Matrix:
+[[ 2,  0,  2,  0,  0,  0],
+ [ 4,  0,  7,  0,  0,  0],
+ [ 0,  0, 16,  2,  0,  0],
+ [ 0,  0,  6, 13,  0,  0],
+ [ 0,  0,  3, 15,  0,  0],
+ [ 0,  0,  1, 16,  5,  2]]
+Wrong score histogram (score -> count):
+{3.0: 1, 5.0: 1, 6.5: 1, 8.0: 3, 8.5: 1, 9.5: 1, 10.5: 3, 11.0: 2, 17.5: 1, 18.0: 1, 19.5: 1, 20.0: 1, 20.5: 1, 22.5: 1, 23.0: 1, 24.0: 1, 24.5: 3, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 3, 27.5: 2, 28.0: 3, 29.0: 2, 31.0: 3, 32.0: 2, 33.0: 4, 33.5: 1, 34.0: 6, 35.0: 3, 36.0: 3}
+Wrong class histogram (class -> count):
+{0: 2, 1: 11, 2: 2, 3: 6, 4: 18, 5: 22}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_1_35.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD023_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK078_2_19,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_3_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB059_1_34.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK011_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2018SK021_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK011_1_34.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG010_3_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA011_1_33.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS003_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK012_1_36.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK057_2_8,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK005_1_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA004_1_36.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB092_3_9,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB012_1_33.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK052_1_36.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD029_1_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB086_1_35.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS008_2_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB007_1_35.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB083_1_34.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK046_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016MH006_3_34.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD001_1_34.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK003_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK005_3_23.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK001_1_32.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_1_34.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK029_1_33.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD012_3_20.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016MJ01_1_33,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_1_33.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2018PB006_2_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB056_2_6,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB066_3_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA001_1_32.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB044_2_8.jpg
+
+
+New best model saved with F1=0.2528!!
+
+loss: 0.790655  [    0/  842]
+loss: 0.607955  [  160/  842]
+loss: 0.593201  [  320/  842]
+loss: 0.666590  [  480/  842]
+loss: 0.684397  [  640/  842]
+loss: 0.679539  [  800/  842]
+Epoch [2/25], Average epoch loss: 0.7441
+Val Error: 
+39 correct out of 94
+Avg Val loss: 1.257408
+Mean absolute score (MAE): 0.7766
+Accuracy: 0.4149, Precision: 0.3831, Recall: 0.4149, F1: 0.3230
+Val Confusion Matrix:
+[[ 0,  4,  0,  0,  0,  0],
+ [ 0,  9,  0,  0,  1,  1],
+ [ 0, 12,  0,  0,  5,  1],
+ [ 0,  1,  0,  5,  8,  5],
+ [ 0,  0,  0,  0,  1, 17],
+ [ 0,  0,  0,  0,  0, 24]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 4.5: 1, 5.0: 1, 10.5: 1, 11.0: 1, 13.0: 3, 13.5: 1, 14.0: 2, 14.5: 3, 15.5: 2, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 20.0: 2, 20.5: 1, 21.5: 1, 22.0: 2, 22.5: 2, 23.0: 2, 23.5: 1, 24.0: 3, 24.5: 3, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 2, 27.5: 2, 28.0: 3, 29.0: 2}
+Wrong class histogram (class -> count):
+{0: 4, 1: 2, 2: 18, 3: 14, 4: 17}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017DM006_3_20.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK053_3_22.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA010_2_16,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD06_3_14.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD029_1_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK050_3_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_3_23.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2018PB006_2_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD012_3_20.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK025_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2018SK021_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB066_3_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017DM005_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK071_3_15,5.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB022_3_4,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA001_2_14.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK011_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK046_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD023_2_24,5.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB015_2_14,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2018PB013_3_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS005_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS002_2_22.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB052_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK005_3_23.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_3_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017DM009_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018ZD039_2_21,5.jpg
+
+
+New best model saved with F1=0.3230!!
+
+loss: 0.491008  [    0/  842]
+loss: 0.402301  [  160/  842]
+loss: 0.319909  [  320/  842]
+loss: 0.237433  [  480/  842]
+loss: 0.226803  [  640/  842]
+loss: 0.378542  [  800/  842]
+Epoch [3/25], Average epoch loss: 0.3798
+Val Error: 
+56 correct out of 94
+Avg Val loss: 0.940354
+Mean absolute score (MAE): 0.4149
+Accuracy: 0.5957, Precision: 0.6619, Recall: 0.5957, F1: 0.6003
+Val Confusion Matrix:
+[[ 2,  2,  0,  0,  0,  0],
+ [ 2,  7,  2,  0,  0,  0],
+ [ 0,  5, 10,  2,  1,  0],
+ [ 0,  0,  5,  8,  6,  0],
+ [ 0,  0,  0,  3, 15,  0],
+ [ 0,  0,  0,  0, 10, 14]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 6.5: 1, 8.0: 1, 10.5: 1, 11.0: 1, 13.0: 1, 14.5: 3, 15.5: 1, 17.5: 1, 18.0: 2, 19.5: 1, 20.0: 2, 20.5: 1, 21.0: 1, 22.5: 2, 23.0: 1, 23.5: 1, 24.0: 2, 26.0: 1, 26.5: 1, 27.0: 1, 31.0: 2, 32.0: 1, 33.0: 3, 33.5: 1, 34.0: 3}
+Wrong class histogram (class -> count):
+{0: 2, 1: 4, 2: 8, 3: 11, 4: 3, 5: 10}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_1_33.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB059_1_34.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD012_3_20.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB052_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK071_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB056_2_6,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK029_1_33.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2018PB013_3_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK018_3_21.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA001_1_32.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017DM005_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS008_2_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK011_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB015_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK078_2_19,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD001_1_34.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_3_23.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_1_34.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016MJ01_1_33,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA011_1_33.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017DM006_3_20.jpg
+
+
+New best model saved with F1=0.6003!!
+
+loss: 0.112161  [    0/  842]
+loss: 0.104308  [  160/  842]
+loss: 0.243667  [  320/  842]
+loss: 0.102741  [  480/  842]
+loss: 0.085237  [  640/  842]
+loss: 0.096498  [  800/  842]
+Epoch [4/25], Average epoch loss: 0.1706
+Val Error: 
+52 correct out of 94
+Avg Val loss: 1.183943
+Mean absolute score (MAE): 0.5213
+Accuracy: 0.5532, Precision: 0.5614, Recall: 0.5532, F1: 0.4996
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  8,  1,  0,  1,  0],
+ [ 0,  5,  2, 10,  1,  0],
+ [ 0,  0,  0, 11,  4,  4],
+ [ 0,  0,  0,  1,  6, 11],
+ [ 0,  0,  0,  0,  0, 24]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 8.0: 1, 10.5: 1, 11.0: 1, 13.0: 3, 13.5: 1, 14.0: 1, 14.5: 3, 15.5: 1, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 20.0: 1, 22.0: 1, 22.5: 1, 23.0: 2, 23.5: 1, 24.0: 2, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 1, 27.5: 2, 28.0: 3, 29.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 3, 2: 16, 3: 8, 4: 12}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017DM009_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017DM006_3_20.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD06_3_14.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK053_3_22.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK050_3_16.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK046_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA010_2_16,5.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB015_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK025_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_3_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK011_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK005_3_23.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB052_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2018PB013_3_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_3_23.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+
+
+loss: 0.113638  [    0/  842]
+loss: 0.037627  [  160/  842]
+loss: 0.028383  [  320/  842]
+loss: 0.043181  [  480/  842]
+loss: 0.077753  [  640/  842]
+loss: 0.044573  [  800/  842]
+Epoch [5/25], Average epoch loss: 0.0701
+Val Error: 
+61 correct out of 94
+Avg Val loss: 0.776712
+Mean absolute score (MAE): 0.3723
+Accuracy: 0.6489, Precision: 0.6461, Recall: 0.6489, F1: 0.6368
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  7,  3,  0,  0,  0],
+ [ 0,  5,  8,  4,  1,  0],
+ [ 0,  0,  1, 13,  4,  1],
+ [ 0,  0,  0,  4,  9,  5],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 8.0: 1, 10.5: 2, 11.0: 1, 13.0: 1, 13.5: 1, 14.5: 2, 15.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 20.0: 1, 22.0: 1, 22.5: 1, 23.5: 1, 24.0: 2, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 1, 27.5: 1, 28.0: 2, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 4, 2: 10, 3: 6, 4: 9, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK011_2_24.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK003_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK053_3_22.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2018PB013_3_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017DM006_3_20.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB052_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+
+
+New best model saved with F1=0.6368!!
+
+loss: 0.034353  [    0/  842]
+loss: 0.142173  [  160/  842]
+loss: 0.038757  [  320/  842]
+loss: 0.027437  [  480/  842]
+loss: 0.017112  [  640/  842]
+loss: 0.038431  [  800/  842]
+Epoch [6/25], Average epoch loss: 0.0325
+Val Error: 
+65 correct out of 94
+Avg Val loss: 0.791874
+Mean absolute score (MAE): 0.3298
+Accuracy: 0.6915, Precision: 0.7132, Recall: 0.6915, F1: 0.6800
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  8,  2,  0,  0,  0],
+ [ 0,  5,  6,  6,  1,  0],
+ [ 0,  0,  0, 14,  4,  1],
+ [ 0,  0,  0,  4, 14,  0],
+ [ 0,  0,  0,  0,  2, 22]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 8.0: 1, 10.5: 1, 11.0: 1, 13.0: 1, 13.5: 1, 14.5: 2, 15.5: 1, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 22.5: 1, 23.0: 1, 23.5: 1, 24.0: 2, 25.5: 1, 26.0: 1, 26.5: 1, 27.0: 1, 31.0: 1, 33.5: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 3, 2: 12, 3: 5, 4: 4, 5: 2}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2018PB013_3_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB052_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA010_2_16,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK005_3_23.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK011_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016MJ01_1_33,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK050_3_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+
+
+New best model saved with F1=0.6800!!
+
+loss: 0.047939  [    0/  842]
+loss: 0.033024  [  160/  842]
+loss: 0.046101  [  320/  842]
+loss: 0.014929  [  480/  842]
+loss: 0.012083  [  640/  842]
+loss: 0.011647  [  800/  842]
+Epoch [7/25], Average epoch loss: 0.0252
+Val Error: 
+65 correct out of 94
+Avg Val loss: 0.799219
+Mean absolute score (MAE): 0.3191
+Accuracy: 0.6915, Precision: 0.7023, Recall: 0.6915, F1: 0.6781
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  6,  4,  0,  0,  0],
+ [ 0,  2, 10,  5,  1,  0],
+ [ 0,  0,  2, 17,  0,  0],
+ [ 0,  0,  0,  7,  8,  3],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 8.0: 1, 10.5: 3, 11.0: 1, 13.0: 1, 15.5: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 22.5: 1, 24.0: 1, 24.5: 1, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 1, 27.5: 1, 28.0: 1, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 5, 2: 8, 3: 2, 4: 10, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK003_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA010_2_16,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB066_3_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+
+
+loss: 0.043108  [    0/  842]
+loss: 0.014290  [  160/  842]
+loss: 0.013067  [  320/  842]
+loss: 0.009654  [  480/  842]
+loss: 0.010921  [  640/  842]
+loss: 0.017342  [  800/  842]
+Epoch [8/25], Average epoch loss: 0.0164
+Val Error: 
+65 correct out of 94
+Avg Val loss: 0.778944
+Mean absolute score (MAE): 0.3298
+Accuracy: 0.6915, Precision: 0.6962, Recall: 0.6915, F1: 0.6846
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  7,  3,  0,  0,  0],
+ [ 0,  4,  9,  4,  1,  0],
+ [ 0,  0,  0, 14,  4,  1],
+ [ 0,  0,  0,  5, 11,  2],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 8.0: 1, 10.5: 2, 11.0: 1, 13.0: 1, 13.5: 1, 14.5: 1, 15.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 20.0: 1, 20.5: 1, 22.5: 1, 23.5: 1, 24.0: 1, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 1, 27.0: 1, 27.5: 1, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 4, 2: 9, 3: 5, 4: 7, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017DM006_3_20.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB052_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+
+
+New best model saved with F1=0.6846!!
+
+loss: 0.009690  [    0/  842]
+loss: 0.009224  [  160/  842]
+loss: 0.007959  [  320/  842]
+loss: 0.006320  [  480/  842]
+loss: 0.016720  [  640/  842]
+loss: 0.010454  [  800/  842]
+Epoch [9/25], Average epoch loss: 0.0146
+Val Error: 
+63 correct out of 94
+Avg Val loss: 0.794865
+Mean absolute score (MAE): 0.3511
+Accuracy: 0.6702, Precision: 0.6609, Recall: 0.6702, F1: 0.6576
+Val Confusion Matrix:
+[[ 2,  2,  0,  0,  0,  0],
+ [ 1,  6,  4,  0,  0,  0],
+ [ 0,  2, 11,  4,  1,  0],
+ [ 0,  0,  0, 14,  4,  1],
+ [ 0,  0,  0,  5,  7,  6],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 8.0: 1, 10.5: 3, 11.0: 1, 13.0: 1, 15.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 20.0: 1, 20.5: 1, 22.5: 1, 23.5: 1, 24.0: 1, 24.5: 1, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 1, 27.5: 1, 28.0: 2, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 2, 1: 5, 2: 7, 3: 5, 4: 11, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017DM006_3_20.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK003_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+
+
+loss: 0.004296  [    0/  842]
+loss: 0.005682  [  160/  842]
+loss: 0.007844  [  320/  842]
+loss: 0.022764  [  480/  842]
+loss: 0.019288  [  640/  842]
+loss: 0.012585  [  800/  842]
+Epoch [10/25], Average epoch loss: 0.0138
+Val Error: 
+62 correct out of 94
+Avg Val loss: 0.831516
+Mean absolute score (MAE): 0.3617
+Accuracy: 0.6596, Precision: 0.6699, Recall: 0.6596, F1: 0.6422
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 0,  7,  4,  0,  0,  0],
+ [ 0,  2,  9,  6,  1,  0],
+ [ 0,  0,  0, 15,  3,  1],
+ [ 0,  0,  0,  6,  7,  5],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 10.5: 3, 11.0: 1, 13.0: 1, 15.5: 1, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 20.5: 1, 22.5: 1, 23.5: 1, 24.0: 1, 24.5: 1, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 1, 27.5: 1, 28.0: 2, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 4, 2: 9, 3: 4, 4: 11, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK003_3_10,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK050_3_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB066_3_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA010_2_16,5.jpg
+
+
+loss: 0.018318  [    0/  842]
+loss: 0.007286  [  160/  842]
+loss: 0.009180  [  320/  842]
+loss: 0.043110  [  480/  842]
+loss: 0.004877  [  640/  842]
+loss: 0.005553  [  800/  842]
+Epoch [11/25], Average epoch loss: 0.0143
+Val Error: 
+60 correct out of 94
+Avg Val loss: 0.815758
+Mean absolute score (MAE): 0.3830
+Accuracy: 0.6383, Precision: 0.6264, Recall: 0.6383, F1: 0.6283
+Val Confusion Matrix:
+[[ 2,  2,  0,  0,  0,  0],
+ [ 2,  5,  4,  0,  0,  0],
+ [ 0,  2, 11,  4,  1,  0],
+ [ 0,  0,  1, 11,  6,  1],
+ [ 0,  0,  0,  4,  8,  6],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{3.0: 1, 5.0: 1, 6.5: 1, 8.0: 1, 10.5: 3, 11.0: 1, 13.0: 1, 15.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 19.5: 1, 20.0: 1, 20.5: 1, 22.5: 1, 23.0: 1, 23.5: 1, 24.0: 2, 24.5: 1, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 1, 27.5: 1, 28.0: 2, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 2, 1: 6, 2: 7, 3: 8, 4: 10, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK005_3_23.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB056_2_6,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK011_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK003_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK078_2_19,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017DM006_3_20.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+
+
+loss: 0.041681  [    0/  842]
+loss: 0.005604  [  160/  842]
+loss: 0.007565  [  320/  842]
+loss: 0.008139  [  480/  842]
+loss: 0.007123  [  640/  842]
+loss: 0.005182  [  800/  842]
+Epoch [12/25], Average epoch loss: 0.0143
+Val Error: 
+60 correct out of 94
+Avg Val loss: 0.864250
+Mean absolute score (MAE): 0.3830
+Accuracy: 0.6383, Precision: 0.6475, Recall: 0.6383, F1: 0.6135
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  8,  2,  0,  0,  0],
+ [ 0,  5,  6,  6,  1,  0],
+ [ 0,  0,  0, 15,  3,  1],
+ [ 0,  0,  0,  5,  7,  6],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 8.0: 1, 10.5: 1, 11.0: 1, 13.0: 1, 13.5: 1, 14.5: 2, 15.5: 1, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 20.5: 1, 22.5: 1, 23.5: 1, 24.0: 1, 24.5: 1, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 1, 27.5: 1, 28.0: 2, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 3, 2: 12, 3: 4, 4: 11, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2018PB013_3_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA010_2_16,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK050_3_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB052_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+
+
+loss: 0.013106  [    0/  842]
+loss: 0.005957  [  160/  842]
+loss: 0.009805  [  320/  842]
+loss: 0.013862  [  480/  842]
+loss: 0.004994  [  640/  842]
+loss: 0.005156  [  800/  842]
+Epoch [13/25], Average epoch loss: 0.0090
+Val Error: 
+62 correct out of 94
+Avg Val loss: 0.825508
+Mean absolute score (MAE): 0.3617
+Accuracy: 0.6596, Precision: 0.6563, Recall: 0.6596, F1: 0.6419
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  7,  3,  0,  0,  0],
+ [ 0,  4,  9,  4,  1,  0],
+ [ 0,  0,  1, 15,  2,  1],
+ [ 0,  0,  0,  5,  7,  6],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 8.0: 1, 10.5: 2, 11.0: 1, 13.0: 1, 13.5: 1, 14.5: 1, 15.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 20.5: 1, 22.5: 1, 23.5: 1, 24.0: 1, 24.5: 1, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 1, 27.5: 1, 28.0: 2, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 4, 2: 9, 3: 4, 4: 11, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB052_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+
+
+loss: 0.011053  [    0/  842]
+loss: 0.012035  [  160/  842]
+loss: 0.004478  [  320/  842]
+loss: 0.012869  [  480/  842]
+loss: 0.004502  [  640/  842]
+loss: 0.012309  [  800/  842]
+Epoch [14/25], Average epoch loss: 0.0115
+Val Error: 
+60 correct out of 94
+Avg Val loss: 0.846262
+Mean absolute score (MAE): 0.3830
+Accuracy: 0.6383, Precision: 0.6400, Recall: 0.6383, F1: 0.6126
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  7,  3,  0,  0,  0],
+ [ 0,  4,  7,  6,  1,  0],
+ [ 0,  0,  0, 16,  2,  1],
+ [ 0,  0,  0,  6,  6,  6],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 8.0: 1, 10.5: 2, 11.0: 1, 13.0: 1, 13.5: 1, 14.5: 1, 15.5: 1, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 20.5: 1, 22.5: 1, 24.0: 1, 24.5: 2, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 1, 27.5: 1, 28.0: 2, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 4, 2: 11, 3: 3, 4: 12, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB052_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB066_3_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA010_2_16,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK050_3_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+
+
+loss: 0.006538  [    0/  842]
+loss: 0.006033  [  160/  842]
+loss: 0.015709  [  320/  842]
+loss: 0.003555  [  480/  842]
+loss: 0.013833  [  640/  842]
+loss: 0.012613  [  800/  842]
+Epoch [15/25], Average epoch loss: 0.0103
+Val Error: 
+64 correct out of 94
+Avg Val loss: 0.814282
+Mean absolute score (MAE): 0.3404
+Accuracy: 0.6809, Precision: 0.6855, Recall: 0.6809, F1: 0.6695
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  7,  3,  0,  0,  0],
+ [ 0,  4,  8,  5,  1,  0],
+ [ 0,  0,  0, 15,  3,  1],
+ [ 0,  0,  0,  5, 10,  3],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 8.0: 1, 10.5: 2, 11.0: 1, 13.0: 1, 13.5: 1, 14.5: 1, 15.5: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 20.5: 1, 22.5: 1, 23.5: 1, 24.0: 1, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 1, 27.0: 1, 27.5: 1, 28.0: 1, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 4, 2: 10, 3: 4, 4: 8, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB052_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA010_2_16,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+
+
+loss: 0.017550  [    0/  842]
+loss: 0.005936  [  160/  842]
+loss: 0.019140  [  320/  842]
+loss: 0.007294  [  480/  842]
+loss: 0.006271  [  640/  842]
+loss: 0.002766  [  800/  842]
+Epoch [16/25], Average epoch loss: 0.0082
+Val Error: 
+62 correct out of 94
+Avg Val loss: 0.838316
+Mean absolute score (MAE): 0.3617
+Accuracy: 0.6596, Precision: 0.6563, Recall: 0.6596, F1: 0.6419
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  7,  3,  0,  0,  0],
+ [ 0,  4,  9,  4,  1,  0],
+ [ 0,  0,  1, 15,  2,  1],
+ [ 0,  0,  0,  5,  7,  6],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 8.0: 1, 10.5: 2, 11.0: 1, 13.0: 1, 13.5: 1, 14.5: 1, 15.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 20.5: 1, 22.5: 1, 23.5: 1, 24.0: 1, 24.5: 1, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 1, 27.5: 1, 28.0: 2, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 4, 2: 9, 3: 4, 4: 11, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB052_2_14,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+
+
+loss: 0.004812  [    0/  842]
+loss: 0.005647  [  160/  842]
+loss: 0.018125  [  320/  842]
+loss: 0.008233  [  480/  842]
+loss: 0.012930  [  640/  842]
+loss: 0.010833  [  800/  842]
+Epoch [17/25], Average epoch loss: 0.0090
+Val Error: 
+62 correct out of 94
+Avg Val loss: 0.853400
+Mean absolute score (MAE): 0.3617
+Accuracy: 0.6596, Precision: 0.6514, Recall: 0.6596, F1: 0.6422
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  6,  4,  0,  0,  0],
+ [ 0,  3, 10,  4,  1,  0],
+ [ 0,  0,  1, 15,  2,  1],
+ [ 0,  0,  0,  5,  7,  6],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 8.0: 1, 10.5: 3, 11.0: 1, 13.0: 1, 13.5: 1, 15.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 20.5: 1, 22.5: 1, 23.5: 1, 24.0: 1, 24.5: 1, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 1, 27.5: 1, 28.0: 2, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 5, 2: 8, 3: 4, 4: 11, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK003_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+
+
+loss: 0.002549  [    0/  842]
+loss: 0.003075  [  160/  842]
+loss: 0.002746  [  320/  842]
+loss: 0.008032  [  480/  842]
+loss: 0.015835  [  640/  842]
+loss: 0.004247  [  800/  842]
+Epoch [18/25], Average epoch loss: 0.0081
+Val Error: 
+62 correct out of 94
+Avg Val loss: 0.815805
+Mean absolute score (MAE): 0.3617
+Accuracy: 0.6596, Precision: 0.6554, Recall: 0.6596, F1: 0.6458
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  5,  5,  0,  0,  0],
+ [ 0,  2, 11,  4,  1,  0],
+ [ 0,  0,  3, 14,  1,  1],
+ [ 0,  0,  0,  5,  8,  5],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 6.5: 1, 8.0: 1, 10.5: 3, 11.0: 1, 13.0: 1, 13.5: 1, 15.5: 1, 17.5: 2, 18.0: 2, 19.5: 1, 20.5: 1, 22.5: 1, 23.5: 1, 24.0: 1, 24.5: 1, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 1, 27.0: 1, 27.5: 1, 28.0: 2, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 6, 2: 7, 3: 5, 4: 10, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK003_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB056_2_6,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK078_2_19,5.jpg
+
+
+loss: 0.005642  [    0/  842]
+loss: 0.016692  [  160/  842]
+loss: 0.004721  [  320/  842]
+loss: 0.019522  [  480/  842]
+loss: 0.012245  [  640/  842]
+loss: 0.014894  [  800/  842]
+Epoch [19/25], Average epoch loss: 0.0076
+Val Error: 
+60 correct out of 94
+Avg Val loss: 0.860577
+Mean absolute score (MAE): 0.3830
+Accuracy: 0.6383, Precision: 0.6379, Recall: 0.6383, F1: 0.6171
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  7,  3,  0,  0,  0],
+ [ 0,  4,  7,  6,  1,  0],
+ [ 0,  0,  0, 15,  3,  1],
+ [ 0,  0,  0,  5,  7,  6],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 8.0: 1, 10.5: 2, 11.0: 1, 13.0: 1, 13.5: 1, 14.5: 1, 15.5: 1, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 20.5: 1, 22.5: 1, 23.5: 1, 24.0: 1, 24.5: 1, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 1, 27.5: 1, 28.0: 2, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 4, 2: 11, 3: 4, 4: 11, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK050_3_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA010_2_16,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB052_2_14,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+
+
+loss: 0.017358  [    0/  842]
+loss: 0.005673  [  160/  842]
+loss: 0.004506  [  320/  842]
+loss: 0.018614  [  480/  842]
+loss: 0.002953  [  640/  842]
+loss: 0.004732  [  800/  842]
+Epoch [20/25], Average epoch loss: 0.0127
+Val Error: 
+62 correct out of 94
+Avg Val loss: 0.861893
+Mean absolute score (MAE): 0.3617
+Accuracy: 0.6596, Precision: 0.6534, Recall: 0.6596, F1: 0.6409
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 2,  5,  4,  0,  0,  0],
+ [ 0,  1, 10,  6,  1,  0],
+ [ 0,  0,  0, 16,  2,  1],
+ [ 0,  0,  0,  5,  7,  6],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 6.5: 1, 8.0: 1, 10.5: 3, 11.0: 1, 13.0: 1, 15.5: 1, 16.0: 1, 16.5: 1, 17.5: 2, 18.0: 2, 22.5: 1, 23.5: 1, 24.0: 1, 24.5: 1, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 1, 27.5: 1, 28.0: 2, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 6, 2: 8, 3: 3, 4: 11, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB056_2_6,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA010_2_16,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK050_3_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK003_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+
+
+loss: 0.059975  [    0/  842]
+loss: 0.012746  [  160/  842]
+loss: 0.006228  [  320/  842]
+loss: 0.003530  [  480/  842]
+loss: 0.006085  [  640/  842]
+loss: 0.003944  [  800/  842]
+Epoch [21/25], Average epoch loss: 0.0085
+Val Error: 
+60 correct out of 94
+Avg Val loss: 0.889641
+Mean absolute score (MAE): 0.3830
+Accuracy: 0.6383, Precision: 0.6345, Recall: 0.6383, F1: 0.6157
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  6,  4,  0,  0,  0],
+ [ 0,  4,  7,  6,  1,  0],
+ [ 0,  0,  0, 16,  2,  1],
+ [ 0,  0,  0,  5,  7,  6],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 8.0: 1, 10.5: 3, 11.0: 1, 13.0: 1, 13.5: 1, 14.5: 1, 15.5: 1, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 22.5: 1, 23.5: 1, 24.0: 1, 24.5: 1, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 1, 27.5: 1, 28.0: 2, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 5, 2: 11, 3: 3, 4: 11, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK003_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA010_2_16,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK050_3_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB052_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+
+
+loss: 0.014142  [    0/  842]
+loss: 0.006750  [  160/  842]
+loss: 0.008464  [  320/  842]
+loss: 0.012128  [  480/  842]
+loss: 0.008919  [  640/  842]
+loss: 0.006920  [  800/  842]
+Epoch [22/25], Average epoch loss: 0.0088
+Val Error: 
+62 correct out of 94
+Avg Val loss: 0.855773
+Mean absolute score (MAE): 0.3617
+Accuracy: 0.6596, Precision: 0.6638, Recall: 0.6596, F1: 0.6398
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  7,  3,  0,  0,  0],
+ [ 0,  4,  7,  6,  1,  0],
+ [ 0,  0,  0, 16,  2,  1],
+ [ 0,  0,  0,  5,  8,  5],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 8.0: 1, 10.5: 2, 11.0: 1, 13.0: 1, 13.5: 1, 14.5: 1, 15.5: 1, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 22.5: 1, 23.5: 1, 24.0: 1, 24.5: 1, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 1, 27.0: 1, 27.5: 1, 28.0: 2, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 4, 2: 11, 3: 3, 4: 10, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA010_2_16,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK050_3_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB052_2_14,5.jpg
+
+
+loss: 0.010446  [    0/  842]
+loss: 0.007126  [  160/  842]
+loss: 0.003427  [  320/  842]
+loss: 0.007261  [  480/  842]
+loss: 0.010578  [  640/  842]
+loss: 0.007535  [  800/  842]
+Epoch [23/25], Average epoch loss: 0.0073
+Val Error: 
+58 correct out of 94
+Avg Val loss: 0.892386
+Mean absolute score (MAE): 0.4255
+Accuracy: 0.6170, Precision: 0.6132, Recall: 0.6170, F1: 0.5935
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  7,  3,  0,  0,  0],
+ [ 0,  4,  6,  6,  2,  0],
+ [ 0,  0,  0, 14,  3,  2],
+ [ 0,  0,  0,  5,  7,  6],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 8.0: 1, 10.5: 2, 11.0: 1, 13.0: 1, 13.5: 1, 14.5: 1, 15.5: 2, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 20.5: 1, 22.5: 1, 23.0: 1, 23.5: 1, 24.0: 1, 24.5: 1, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 2, 27.0: 1, 27.5: 1, 28.0: 2, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 4, 2: 12, 3: 5, 4: 11, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK050_3_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK071_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17ZD011_2_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB052_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB016_3_28.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK038_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_3_23.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA010_2_16,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+
+
+loss: 0.004100  [    0/  842]
+loss: 0.002581  [  160/  842]
+loss: 0.004533  [  320/  842]
+loss: 0.009848  [  480/  842]
+loss: 0.023732  [  640/  842]
+loss: 0.004678  [  800/  842]
+Epoch [24/25], Average epoch loss: 0.0108
+Val Error: 
+63 correct out of 94
+Avg Val loss: 0.822200
+Mean absolute score (MAE): 0.3511
+Accuracy: 0.6702, Precision: 0.6791, Recall: 0.6702, F1: 0.6616
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 1,  7,  3,  0,  0,  0],
+ [ 0,  4,  7,  6,  1,  0],
+ [ 0,  0,  0, 13,  5,  1],
+ [ 0,  0,  0,  5, 12,  1],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 8.0: 1, 10.5: 2, 11.0: 1, 13.0: 1, 13.5: 1, 14.5: 1, 15.5: 1, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 20.0: 1, 20.5: 1, 22.5: 1, 23.5: 1, 24.0: 2, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 1, 27.0: 1, 28.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 4, 2: 11, 3: 6, 4: 6, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA010_2_16,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017DM006_3_20.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB007_2_8.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB052_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK050_3_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK011_2_24.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+
+
+loss: 0.004201  [    0/  842]
+loss: 0.003718  [  160/  842]
+loss: 0.011635  [  320/  842]
+loss: 0.003475  [  480/  842]
+loss: 0.002959  [  640/  842]
+loss: 0.003888  [  800/  842]
+Epoch [25/25], Average epoch loss: 0.0068
+Val Error: 
+64 correct out of 94
+Avg Val loss: 0.840202
+Mean absolute score (MAE): 0.3404
+Accuracy: 0.6809, Precision: 0.6950, Recall: 0.6809, F1: 0.6685
+Val Confusion Matrix:
+[[ 1,  3,  0,  0,  0,  0],
+ [ 0,  7,  4,  0,  0,  0],
+ [ 0,  3,  8,  6,  1,  0],
+ [ 0,  0,  0, 15,  3,  1],
+ [ 0,  0,  0,  5, 10,  3],
+ [ 0,  0,  0,  0,  1, 23]]
+Wrong score histogram (score -> count):
+{1.5: 1, 3.0: 1, 5.0: 1, 10.5: 3, 11.0: 1, 13.0: 1, 13.5: 1, 15.5: 1, 16.0: 1, 16.5: 1, 17.0: 1, 17.5: 2, 18.0: 2, 20.5: 1, 22.5: 1, 23.5: 1, 24.0: 1, 25.0: 1, 25.5: 1, 26.0: 1, 26.5: 1, 27.0: 1, 27.5: 1, 28.0: 1, 29.0: 1, 31.0: 1}
+Wrong class histogram (class -> count):
+{0: 3, 1: 4, 2: 10, 3: 4, 4: 8, 5: 1}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_2_27.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB090_2_1,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM05_2_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA010_2_16,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA015_3_13.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK047_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH04_2_17,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA005_1_18.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA011_2_13,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK050_3_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS001_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016PB004_2_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB006_2_20,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB002_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK033_3_26,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK003_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA007_3_22,5.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB029_3_17.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_3_23,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM17SG05_3_3.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK002_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_1_29.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2017PB011_1_27,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2016AHS03_3_15,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD014_2_25.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016SK006_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB005_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB080_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG007_2_5.jpg
+
+
+LAST MODEL Test Error: 
+62 correct out of 105
+Avg LAST MODEL Test loss: 1.161696
+Mean absolute score (MAE): 0.4762
+Accuracy: 0.5905, Precision: 0.5823, Recall: 0.5905, F1: 0.5803
+LAST MODEL Test Confusion Matrix:
+[[ 3,  1,  0,  1,  0,  0],
+ [ 1,  4,  8,  0,  0,  0],
+ [ 0,  3, 11,  4,  1,  0],
+ [ 0,  1,  4, 11,  4,  2],
+ [ 0,  0,  1,  5,  9,  5],
+ [ 0,  0,  0,  0,  2, 24]]
+Wrong score histogram (score -> count):
+{4.5: 1, 5.5: 1, 7.0: 1, 8.5: 1, 10.0: 2, 10.5: 2, 11.0: 1, 11.5: 2, 14.5: 2, 16.0: 2, 17.5: 2, 18.0: 2, 18.5: 1, 20.0: 1, 21.0: 1, 21.5: 1, 22.0: 1, 22.5: 1, 23.0: 2, 24.0: 3, 24.5: 3, 25.5: 2, 26.0: 2, 28.0: 1, 30.0: 3, 31.0: 1, 33.0: 1}
+Wrong class histogram (class -> count):
+{0: 2, 1: 9, 2: 8, 3: 11, 4: 11, 5: 2}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/FF2017ES03_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK012_3_5,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB008_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB026_3_18,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017DM004_2_23.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016SV002_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB008_2_8,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB076_1_33.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB083_2_21,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_3_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB039_3_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK044_2_16.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA017_2_7.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD08_1_30.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2018PB013_2_14,5.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB006_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB004_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG002_3_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB015_2_11,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK078_1_30.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH07_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_2_21.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK079_2_10.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK027_3_20.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM04_1_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA002_1_25,5.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB018_3_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ES01_3_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_3_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS006_2_11,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB038_2_22.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_2_23.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA014_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB005_2_14,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA006_3_4,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ES004_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB034_1_30.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA012_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016PB010_2_10.jpg
+
+
+Test TTA metrics:
+Augmentations: ['none', 'rotate', 'color', 'translate', 'combo']
+Average loss across all augmentations: 1.1591
+Average loss for none: 1.1617
+Average loss for rotate: 1.2347
+Average loss for color: 1.1525
+Average loss for translate: 1.1668
+Average loss for combo: 1.0796
+Accuracy (majority vote): 0.6095, Precision: 0.6031, Recall: 0.6095, F1: 0.6022
+Mean absolute score (MAE): 0.4571
+Confusion Matrix:
+[[ 3,  1,  0,  1,  0,  0],
+ [ 1,  4,  8,  0,  0,  0],
+ [ 0,  3, 10,  5,  1,  0],
+ [ 0,  2,  3, 13,  3,  1],
+ [ 0,  0,  1,  4, 10,  5],
+ [ 0,  0,  0,  0,  2, 24]]
+Agreement with 'none' augmentation:
+rotate: 70.48% images agree with 'none'
+color: 83.81% images agree with 'none'
+translate: 84.76% images agree with 'none'
+combo: 62.86% images agree with 'none'
+
+Avg number of augmentations agreeing with majority per image: 4.09
+Percentage of images where all augmentations agree with majority: 40.95%
+Wrong score histogram (score -> count):
+{4.5: 1, 5.5: 1, 7.0: 1, 8.5: 2, 10.0: 2, 10.5: 1, 11.0: 1, 11.5: 2, 14.5: 4, 16.0: 1, 17.5: 2, 18.0: 2, 18.5: 1, 21.0: 1, 21.5: 1, 22.0: 1, 22.5: 1, 23.0: 2, 24.0: 2, 24.5: 3, 25.5: 1, 26.0: 2, 28.0: 1, 30.0: 3, 31.0: 1, 33.0: 1}
+Wrong class histogram (class -> count):
+{0: 2, 1: 9, 2: 9, 3: 9, 4: 10, 5: 2}
+Wrongly classified images after majority vote:
+./orezane_1500x1500px/Kontrolna skupina/FF2017ES03_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK012_3_5,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB008_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB013_2_8,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB026_3_18,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017DM004_2_23.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016SV002_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB008_2_8,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB076_1_33.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB083_2_21,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_3_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB039_3_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK044_2_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016PB002_2_14,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA017_2_7.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD08_1_30.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2018PB013_2_14,5.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB006_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB004_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG002_3_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB015_2_11,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK078_1_30.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH07_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB039_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_2_21.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK079_2_10.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_22,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA002_1_25,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ES01_3_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_3_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS006_2_11,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB038_2_22.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_2_23.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB005_2_14,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA006_3_4,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ES004_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB034_1_30.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA012_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016PB010_2_10.jpg
+
+BEST VAL MODEL Test Error: 
+66 correct out of 105
+Avg BEST VAL MODEL Test loss: 1.113722
+Mean absolute score (MAE): 0.4381
+Accuracy: 0.6286, Precision: 0.6178, Recall: 0.6286, F1: 0.6202
+BEST VAL MODEL Test Confusion Matrix:
+[[ 4,  0,  0,  1,  0,  0],
+ [ 2,  5,  6,  0,  0,  0],
+ [ 0,  5,  9,  4,  1,  0],
+ [ 0,  1,  3, 11,  5,  2],
+ [ 0,  0,  1,  2, 13,  4],
+ [ 0,  0,  0,  0,  2, 24]]
+Wrong score histogram (score -> count):
+{5.5: 1, 7.0: 1, 10.0: 2, 10.5: 2, 11.0: 1, 11.5: 2, 14.5: 4, 16.0: 2, 17.5: 2, 18.0: 2, 18.5: 1, 21.0: 1, 21.5: 2, 22.0: 1, 22.5: 1, 23.0: 2, 24.0: 3, 24.5: 1, 26.0: 2, 28.0: 1, 30.0: 3, 31.0: 1, 33.0: 1}
+Wrong class histogram (class -> count):
+{0: 1, 1: 8, 2: 10, 3: 11, 4: 7, 5: 2}
+Wrongly classified images:
+./orezane_1500x1500px/Kontrolna skupina/FF2017ES03_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK012_3_5,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB008_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB026_3_18,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017DM004_2_23.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB076_1_33.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB083_2_21,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_3_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB039_3_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK044_2_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016PB002_2_14,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA017_2_7.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD08_1_30.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2018PB013_2_14,5.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB006_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB004_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG002_3_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB015_2_11,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK078_1_30.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH07_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG009_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB039_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_2_21.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK079_2_10.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_22,5.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB018_3_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ES01_3_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_3_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS006_2_11,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB038_2_22.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_2_23.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA014_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB005_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB034_1_30.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA012_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016PB010_2_10.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB010_2_21,5.jpg
+
+
+Test TTA metrics:
+Augmentations: ['none', 'rotate', 'color', 'translate', 'combo']
+Average loss across all augmentations: 1.2065
+Average loss for none: 1.1137
+Average loss for rotate: 1.3243
+Average loss for color: 1.1546
+Average loss for translate: 1.1681
+Average loss for combo: 1.2718
+Accuracy (majority vote): 0.6095, Precision: 0.6014, Recall: 0.6095, F1: 0.6049
+Mean absolute score (MAE): 0.4571
+Confusion Matrix:
+[[ 3,  1,  0,  1,  0,  0],
+ [ 1,  5,  7,  0,  0,  0],
+ [ 1,  4,  8,  5,  1,  0],
+ [ 0,  2,  2, 12,  6,  0],
+ [ 0,  0,  1,  3, 12,  4],
+ [ 0,  0,  0,  0,  2, 24]]
+Agreement with 'none' augmentation:
+rotate: 72.38% images agree with 'none'
+color: 81.90% images agree with 'none'
+translate: 82.86% images agree with 'none'
+combo: 62.86% images agree with 'none'
+
+Avg number of augmentations agreeing with majority per image: 4.10
+Percentage of images where all augmentations agree with majority: 37.14%
+Wrong score histogram (score -> count):
+{4.5: 1, 5.5: 1, 7.0: 1, 10.0: 2, 10.5: 2, 11.0: 1, 11.5: 2, 14.0: 1, 14.5: 4, 16.0: 2, 17.5: 2, 18.0: 2, 18.5: 1, 21.0: 1, 21.5: 2, 22.0: 1, 22.5: 1, 23.0: 2, 24.0: 2, 24.5: 2, 26.0: 2, 28.0: 1, 30.0: 3, 31.0: 1, 33.0: 1}
+Wrong class histogram (class -> count):
+{0: 2, 1: 8, 2: 11, 3: 10, 4: 8, 5: 2}
+Wrongly classified images after majority vote:
+./orezane_1500x1500px/Kontrolna skupina/FF2017ES03_2_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK012_3_5,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB008_3_11.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD027_2_14.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB026_3_18,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017DM004_2_23.jpg
+./orezane_1500x1500px/Kontrolna skupina/PE2016SV002_2_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB076_1_33.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB083_2_21,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_3_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB039_3_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK044_2_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016PB002_2_14,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA017_2_7.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD08_1_30.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2018PB013_2_14,5.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB006_1_31.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_24.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017PB004_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF17SG002_3_18.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB015_2_11,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK078_1_30.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH07_3_26.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB039_2_14,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017VM06_2_21.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017SK079_2_10.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZH06_2_22,5.jpg
+./orezane_1500x1500px/Klinicka skupina/SM2017PB018_3_16.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ES01_3_17,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_3_24,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017AS006_2_11,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB038_2_22.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2017ZD005_2_23.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2018MA014_3_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB005_2_14,5.jpg
+./orezane_1500x1500px/Klinicka skupina/MCI2017MA006_3_4,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB034_1_30.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2017PB067_1_28.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018MA012_2_10,5.jpg
+./orezane_1500x1500px/Kontrolna skupina/CM2016PB010_2_10.jpg
+./orezane_1500x1500px/Kontrolna skupina/FF2018PB010_2_21,5.jpg
+
