@@ -1,0 +1,94 @@
+===== ROCFDataset Analysis =====
+Total images: 1689
+Unique names: 1011
+
+Score frequencies:
+
+Score frequencies (sorted):
+  Score 1.5: 3
+  Score 2.0: 2
+  Score 2.5: 3
+  Score 3.0: 3
+  Score 3.5: 2
+  Score 4.0: 5
+  Score 4.5: 5
+  Score 5.0: 6
+  Score 5.5: 9
+  Score 6.0: 10
+  Score 6.5: 6
+  Score 7.0: 6
+  Score 7.5: 11
+  Score 8.0: 11
+  Score 8.5: 12
+  Score 9.0: 14
+  Score 9.5: 19
+  Score 10.0: 25
+  Score 10.5: 31
+  Score 11.0: 24
+  Score 11.5: 31
+  Score 12.0: 19
+  Score 12.5: 33
+  Score 13.0: 30
+  Score 13.5: 23
+  Score 14.0: 22
+  Score 14.5: 37
+  Score 15.0: 23
+  Score 15.5: 32
+  Score 16.0: 26
+  Score 16.5: 28
+  Score 17.0: 20
+  Score 17.5: 37
+  Score 18.0: 29
+  Score 18.5: 25
+  Score 19.0: 27
+  Score 19.5: 29
+  Score 20.0: 34
+  Score 20.5: 25
+  Score 21.0: 44
+  Score 21.5: 26
+  Score 22.0: 42
+  Score 22.5: 24
+  Score 23.0: 34
+  Score 23.5: 20
+  Score 24.0: 37
+  Score 24.5: 25
+  Score 25.0: 28
+  Score 25.5: 20
+  Score 26.0: 28
+  Score 26.5: 20
+  Score 27.0: 36
+  Score 27.5: 19
+  Score 28.0: 34
+  Score 28.5: 21
+  Score 29.0: 41
+  Score 29.5: 20
+  Score 30.0: 37
+  Score 30.5: 10
+  Score 31.0: 46
+  Score 31.5: 15
+  Score 32.0: 60
+  Score 32.5: 5
+  Score 33.0: 81
+  Score 33.5: 3
+  Score 34.0: 81
+  Score 35.0: 62
+  Score 36.0: 33
+
+Score percentage distribution (coarse bins):
+   0-10: 9.00%
+  10-20: 33.16%
+  20-30: 34.40%
+  30-36: 23.45%
+
+Score percentage distribution (fine bins):
+   0-6 : 2.84%
+   6-12: 12.37%
+  12-18: 20.13%
+  18-24: 21.73%
+  24-30: 19.48%
+  30-36: 23.45%
+
+Order frequencies (sorted):
+  Order copy: 607
+  Order delayed recall: 538
+  Order immediate recall: 544
